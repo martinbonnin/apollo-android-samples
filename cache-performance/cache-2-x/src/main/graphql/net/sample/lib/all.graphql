@@ -1,0 +1,11 @@
+query Repositories {
+  viewer {
+    login
+    repositories(first: 100) {
+      nodes {
+        name
+        description
+      }
+    }
+  }
+}
