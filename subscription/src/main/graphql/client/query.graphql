@@ -1,3 +1,0 @@
-query GetProject {
-  project
-}

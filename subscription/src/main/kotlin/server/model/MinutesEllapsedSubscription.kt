@@ -9,7 +9,7 @@ import java.time.Duration
 @Component
 class MinutesEllapsedSubscription : Subscription {
     fun minutesEllapsed(): Flux<String> {
-        return Flux.interval(Duration.ofSeconds(60)).flatMap { it ->
+        return Flux.interval(Duration.ofSeconds(0), Duration.ofSeconds(60)).flatMap { it ->
             Mono.justOrEmpty("$it minutes have elapsed")
         }
     }

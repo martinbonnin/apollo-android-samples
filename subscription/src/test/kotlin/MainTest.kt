@@ -1,34 +1,30 @@
-import client.GetProjectQuery
-import client.JsonObject
-import client.type.CustomType
+import client.MinutesSubscription
 import com.apollographql.apollo.ApolloClient
-import com.apollographql.apollo.api.CustomTypeAdapter
-import com.apollographql.apollo.api.CustomTypeValue
-import com.apollographql.apollo.coroutines.toDeferred
-import com.google.gson.internal.LinkedTreeMap
+import com.apollographql.apollo.coroutines.toFlow
+import com.apollographql.apollo.subscription.WebSocketSubscriptionTransport
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking
+import okhttp3.OkHttpClient
 import org.junit.Test
 import org.springframework.boot.runApplication
 import server.ServerApplication
-import java.lang.IllegalArgumentException
-import java.lang.IllegalStateException
 
 
 class MainTest {
     @Test
-    fun `json object contains quotes`() {
+    fun `subscriptions runs for several minutes`() {
         val applicationContext = runApplication<ServerApplication>()
 
         runBlocking {
             val apolloClient = ApolloClient.builder()
-                //.addCustomTypeAdapter(CustomType.JSONOBJECT, JsonObjectTypeAdapter)
                 .serverUrl("http://localhost:8080/graphql")
+                .subscriptionTransportFactory(WebSocketSubscriptionTransport.Factory("http://localhost:8080/subscriptions", OkHttpClient()))
                 .build()
 
-            val response = apolloClient.query(GetProjectQuery()).toDeferred().await()
-            println(response.data?.project)
-            delay(300000)
+            apolloClient.subscribe(MinutesSubscription()).toFlow().collect {
+                println(it.data?.minutesEllapsed)
+            }
         }
         applicationContext.close()
     }
