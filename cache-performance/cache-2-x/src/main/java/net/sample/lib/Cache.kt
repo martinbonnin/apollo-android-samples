@@ -30,36 +30,31 @@ object Cache {
             .build()
     }
 
-    val data = RepositoriesQuery.Data(
-        viewer = RepositoriesQuery.Viewer(
-            login = "toto",
-            repositories = RepositoriesQuery.Repositories(
-                nodes = getListOfRandomNodes()
+    fun generateData():RepositoriesQuery.Data {
+        return RepositoriesQuery.Data(
+            viewer = RepositoriesQuery.Viewer(
+                login = "login",
+                repositories = RepositoriesQuery.Repositories(
+                    nodes = 1.until(1000).map {
+                        RepositoriesQuery.Node(
+                            name = "This is a name ${Math.random()}",
+                            description = "${Math.random()} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        )
+                    }
+                )
             )
         )
-    )
-
-    private fun getListOfRandomNodes(): List<RepositoriesQuery.Node> {
-        return 1.until(1000).map {
-            RepositoriesQuery.Node(
-                name = "This is a name ${Math.random()}",
-                description = "${Math.random()} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            )
-        }
     }
 
     fun plentyOfWrites(context: Context, iterations: Long) {
 
         val client = apolloClient(context, "cache-2-x")
         val query = RepositoriesQuery()
-        //val writer = SimpleResponseWriter(ScalarTypeAdapters.DEFAULT)
-        //data.marshaller().marshal(writer)
-        //val jsonFile = File(context.filesDir, "data.json")
-        //jsonFile.writeText(writer.toJson("  "))
 
         println("CachePerf: writing $iterations times in the cache using SQLDelight")
         1.until(iterations).forEach {
-            client.apolloStore.write(query, data).execute()
+            println(it)
+            client.apolloStore.write(query, generateData()).execute()
         }
     }
 
