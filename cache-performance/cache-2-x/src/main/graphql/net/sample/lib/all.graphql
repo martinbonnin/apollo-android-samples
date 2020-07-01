@@ -9,3 +9,9 @@ query Repositories {
     }
   }
 }
+
+mutation createRepository($description: String, $name: String!) {
+  createRepository(input: {name: $name, visibility: PRIVATE, description: $description}) {
+    clientMutationId
+  }
+}

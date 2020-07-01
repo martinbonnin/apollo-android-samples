@@ -8,5 +8,6 @@ allprojects {
         mavenCentral()
         jcenter()
         google()
+        mavenLocal()
     }
 }

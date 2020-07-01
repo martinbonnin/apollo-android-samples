@@ -3,6 +3,7 @@ rootProject.name="cache-performance"
 pluginManagement {
     repositories {
         gradlePluginPortal()
+        mavenLocal()
         mavenCentral()
         google()
         jcenter()

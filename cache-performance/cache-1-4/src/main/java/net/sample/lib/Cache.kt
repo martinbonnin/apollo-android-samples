@@ -4,8 +4,21 @@ import android.content.Context
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.cache.normalized.sql.ApolloSqlHelper
 import com.apollographql.apollo.cache.normalized.sql.SqlNormalizedCacheFactory
+import okhttp3.mockwebserver.MockWebServer
 
 object Cache {
+    val server = MockWebServer()
+
+    fun apolloClient(context: Context, name: String): ApolloClient {
+        val helper = ApolloSqlHelper(context, name)
+        val cache = SqlNormalizedCacheFactory(helper)
+
+        return ApolloClient.builder()
+            .normalizedCache(cache)
+            .serverUrl(server.url("/graphql"))
+            .build()
+    }
+
     fun plentyOfWrites(context: Context, iterations: Long) {
         val helper = ApolloSqlHelper(context, "cache-1-4")
         val cache = SqlNormalizedCacheFactory(helper)
@@ -28,7 +41,7 @@ object Cache {
 
         println("CachePerf: writing $iterations times in the cache using SQLite directly")
         1.until(iterations).forEach {
-            client.apolloStore.write(query, data)
+            client.apolloStore.write(query, data).execute()
         }
     }
 

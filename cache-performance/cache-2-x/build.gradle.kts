@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-    id("com.apollographql.apollo").version("2.2.1")
+    id("com.apollographql.apollo").version("2.2.2-SNAPSHOT")
     kotlin("android")
 }
 
@@ -16,9 +16,11 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 dependencies {
     implementation(kotlin("stdlib"))
 
-    implementation("com.apollographql.apollo:apollo-runtime:2.2.1")
-    implementation("com.apollographql.apollo:apollo-android-support:2.2.1")
-    implementation("com.apollographql.apollo:apollo-coroutines-support:2.2.1")
+    implementation("com.apollographql.apollo:apollo-runtime:2.2.2-SNAPSHOT")
+    implementation("com.apollographql.apollo:apollo-android-support:2.2.2-SNAPSHOT")
+    implementation("com.apollographql.apollo:apollo-coroutines-support:2.2.2-SNAPSHOT")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7")
+    implementation("com.squareup.okhttp3:mockwebserver:4.7.2")
 
     implementation("junit:junit:4.13")
 }

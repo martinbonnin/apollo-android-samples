@@ -19,6 +19,8 @@ dependencies {
     implementation("com.apollographql.apollo:apollo-runtime:1.4.5")
     implementation("com.apollographql.apollo:apollo-android-support:1.4.5")
     implementation("com.apollographql.apollo:apollo-coroutines-support:1.4.5")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7")
+    implementation("com.squareup.okhttp3:mockwebserver:4.7.2")
 
     implementation("junit:junit:4.13")
 }
