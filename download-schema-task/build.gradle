@@ -1,0 +1,9 @@
+plugins {
+    id("java")
+    id("com.apollographql.apollo").version("2.2.2")
+}
+
+tasks.register("downloadSchema", com.apollographql.apollo.gradle.internal.ApolloDownloadSchemaTask) {
+    endpoint = "https://apollo-fullstack-tutorial.herokuapp.com/"
+    schemaRelativeToProject = "app/src/main/graphql/net/sample/schema.json"
+}

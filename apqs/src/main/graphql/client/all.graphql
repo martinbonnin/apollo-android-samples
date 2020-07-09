@@ -1,0 +1,9 @@
+query Launches {
+  launches {
+    launches {id}
+  }
+}
+
+mutation login {
+  login(email: "toto2@tata.com")
+}
