@@ -7,6 +7,9 @@ buildscript {
     }
 }
 
+apply plugin: "java"
+apply plugin: "com.apollographql.apollo"
+
 tasks.register("downloadSchema", com.apollographql.apollo.gradle.internal.ApolloDownloadSchemaTask) {
     endpoint = "https://apollo-fullstack-tutorial.herokuapp.com/"
     schemaRelativeToProject = "src/main/graphql/net/sample/schema.json"
