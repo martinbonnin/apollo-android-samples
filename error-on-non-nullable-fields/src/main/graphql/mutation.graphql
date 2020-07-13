@@ -1,0 +1,14 @@
+mutation AddCustomRecord($card_id: String!, $timeStamp: GraphQLDateTime!) {
+    me {
+        path{
+            level{
+                step{
+                    card(cardId:$card_id){
+                        addCustomRecord(input:{timeStamp:$timeStamp})
+                        { id, recordId }
+                    }
+                }
+            }
+        }
+    }
+}

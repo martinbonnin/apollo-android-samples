@@ -1,0 +1,19 @@
+type Card {
+  addCustomRecord(input: CustomRecordInput!): MyCustomRecord
+}
+
+type Step {
+  card(cardId: String!): Card
+}
+
+type Level {
+  step: Step
+}
+
+type Path {
+  level: Level
+}
+
+type Me {
+  path: Path
+}
