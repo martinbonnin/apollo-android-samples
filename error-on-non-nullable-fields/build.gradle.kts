@@ -5,6 +5,7 @@ plugins {
 
 apollo {
     generateKotlinModels.set(true)
+    //this.nullableValueType.set("annotated")
 }
 
 repositories {

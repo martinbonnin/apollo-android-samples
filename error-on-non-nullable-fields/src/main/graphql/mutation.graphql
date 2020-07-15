@@ -1,4 +1,5 @@
 mutation AddCustomRecord($card_id: String!, $timeStamp: GraphQLDateTime!) {
+    __typename
     me {
         path{
             level{
