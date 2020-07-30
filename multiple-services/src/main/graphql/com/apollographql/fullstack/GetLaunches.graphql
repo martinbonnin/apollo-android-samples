@@ -1,0 +1,8 @@
+query GetLaunches{
+  launches{
+
+    launches {
+      id
+    }
+  }
+}

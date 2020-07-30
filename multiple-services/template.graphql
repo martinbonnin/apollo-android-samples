@@ -1,0 +1,84 @@
+# Type queries into this side of the screen, and you will
+# see intelligent typeaheads aware of the current GraphQL type schema,
+# live syntax, and validation errors highlighted within the text.
+
+# We'll get you started with a simple query showing your username!
+query SomeQuery {
+  viewer {
+    anyPinnableItems
+    avatarUrl
+    bio
+    company
+    companyHTML
+    contributionsCollection {
+      endedAt
+      commitContributionsByRepository {
+        contributions {
+          edges {
+            cursor
+            node {
+              commitCount
+              isRestricted
+              url
+            }
+          }
+        }
+      }
+      contributionCalendar {
+        colors
+        isHalloween
+        weeks {
+          firstDay
+        }
+        __typename
+      }
+      doesEndInCurrentMonth
+      firstIssueContribution {
+        __typename
+      }
+    }
+    login
+    commitComments(first: 20, before: "fez") {
+      nodes {
+        author {
+          login
+        }
+        bodyHTML
+        commit {
+          additions
+          associatedPullRequests(first: 20, orderBy: {field: CREATED_AT, direction: DESC}) {
+            edges {
+              cursor
+              node {
+                activeLockReason
+                assignees(first: 20) {
+                  nodes {
+                    avatarUrl
+                    viewerCanCreateProjects
+                    viewerIsFollowing
+                    twitterUsername
+                    status {
+                      emoji
+                      expiresAt
+                      message
+                    }
+                    databaseId
+                    followers(first: 20) {
+                      pageInfo {
+                        endCursor
+                        hasPreviousPage
+                        startCursor
+
+                      }
+                    }
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
