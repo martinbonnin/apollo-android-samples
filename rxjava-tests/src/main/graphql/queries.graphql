@@ -1,0 +1,4 @@
+query SomeQuery($input: MessageInput) {
+  books(input: $input)
+  toto
+}
