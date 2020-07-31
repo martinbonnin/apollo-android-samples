@@ -1,0 +1,56 @@
+query GetStuff {
+  prequerySearchPage {
+    requestId
+    pageId
+    sessionId
+    expires
+    searchPageKind
+    sections(first: 1) {
+      length
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+      edges {
+        cursor
+        node {
+          ...SearchVideoListSection
+        }
+      }
+    }
+  }
+}
+
+fragment SearchVideoListSection on SearchVideoListSection {
+  displayTitle
+  feature
+  kind
+  sectionId
+  trackId
+  entities {
+    length
+    edges {
+      node {
+        displayString
+        entityId {
+          id
+          kind
+        }
+        ... on SearchPageVideo {
+          video {
+            id: videoId
+            kind
+            title
+            ... on VideoEntity {
+              horizontalArtwork: artwork(recipe: {artworkType: "sdp", width: 440, height: 200, sizeMatchAlgorithm: "CLOSEST_MATCH", recipePreferences: ["jpg"], secureImageUrl: true}) {
+                url
+                key
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

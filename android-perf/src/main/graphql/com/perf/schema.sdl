@@ -1,0 +1,91 @@
+type HorizontalArtwork {
+  url: String
+  key: String
+}
+
+interface Video {
+  videoId: Int
+  kind: String
+  title: String
+}
+
+enum Algorithm {
+  CLOSEST_MATCH
+  BIGGEST
+  SMALLEST
+}
+
+input Recipe {
+  artworkType: String!
+  width: Int
+  height: Int
+  sizeMatchAlgorithm: Algorithm
+  recipePreferences: [String!]
+  secureImageUrl: Boolean
+}
+
+type VideoEntity implements Video {
+  videoId: Int
+  kind: String
+  title: String
+  artwork(recipe: Recipe): HorizontalArtwork
+}
+
+type EntityId {
+  id: Int
+  kind: String
+}
+
+type SearchPageVideo {
+  displayString: String
+  video: Video
+  entityId: EntityId
+}
+
+type Edges {
+  node: SearchPageVideo
+}
+
+type Entities {
+  length: Int
+  edges: [Edges]
+}
+
+type SearchVideoListSection {
+  displayTitle: String
+  feature: String
+  kind: String
+  sectionId: String
+  trackId: Int
+  entities: Entities
+}
+
+type Edges1 {
+  cursor: String
+  node: SearchVideoListSection
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean
+}
+
+type Sections {
+  length: Int
+  edges: [Edges1]
+  pageInfo: PageInfo
+}
+
+type PrequerySearchPage {
+  requestId: String
+  pageId: String
+  sessionId: String
+  expires: Float
+  searchPageKind: String
+  sections(first: Int): Sections
+}
+
+type Query {
+  prequerySearchPage: PrequerySearchPage
+}
+
