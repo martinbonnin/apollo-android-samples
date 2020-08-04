@@ -24,11 +24,12 @@ import server.ServerApplication
 
 class MainTest {
     @Test
-    fun `subscriptions runs for several minutes`() {
+    fun `cacheKeyResolverTest`() {
         val applicationContext = runApplication<ServerApplication>()
 
         val resolver: CacheKeyResolver = object : CacheKeyResolver() {
             override fun fromFieldRecordSet(field: ResponseField, recordSet: Map<String, Any>): CacheKey {
+                println("fromFieldRecordSet: ${field.type}")
                 return if (recordSet.containsKey("id") && recordSet["id"]!=null) {
                     val typeNameAndIDKey = recordSet["__typename"].toString().toLowerCase() + "." + recordSet["id"]
                     CacheKey.from(typeNameAndIDKey)
@@ -38,17 +39,18 @@ class MainTest {
             }
 
             override fun fromFieldArguments(field: ResponseField, variables: Operation.Variables): CacheKey {
+
+                println("fromFieldArguments: ${field.type} - ${field.responseName}")
                 return CacheKey.NO_KEY
             }
         }
 
         runBlocking {
-            val cache = LruNormalizedCacheFactory(EvictionPolicy.NO_EVICTION)//SqlNormalizedCacheFactory("jdbc:sqlite:")
+            val cache = LruNormalizedCacheFactory(EvictionPolicy.NO_EVICTION)
 
             val apolloClient = ApolloClient.builder()
                 .serverUrl("http://localhost:8080/graphql")
                 .normalizedCache(cache, resolver)
-                .subscriptionTransportFactory(WebSocketSubscriptionTransport.Factory("http://localhost:8080/subscriptions", OkHttpClient()))
                 .build()
 
             apolloClient.query(GetDataQuery("user0"))

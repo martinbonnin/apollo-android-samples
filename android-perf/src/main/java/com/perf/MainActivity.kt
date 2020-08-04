@@ -20,21 +20,21 @@ class MainActivity : Activity() {
 
     val byteString = this.resources.openRawResource(R.raw.response).source().buffer().readByteString()
     measureTime {
-      repeat(1000) {
+      repeat(100000) {
         val data = operation.parse(byteString)
       }
     }.also {
       println("Apollo $it")
     }
 
-    val adapter = Moshi.Builder().build().adapter(Data::class.java)
+    /*val adapter = Moshi.Builder().build().adapter(Data::class.java)
     val json = byteString.utf8()
     measureTime {
-      repeat(1000) {
+      repeat(1) {
         val data = adapter.fromJson(json)
       }
     }.also {
       println("Moshi $it")
-    }
+    }*/
   }
 }

@@ -1,5 +1,5 @@
 plugins {
-  id("com.android.application").version("4.0.0")
+  id("com.android.application").version("4.2.0-alpha05")
   kotlin("android").version("1.3.72")
   kotlin("kapt").version("1.3.72")
   id("com.apollographql.apollo").version("2.2.3")

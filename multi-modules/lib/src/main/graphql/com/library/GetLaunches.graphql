@@ -1,0 +1,16 @@
+query GetLaunches{
+  launches{
+    launches {
+      id
+      ...LaunchFragment
+    }
+  }
+}
+
+fragment LaunchFragment on Launch {
+  site
+  rocket {
+    id
+    name
+  }
+}
