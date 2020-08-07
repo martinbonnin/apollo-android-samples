@@ -1,0 +1,7 @@
+query GetBook {
+  book
+}
+
+mutation AddBook($title: String!) {
+    addBook(title: $title)
+}

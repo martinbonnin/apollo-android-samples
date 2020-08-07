@@ -1,0 +1,7 @@
+type Query {
+  book: String
+}
+
+type Mutation {
+  addBook(title: String!): String!
+}
