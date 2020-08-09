@@ -1,81 +1,42 @@
-directive @cacheControl(
-  maxAge: Int
-  scope: CacheControlScope
-) on FIELD_DEFINITION | OBJECT | INTERFACE
-enum CacheControlScope {
-  PUBLIC
-  PRIVATE
+enum Class {
+  MAMMAL
+  FISH
+  BIRD
+  INSECT
 }
 
-type Launch {
-  id: ID!
-  site: String
-  mission: Mission
-  rocket: Rocket
-  isBooked: Boolean!
+scalar Date
+
+interface Animal {
+  class: Class!
 }
 
-# Simple wrapper around our list of launches that contains a cursor to the
-# last item in the list. Pass this cursor to the launches query to fetch results
-# after these.
-type LaunchConnection {
-  cursor: String!
-  hasMore: Boolean!
-  launches: [Launch]!
+type Cat implements Animal {
+  class: Class!
+  mustaches: Int!
+  dateOfBirth: Date!
 }
 
-type Mission {
-  name: String
-  missionPatch(size: PatchSize): String
-}
-
-type Mutation {
-  bookTrips(launchIds: [ID]!): TripUpdateResponse!
-  cancelTrip(launchId: ID!): TripUpdateResponse!
-  login(email: String): String
-  uploadProfileImage(file: Upload!): User
-}
-
-enum PatchSize {
-  SMALL
-  LARGE
+type Plant {
+  name: String!
+  picture(size: Int!): String!
 }
 
 type Query {
-  launches(
-    # The number of results to show. Must be >= 1. Default = 20
-    pageSize: Int
-    # If you add a cursor here, it will only return results _after_ this cursor
-    after: String
-  ): LaunchConnection!
-  launch(id: ID!): Launch
-  me: User
-  tripsBooked: Int
+  randomAnimal: Animal!
+
+  randomPlant: Plant!
+
+  animal(class: Class!): Animal!
 }
 
-type Rocket {
-  id: ID!
-  name: String
-  type: String
+input AnimalInput {
+  class: Class!
+  name: String!
 }
 
-type Subscription {
-  tripsBooked: Int
+type Mutation {
+  registerAnimal(input: AnimalInput!): Boolean!
 }
 
-type TripUpdateResponse {
-  success: Boolean!
-  message: String
-  launches: [Launch]
-}
-
-# The `Upload` scalar type represents a file upload.
-scalar Upload
-
-type User {
-  id: ID!
-  email: String!
-  profileImage: String
-  trips: [Launch]!
-}
 

@@ -1,6 +1,7 @@
 plugins {
   kotlin("jvm")
   id("com.apollographql.apollo")
+  id("application")
 }
 
 dependencies {
@@ -8,5 +9,13 @@ dependencies {
   implementation(project(":lib"))
   implementation("com.apollographql.apollo:apollo-api:2.2.3-SNAPSHOT")
   testImplementation(kotlin("test-junit"))
-  add("apollo", project(":lib"))
+  apollo(project(":lib"))
+}
+
+application {
+  mainClass.set("MainCliKt")
+}
+
+apollo {
+  generateKotlinModels.set(true)
 }
