@@ -12,5 +12,6 @@ dependencies {
 
 apollo {
   generateKotlinModels.set(true)
+  generateApolloMetadata.set(true)
   customTypeMapping.set(mapOf("Date" to "java.util.Date"))
 }

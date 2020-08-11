@@ -8,15 +8,15 @@ fragment PlantFragment on Plant {
 }
 
 # to force generating the input
-mutation dummy($input: AnimalInput!) {
-  registerAnimal(input: $input)
-}
-
-# to force generating the scalar
-query catWithDateOfBirth{
-  randomAnimal {
-    ... on Cat {
-      dateOfBirth
-    }
-  }
-}
+#mutation dummy($input: AnimalInput!) {
+#  registerAnimal(input: $input)
+#}
+#
+## to force generating the scalar
+#query catWithDateOfBirth{
+#  randomAnimal {
+#    ... on Cat {
+#      dateOfBirth
+#    }
+#  }
+#}
