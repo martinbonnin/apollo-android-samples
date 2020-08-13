@@ -1,20 +1,4 @@
-query GetAnimal {
-  randomAnimal {
-    ...CatWithoutMustache
-  }
-}
+#mutation sendMessage($input: MessageInput0) {
+#    sendMessage0(input: $input)
+#}
 
-query GetPlant($size: Int!) {
-  randomPlant {
-    ...PlantFragment
-  }
-}
-
-fragment CatWithoutMustache on Cat {
-  class
-  dateOfBirth
-}
-
-mutation registerAnimal($input: AnimalInput!) {
-  registerAnimal(input: $input)
-}
