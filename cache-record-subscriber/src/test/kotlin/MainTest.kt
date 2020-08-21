@@ -24,7 +24,7 @@ import server.ServerApplication
 
 class MainTest {
     @Test
-    fun `cacheKeyResolverTest`() {
+    fun `cacheSubscriberTest`() {
         val applicationContext = runApplication<ServerApplication>()
 
         runBlocking {
