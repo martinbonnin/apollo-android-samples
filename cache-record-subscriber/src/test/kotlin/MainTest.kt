@@ -22,20 +22,6 @@ import org.junit.Test
 import org.springframework.boot.runApplication
 import server.ServerApplication
 
-
-class MyFragment: Fragment() {
-    val subscriber = object : ApolloStore.RecordChangeSubscriber {
-        override fun onCacheRecordsChanged(changedRecordKeys: Set<String>) {
-            println("onCacheRecordsChanged $changedRecordKeys")
-        }
-
-    }
-
-    override fun onCreateView() {
-        apolloClient.apolloStore.subscribe(subscriber)
-    }
-}
-
 class MainTest {
     @Test
     fun `cacheKeyResolverTest`() {
