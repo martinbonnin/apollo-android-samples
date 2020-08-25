@@ -1,0 +1,11 @@
+query GetData($userid: String!) {
+  unfinishedCompositions(input: { userId: $userid, includeMetadata: true }) {
+    count
+    results {
+      id
+      metadata {
+        status
+      }
+    }
+  }
+}
