@@ -1,0 +1,5 @@
+query GetTick {
+  tick {
+    count
+  }
+}

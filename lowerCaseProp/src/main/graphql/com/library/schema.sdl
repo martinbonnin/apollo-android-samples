@@ -1,0 +1,11 @@
+type Query {
+  book: String
+}
+
+input VisitorCardIssueInput {
+  workerIdVisiting: Int
+}
+
+type Mutation {
+  addVisitorCard(input: VisitorCardIssueInput): String
+}
