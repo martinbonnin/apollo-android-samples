@@ -1,0 +1,17 @@
+type PropertyAmenityCategory {
+    name: String
+}
+
+enum AmenityCategory {
+    FIRST,
+    SECOND
+}
+
+type PropertyInfo {
+    amenityCategories: [PropertyAmenityCategory!]!
+    category: AmenityCategory
+}
+
+type Query {
+  propertyInfo: PropertyInfo
+}

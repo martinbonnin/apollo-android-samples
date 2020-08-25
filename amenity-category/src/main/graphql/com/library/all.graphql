@@ -1,0 +1,8 @@
+query GetProperty {
+  propertyInfo {
+    category
+    amenityCategories {
+        name
+    }
+  }
+}
