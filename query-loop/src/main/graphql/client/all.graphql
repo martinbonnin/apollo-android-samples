@@ -1,5 +1,13 @@
-query GetTick {
-  tick {
-    count
-  }
+query FetchBuildings {
+   user {
+        id
+        primaryBuilding {
+              id
+              name
+        }
+        buildings {
+             id
+             name
+        }
+   }
 }

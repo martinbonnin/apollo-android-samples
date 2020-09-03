@@ -1,25 +1,17 @@
-import client.GetTickQuery
+import client.FetchBuildingsQuery
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.api.Operation
 import com.apollographql.apollo.api.ResponseField
-import com.apollographql.apollo.cache.ApolloCacheHeaders
-import com.apollographql.apollo.cache.CacheHeaders
 import com.apollographql.apollo.cache.normalized.CacheKey
 import com.apollographql.apollo.cache.normalized.CacheKeyResolver
-import com.apollographql.apollo.cache.normalized.NormalizedCache
 import com.apollographql.apollo.cache.normalized.lru.EvictionPolicy
 import com.apollographql.apollo.cache.normalized.lru.LruNormalizedCacheFactory
-import com.apollographql.apollo.cache.normalized.sql.SqlNormalizedCacheFactory
 import com.apollographql.apollo.coroutines.toFlow
-import com.apollographql.apollo.fetcher.ApolloResponseFetchers
-import com.apollographql.apollo.subscription.WebSocketSubscriptionTransport
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.delayEach
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import okhttp3.OkHttpClient
 import org.junit.Test
 import org.springframework.boot.runApplication
 import server.ServerApplication
@@ -28,7 +20,7 @@ import server.ServerApplication
 class MainTest {
     /**
      * Only used to download the schema with
-     * ./gradlew downloadApolloSchema --endpoint http://localhost:8080/graphql --schema src/main/graphql/schema.json
+     * ./gradlew downloadApolloSchema --endpoint http://localhost:8080/graphql --schema src/main/graphql/client/schema.json
      */
     @Test
     fun `runServer`() {
@@ -37,6 +29,7 @@ class MainTest {
             Thread.sleep(1000)
         }
     }
+
     @Test
     fun `queryLoopTest`() {
         val applicationContext = runApplication<ServerApplication>()
@@ -44,13 +37,23 @@ class MainTest {
         runBlocking {
             val cache = LruNormalizedCacheFactory(EvictionPolicy.NO_EVICTION)
 
+            val cacheKeyResolver = object: CacheKeyResolver() {
+                override fun fromFieldArguments(field: ResponseField, variables: Operation.Variables): CacheKey {
+                    return CacheKey.NO_KEY
+                }
+
+                override fun fromFieldRecordSet(field: ResponseField, recordSet: Map<String, Any>): CacheKey {
+                    return (recordSet.get("id") as? String)?.let { CacheKey.from(it) } ?: CacheKey.NO_KEY
+                }
+            }
+
             val apolloClient = ApolloClient.builder()
-                .normalizedCache(cache)
+                .normalizedCache(cache, cacheKeyResolver)
                 .serverUrl("http://localhost:8080/graphql")
                 .build()
 
             launch {
-                apolloClient.query(GetTickQuery())
+                apolloClient.query(FetchBuildingsQuery())
                     .watcher()
                     .toFlow()
                     .onEach {
@@ -62,7 +65,7 @@ class MainTest {
             }
 
             launch {
-                apolloClient.query(GetTickQuery())
+                apolloClient.query(FetchBuildingsQuery())
                     .watcher()
                     .toFlow()
                     .onEach {

@@ -7,10 +7,23 @@ import kotlin.random.Random
 @Component
 class RootQuery: Query {
 
-    fun tick(): Tick {
-        return Tick(Random.nextInt())
+    fun user(): User {
+        val primaryBuilding = Building(id = "primaryBuilding", name = Random.nextInt().toString())
+        return User(
+            id = "userId",
+            primaryBuilding = primaryBuilding,
+            buildings = listOf(primaryBuilding)
+        )
     }
 }
 
+data class User(
+    val id: String,
+    val primaryBuilding: Building,
+    val buildings: List<Building>
+)
 
-data class Tick(val count: Int)
+data class Building(
+    val id: String,
+    val name: String
+)

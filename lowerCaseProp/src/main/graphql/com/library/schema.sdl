@@ -3,7 +3,7 @@ type Query {
 }
 
 input VisitorCardIssueInput {
-  workerIdVisiting: Int
+  WorkerIdVisiting: Int
 }
 
 type Mutation {
