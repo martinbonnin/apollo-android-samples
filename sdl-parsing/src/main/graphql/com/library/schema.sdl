@@ -1,0 +1,739 @@
+# A class that users from some group are currently taking.
+type ActiveTagClass {
+  joinToken: JoinToken!
+  # The users in the group who are taking this class
+  activeUsers(
+    limit: Int! = 10
+    after: Cursor = null
+  ): ActiveTagUserPaginatedList!
+  pelotonClass: PelotonClass!
+}
+
+# An element in a paginated ActiveClass result set.
+type ActiveTagClassEdge {
+  # The ActiveClass element.
+  node: ActiveTagClass!
+  # An opaque cursor string referring to this element of the result set.
+  cursor: Cursor!
+}
+
+# A list of ActiveClass results that can be paged over.
+type ActiveTagClassesPaginatedList implements PaginatedList {
+  # The elements of the current page.
+  edges: [ActiveTagClassEdge!]!
+  # Information about the page of results returned.
+  pageInfo: PageInfo!
+  # Total number of active classes.
+  totalCount: Int!
+}
+
+type ActiveTagUserEdge {
+  node: User!
+  cursor: Cursor!
+}
+
+type ActiveTagUserPaginatedList {
+  edges: [ActiveTagUserEdge!]!
+  # The total number of results in the underlying result set.
+  totalCount: Int!
+  # Information about the page of results returned.
+  pageInfo: PageInfo!
+}
+
+type ActiveWorkout {
+  actualStartTime: DateTime
+  peloton: Peloton!
+  workout: Workout!
+}
+
+# Input for addTagToUser operation.
+input AddTagToUserInput {
+  # Case insensitive name of the tag to add.
+  tagName: String!
+}
+
+union AddTagToUserResponse =
+    AddTagToUserSuccess
+  | DoesNotExistError
+  | TagAlreadyExistsError
+  | TagCapacityOverLimitError
+  | TagNameInvalidCharacterError
+  | TagNameLengthError
+  | TagNameProhibitedError
+# Response for addTagToUser operation.
+type AddTagToUserSuccess {
+  # The tag.
+  tag: Tag
+}
+
+# The `BigInt` scalar type
+scalar BigInt
+
+# Assets of the Peloton class.
+type ClassAssets {
+  # Thumbnal image of the class.
+  thumbnailImage: Media!
+}
+
+type ClassSegment {
+  id: ID!
+  name: String!
+  startTimeOffset: Int!
+  length: Int!
+  icon: Media!
+  metricsType: ClassSegmentMetric!
+  intensityInMets: Float!
+}
+
+enum ClassSegmentMetric {
+  CYCLING
+  FLOOR
+  RUNNING
+  WALKING
+  NONE
+}
+
+type ClassTimeline {
+  startOffset: Int
+  endOffset: Int
+  videoEndOffset: Int
+  classSegments: [ClassSegment!]!
+}
+
+# A wrapper type for class related tags info
+type ClassTopTag {
+  tag: Tag
+}
+
+# The values for the supported content formats
+enum ContentFormat {
+  # video
+  video
+  # audio
+  audio
+}
+
+# Opaque cursor string for the part of a result set to search after
+scalar Cursor
+
+# An RFC-3339 compliant DateTime Scalar
+scalar DateTime
+
+# Difficulty Level of the Peloton Class
+type DifficultyLevel {
+  # Slug of the difficulty level.
+  slug: DifficultyLevelSlug!
+  # Display name of the difficulty level.
+  displayName: String!
+}
+
+# The possible values for difficulty level slug
+enum DifficultyLevelSlug {
+  # slug for beginner
+  BEGINNER
+  # slug for intermediate
+  INTERMEDIATE
+  # slug for advanced
+  ADVANCED
+}
+
+type DoesNotExistError implements Error {
+  resource: String!
+  code: String!
+  message: String!
+}
+
+# A field whose value conforms to the standard internet email address format as
+# specified in RFC822: https://www.w3.org/Protocols/rfc822/.
+scalar EmailAddress
+
+interface Error {
+  code: String!
+  message: String!
+}
+
+# Fitness discipline.
+type FitnessDiscipline {
+  # Slug of the fitness discipline.
+  slug: FitnessDisciplineSlug!
+  # Display name of the fitness discipline.
+  displayName: String!
+}
+
+# The possible values for fitness discipline slug
+enum FitnessDisciplineSlug {
+  # slug for beyond the ride
+  BEYOND_THE_RIDE
+  # slug for cardio
+  CARDIO
+  # slug for circuit
+  CIRCUIT
+  # slug for cycling
+  CYCLING
+  # slug for meditation
+  MEDITATION
+  # slug for running
+  RUNNING
+  # slug for strength
+  STRENGTH
+  # slug for stretching
+  STRETCHING
+  # slug for walking
+  WALKING
+  # slug for yoga
+  YOGA
+}
+
+# The possible states for whether one user (user1) follows another (user2).
+enum FollowStatus {
+  # user1 follows user2.
+  FOLLOWING
+  # user1 has requested to follow user2, but this has not been accepted yet.
+  FOLLOW_PENDING
+  # user1 does not follow user2.
+  NONE
+  # user1 is the same user as user2.
+  SELF
+}
+
+# A field whose value is a generic Globally Unique Identifier: https://en.wikipedia.org/wiki/Universally_unique_identifier.
+scalar GUID
+
+# A field whose value is a hex color code: https://en.wikipedia.org/wiki/Web_colors.
+scalar HexColorCode
+
+# A field whose value is a CSS HSL color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().
+scalar HSL
+
+# A field whose value is a CSS HSLA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().
+scalar HSLA
+
+# An Instructor who teaches classes.
+type Instructor {
+  # The instructor's unique identifier.
+  id: ID!
+  # The instructor's name.
+  name: String!
+  # The assets that represent this instructor.
+  assets: InstructorAssets!
+}
+
+# Instructor's assets.
+type InstructorAssets {
+  # The url of an image that represents this instructor.
+  profileImage: Media!
+}
+
+# A field whose value is a IPv4 address: https://en.wikipedia.org/wiki/IPv4.
+scalar IPv4
+
+# A field whose value is a IPv6 address: https://en.wikipedia.org/wiki/IPv6.
+scalar IPv6
+
+# A field whose value is a ISBN-10 or ISBN-13 number: https://en.wikipedia.org/wiki/International_Standard_Book_Number.
+scalar ISBN
+
+type JoinableClass {
+  activeWorkout: ActiveWorkout
+  id: ID!
+  videoStream: Media!
+  pelotonClass: PelotonClass
+}
+
+# Allows a user to join a class, starting a workout
+scalar JoinToken
+
+# The `JSON` scalar type
+scalar JSON
+
+# The `JSONObject` scalar type
+scalar JSONObject
+
+type LiveClass implements PelotonClass {
+  id: ID!
+  title: String!
+  classId: String!
+  fitnessDiscipline: FitnessDiscipline!
+  originLocale: Locale!
+  joinToken: JoinToken!
+  instructor: Instructor!
+  assets: ClassAssets!
+  scheduledStartTime: DateTime!
+  actualStartTime: DateTime
+  isEncore: Boolean!
+  peloton: PelotonResult!
+  difficultyLevel: DifficultyLevel
+  playableOnPlatform: Boolean!
+  duration: Int!
+  timeline: ClassTimeline
+}
+
+# Locale object representing a language
+type Locale {
+  # iso code for this locale
+  code: LocaleCode!
+  # display name for the locale's language (i.e. English, German, Deutsch, etc)
+  language: String!
+}
+
+# The values for the supported locale codes
+enum LocaleCode {
+  # english
+  EN_US
+  # german
+  DE_DE
+}
+
+# The `BigInt` scalar type
+scalar Long
+
+# A field whose value is a IEEE 802 48-bit MAC address: https://en.wikipedia.org/wiki/MAC_address.
+scalar MAC
+
+type Media {
+  location: URL!
+}
+
+# MetaTag of a tag
+type MetaTag {
+  # The name to use when displaying this meta tag.
+  displayName: String!
+}
+
+type Mutation {
+  # Add a tag to the current logged in user.
+  addTagToUser(input: AddTagToUserInput!): AddTagToUserResponse!
+  # Remove a tag from the current logged in user.
+  removeTagFromUser(input: RemoveTagFromUserInput!): RemoveTagFromUserResponse!
+  # Set a tag as current logged in user's primary tag.
+  setTagAsPrimary(input: SetTagAsPrimaryInput!): SetTagAsPrimaryResponse!
+  # Replace the logged in user's tag with new tag.
+  replaceTag(input: ReplaceTagInput!): ReplaceTagResponse!
+}
+
+# Floats that will have a value less than 0.
+scalar NegativeFloat
+
+# Integers that will have a value less than 0.
+scalar NegativeInt
+
+# Error thrown when attempting to get Peloton data for a PelotonClass
+# that is not available for the current platform.
+type NoClassPelotonForPlatformError implements Error {
+  code: String!
+  message: String!
+}
+
+# Integers that will have a value of 0 or more.
+scalar NonNegative
+
+# Floats that will have a value of 0 or more.
+scalar NonNegativeFloat
+
+# Floats that will have a value of 0 or less.
+scalar NonPositiveFloat
+
+# Integers that will have a value of 0 or less.
+scalar NonPositiveInt
+
+type OnDemandInstructorClass implements PelotonClass {
+  id: ID!
+  title: String!
+  classId: String!
+  fitnessDiscipline: FitnessDiscipline!
+  originLocale: Locale!
+  joinToken: JoinToken!
+  instructor: Instructor!
+  assets: ClassAssets!
+  airTime: DateTime!
+  originalAirTime: DateTime!
+    @deprecated(reason: "use airTime instead of originalAirTime")
+  isBookmarked: Boolean!
+  difficultyLevel: DifficultyLevel
+  contentFormat: ContentFormat!
+  totalUserWorkouts: Int
+  playableOnPlatform: Boolean!
+  duration: Int!
+  timeline: ClassTimeline
+  # Top tags for this joinToken. Get $limit tags randomly from the $sampledFrom top Tags.
+  # When sampledFrom = 0, simply return top $limit tags.
+  topTags(limit: Int = 10, sampledFrom: Int = 0): [ClassTopTag!]!
+    @deprecated(reason: "Not implemented yet.")
+}
+
+# Information about a page of results returned.
+type PageInfo {
+  # An opaque cursor string referring to the end of the result page.
+  endCursor: Cursor
+  # True if there are more results after this page.
+  hasNextPage: Boolean!
+  # True if there are more results before this page.
+  hasPreviousPage: Boolean!
+  # An opaque cursor string referring to the start of the result page.
+  startCursor: Cursor
+}
+
+# A list of results that can be paged over.
+interface PaginatedList {
+  # Information about the page of results returned.
+  pageInfo: PageInfo!
+}
+
+type Peloton {
+  pelotonId: String!
+}
+
+interface PelotonClass {
+  id: ID!
+  title: String!
+  classId: String!
+  originLocale: Locale!
+  fitnessDiscipline: FitnessDiscipline!
+  joinToken: JoinToken!
+  assets: ClassAssets!
+  playableOnPlatform: Boolean!
+  duration: Int!
+  timeline: ClassTimeline
+}
+
+# A field whose value conforms to the standard E.164 format as specified in:
+# https://en.wikipedia.org/wiki/E.164. Basically this is +17895551234.
+scalar PhoneNumber
+
+union PelotonResult = Peloton | NoClassPelotonForPlatformError
+
+# A class that users from a tag have taken.
+type PopularTagClass {
+  joinToken: JoinToken!
+  # Count of the users in the group who have taken this class
+  countUsers: Int!
+  # pelotonClass can be null if class removed from onDemand after PopularTagClasses was calculated
+  pelotonClass: PelotonClass
+}
+
+# A list of PopularTagClass results.
+type PopularTagClassesList {
+  popularClasses: [PopularTagClass!]!
+  count: Int!
+}
+
+# A field whose value is a valid TCP port within the range of 0 to 65535:
+# https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_ports
+scalar Port
+
+# Floats that will have a value greater than 0.
+scalar PositiveFloat
+
+# Integers that will have a value greater than 0.
+scalar PositiveInt
+
+# A field whose value conforms to the standard postal code formats for United
+# States, United Kingdom, Germany, Canada, France, Italy, Australia, Netherlands,
+# Spain, Denmark, Sweden, Belgium, India, Austria, Portugal, Switzerland or Luxembourg.
+scalar PostalCode
+
+type Query {
+  # Get a tag based on its case insensitive name.
+  tag(tagName: String!): Tag
+  # Search for tags based on a substring in tag. Results are sorted with
+  # an exact match first and then by popularity of the tag.
+  searchTag(input: SearchTagInput!): TagPaginatedList!
+  # Get a tag category by its slug.
+  tagBrowseCategory(categorySlug: TagBrowseCategorySlug!): TagBrowseCategory!
+  # Get a user by the id. Default to return the current logged in user.
+  user(id: ID): User
+}
+
+# Input for removeTagFromUser operation.
+input RemoveTagFromUserInput {
+  # Case insensitive name of the tag to remove.
+  tagName: String!
+}
+
+# TODO: make sure type name is on mutations before implementation
+union RemoveTagFromUserResponse = RemoveTagFromUserSuccess | DoesNotExistError
+
+# Response for removeTagFromUser operation.
+type RemoveTagFromUserSuccess {
+  # The tag.
+  tag: Tag
+}
+
+# Input for replaceTag operation.
+input ReplaceTagInput {
+  # Case insensitive name of the tag to replace.
+  oldTagName: String!
+  # Case insensitive name of the tag to add.
+  newTagName: String!
+}
+
+union ReplaceTagResponse =
+    ReplaceTagSuccess
+  | TagAlreadyExistsError
+  | DoesNotExistError
+  | TagNameInvalidCharacterError
+  | TagNameLengthError
+  | TagNameProhibitedError
+# A field whose value is a CSS RGB color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba().
+scalar RGB
+
+type ReplaceTagSuccess {
+  # The newly added tag.
+  tag: Tag
+}
+
+
+# A field whose value is a CSS RGBA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba().
+scalar RGBA
+
+type ScenicClass implements PelotonClass {
+  id: ID!
+  title: String!
+  classId: String!
+  fitnessDiscipline: FitnessDiscipline!
+  originLocale: Locale!
+  joinToken: JoinToken!
+  assets: ClassAssets!
+  totalUserWorkouts: Int
+  playableOnPlatform: Boolean!
+  duration: Int!
+  timeline: ClassTimeline
+  # Top tags for this joinToken. Get $limit tags randomly from the $sampledFrom top Tags.
+  # When sampledFrom = 0, simply return top $limit tags.
+  topTags(limit: Int = 10, sampledFrom: Int = 0): [ClassTopTag!]!
+    @deprecated(reason: "Not implemented yet.")
+}
+
+# Input for searchTag query
+input SearchTagInput {
+  # Query string to search for.
+  query: String!
+  # Number of results to return
+  limit: Int! = 20
+  # Opaque cursor string for the part of a result set to search after
+  after: Cursor
+}
+
+# Input for SetTagAsPrimary operation.
+input SetTagAsPrimaryInput {
+  # Case insensitive name of the tag to set to be primary.
+  tagName: String!
+}
+
+union SetTagAsPrimaryResponse =
+    SetTagAsPrimarySuccess
+  | TagDoesNotExistOnUserError
+# Response for SetTagAsPrimary operation.
+type SetTagAsPrimarySuccess {
+  # The tag.
+  tag: Tag
+}
+
+# A tag that users can add to themselves.
+type Tag {
+  # The case sensitive name of the tag.
+  name: String!
+  # A paginated list of users who have this tag. sorted by username. with
+  # users followed by the current logged in user first. after is an
+  # opaque cursor string referring to the end of the result page.
+  users(limit: Int! = 10, after: Cursor = null): UserPaginatedList!
+  # The number of users followed by current logged in user who have
+  # this tag.
+  followingCount: Int!
+  # The meta tag of this tag.
+  metaTag: MetaTag
+  # The total number of in progress workout.
+  totalInProgressWorkouts: Int!
+  # The assets that represent this tag.
+  assets: TagAssets!
+  # Whether the current logged in user has added the tag.
+  hasAdded: Boolean!
+  # Whether the current tag already exists.
+  exists: Boolean!
+  # A paginated list of classes that users with this tag are currently taking.
+  # sorted by classes with more users working out right now first. after is an
+  # opaque cursor string referring to the end of the result page.
+  activeClasses(
+    limit: Int! = 10
+    after: Cursor = null
+  ): ActiveTagClassesPaginatedList!
+  # A list of classes that have been popular with users in this tag.
+  popularClasses(limit: Int! = 10): PopularTagClassesList!
+  # An active class that users with this tag are currently taking with the
+  # specified joinToken.
+  activeClass(joinToken: JoinToken!): ActiveTagClass!
+}
+
+type TagAlreadyExistsError implements Error {
+  code: String!
+  message: String!
+}
+
+# Tag's assets
+type TagAssets {
+  # The row background image that represents this tag.
+  backgroundImage: Media!
+  # The tag details view background image.
+  detailBackgroundImage: Media!
+}
+
+# A grouping of tags, such as the most popular tags.
+type TagBrowseCategory {
+  # The unique unchanging human-readable id for this category.
+  slug: TagBrowseCategorySlug!
+  # The name to use when displaying this category.
+  displayName: String!
+  # The assets that represent this category.
+  assets: TagBrowseCategoryAssets!
+  # A paginated list of tags in this category. The results for some categories
+  # depend of the current logged in user. after is an opaque cursor string referring
+  # to the end of the result page.
+  tags(limit: Int! = 10, after: Cursor = null): TagPaginatedList!
+}
+
+# TagBrowseCategory's assets
+type TagBrowseCategoryAssets {
+  # The icon that represents this category.
+  icon: Media!
+}
+
+# The possible values for tag browse category slug
+enum TagBrowseCategorySlug {
+  # slug for Featured
+  FEATURED
+  # slug for Friends
+  FRIENDS
+  # slug for Popular
+  POPULAR
+  # slug for Trending
+  TRENDING
+}
+
+type TagCapacityOverLimitError implements Error {
+  code: String!
+  message: String!
+}
+
+type TagDoesNotExistOnUserError implements Error {
+  code: String!
+  message: String!
+}
+
+# An element in a paginated Tag result set.
+type TagEdge {
+  # The Tag element.
+  node: Tag!
+  # An opaque cursor string referring to this element of the result set.
+  cursor: Cursor!
+}
+
+type TagNameInvalidCharacterError implements Error {
+  code: String!
+  message: String!
+}
+
+type TagNameLengthError implements Error {
+  code: String!
+  message: String!
+}
+
+type TagNameProhibitedError implements Error {
+  code: String!
+  message: String!
+}
+
+# A list of Tag results that can be paged over.
+type TagPaginatedList implements PaginatedList {
+  # The elements of the current page.
+  edges: [TagEdge!]!
+  # Information about the page of results returned.
+  pageInfo: PageInfo!
+}
+
+# Floats that will have a value of 0 or more.
+scalar UnsignedFloat
+
+# Integers that will have a value of 0 or more.
+scalar UnsignedInt
+
+scalar URL
+
+# A currency string, such as $21.25
+scalar USCurrency
+
+# A Peloton user
+type User {
+  # The user's unique identifier.
+  id: ID!
+  # The user's name to display.
+  username: String!
+  # Location of the user.
+  location: String
+  # The assets that represent this user.
+  assets: UserAssets
+  # Whether the current logged in user follows this user.
+  followStatus: FollowStatus!
+  # Total workout counts of the user.
+  protectedFields: UserProtectedFieldsResult
+  # Remaining number of tag slots that the user can add.
+  remainingTagSlotCount: Int!
+  # User's all tags.
+  userTags: UserTags!
+}
+
+# User's assets
+type UserAssets {
+  # The user's profile image.
+  image: Media!
+}
+
+# An element in a paginated User result set.
+type UserEdge {
+  # The User element.
+  node: User!
+  # An opaque cursor string referring to this element of the result set.
+  cursor: Cursor!
+}
+
+# A list of User results that can be paged over.
+type UserPaginatedList implements PaginatedList {
+  # The elements of the current page.
+  edges: [UserEdge!]!
+  # The total number of results in the underlying result set.
+  totalCount: Int!
+  # Information about the page of results returned.
+  pageInfo: PageInfo!
+}
+
+# Result type when accessing UserProtectedFields fail
+type UserPrivacyError implements Error {
+  code: String!
+  message: String!
+}
+
+# User fields that is protected by privacy controls
+type UserProtectedFields {
+  totalWorkoutCounts: Int!
+}
+
+union UserProtectedFieldsResult = UserProtectedFields | UserPrivacyError
+
+# A User's relationship with a tag.
+type UserTag {
+  # The tag.
+  tag: Tag!
+  # True if this is the user's primary tag.
+  isPrimary: Boolean!
+}
+
+# User's all tags. include primary tag and all tags
+type UserTags {
+  # The user's primary tag, if they have one.
+  primary: Tag
+  # All of user's tags and relationship with them.
+  allTags: [UserTag!]!
+}
+
+type Workout {
+  id: ID!
+}

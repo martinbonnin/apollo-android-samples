@@ -12,6 +12,9 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.Response
 import org.junit.Test
 import org.springframework.boot.runApplication
 import server.ServerApplication
@@ -49,6 +52,14 @@ class MainTest {
 
             val apolloClient = ApolloClient.builder()
                 .normalizedCache(cache, cacheKeyResolver)
+                .okHttpClient(OkHttpClient.Builder().addInterceptor(
+                    object: Interceptor {
+                        override fun intercept(chain: Interceptor.Chain): Response {
+                            println("intercepting ${chain.request().url()}")
+                            return chain.proceed(chain.request())
+                        }
+                    }
+                ).build())
                 .serverUrl("http://localhost:8080/graphql")
                 .build()
 

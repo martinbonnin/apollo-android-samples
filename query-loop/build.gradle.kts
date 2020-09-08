@@ -33,4 +33,9 @@ dependencies {
 apollo {
     //customTypeMapping.set(mapOf("JSONObject" to "client.JsonObject"))
     generateKotlinModels.set(true)
+    service("someservice") {
+        introspection {
+            endpointUrl.set("https://blablable")
+        }
+    }
 }
