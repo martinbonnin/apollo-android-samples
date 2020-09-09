@@ -1,3 +1,7 @@
 mutation UploadFile($upload: Upload!) {
     uploadFile(upload: $upload)
 }
+
+mutation UploadFiles($uploads: [Upload!]!) {
+    uploadFiles(uploads: $uploads)
+}

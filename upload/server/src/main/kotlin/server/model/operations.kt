@@ -23,6 +23,14 @@ class RootMutation: Mutation {
         File("uploads/${upload.name}").writeBytes(Base64.getDecoder().decode(upload.base64))
         return Random.nextInt()
     }
+    fun uploadFiles(uploads: List<Upload>): Int {
+        File("uploads").mkdirs()
+        uploads.forEach {upload ->
+            File("uploads/${upload.name}").writeBytes(Base64.getDecoder().decode(upload.base64))
+        }
+        return Random.nextInt()
+    }
+
 }
 
 class Upload(val name: String, val base64: String)
