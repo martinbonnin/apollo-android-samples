@@ -1,6 +1,6 @@
 plugins {
   kotlin("jvm").version("1.4.0")
-  id("com.apollographql.apollo").version("2.4.1-SNAPSHOT")
+  id("com.apollographql.apollo").version("2.4.0")
 }
 
 repositories {
