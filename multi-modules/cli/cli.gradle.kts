@@ -7,9 +7,9 @@ plugins {
 dependencies {
   implementation(kotlin("stdlib"))
   implementation(project(":lib"))
-  implementation("com.apollographql.apollo:apollo-api:2.2.4-SNAPSHOT")
+  implementation("com.apollographql.apollo:apollo-api:2.4.0")
   testImplementation(kotlin("test-junit"))
-  apollo(project(":lib"))
+  apolloMetadata(project(":lib"))
 }
 
 application {

@@ -1,0 +1,9 @@
+type User {
+    name: String!
+    bio: String!
+    avatar: String!
+}
+
+type Query {
+    me: User!
+}

@@ -1,5 +1,5 @@
+import com.library.GetUserQuery
 
-val hello = "toto"
 fun main() {
-  println(hello)
+  println("Compilation of ${GetUserQuery} was successful")
 }

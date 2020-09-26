@@ -1,1 +1,1 @@
-val hello = "Hellow from MainLib"
+val hello = "Hello from MainLib"
