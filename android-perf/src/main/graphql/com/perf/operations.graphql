@@ -54,3 +54,7 @@ fragment SearchVideoListSection on SearchVideoListSection {
   }
 }
 
+query GetRandom {
+  randomInt
+}
+
