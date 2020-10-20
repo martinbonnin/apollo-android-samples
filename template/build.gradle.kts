@@ -1,6 +1,6 @@
 plugins {
   kotlin("jvm").version("1.4.0")
-  id("com.apollographql.apollo").version("2.4.1")
+  id("com.apollographql.apollo").version("2.4.2-SNAPSHOT")
 }
 
 repositories {
@@ -15,4 +15,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+apollo {
 }

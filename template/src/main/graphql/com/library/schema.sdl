@@ -1,6 +1,14 @@
 type Query {
   book: String
-  on: Int
+  page: Page
+}
+
+type Page {
+  words: Int
+}
+
+extend type Page {
+    canBeInPrivateConversation: Boolean!
 }
 
 type Mutation {

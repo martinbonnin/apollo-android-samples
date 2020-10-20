@@ -4,5 +4,7 @@ mutation PutBook {
 
 query GetBook {
   book @include(if: false)
-  on
+  page {
+    canBeInPrivateConversation
+  }
 }
