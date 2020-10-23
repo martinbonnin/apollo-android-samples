@@ -1,0 +1,12 @@
+type Query {
+  book: String
+  page: Page
+}
+
+type Page {
+  words: Int
+}
+
+type Mutation {
+  addBook(name: String!): Int
+}

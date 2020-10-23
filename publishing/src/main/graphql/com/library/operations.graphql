@@ -1,0 +1,7 @@
+mutation PutBook {
+  addBook(name: "Harry Potter")
+}
+
+query GetBook {
+  book @include(if: false)
+}

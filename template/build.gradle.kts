@@ -1,13 +1,15 @@
 plugins {
   kotlin("jvm").version("1.4.0")
-  id("com.apollographql.apollo").version("2.4.2-SNAPSHOT")
+  id("com.apollographql.apollo").version("3.0.0-SNAPSHOT")
 }
 
 repositories {
   mavenCentral()
+  mavenLocal()
 }
 dependencies {
   implementation(kotlin("stdlib"))
+  implementation("com.apollographql.apollo:apollo-api:3.0.0-SNAPSHOT")
   testImplementation(kotlin("test-junit"))
 }
 
