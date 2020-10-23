@@ -1,0 +1,18 @@
+query getContent(
+  $vendors: [Int!]!,
+  $tags_filter_1: [Int!]!,
+  $tags_filter_2: [Int!]!
+) {
+  content(
+    where:{
+      state: { _eq: "toto", numberInput: 0 },
+      vendor_id: {_in: $vendors},
+      _and : [
+        { recipe_tags : { tag_id: {_in: $tags_filter_1}}},
+        { recipe_tags : { tag_id: {_in: $tags_filter_2}}}
+      ]
+    }
+  ) {
+    id
+  }
+}
