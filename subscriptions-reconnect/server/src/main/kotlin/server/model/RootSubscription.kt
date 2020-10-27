@@ -11,10 +11,10 @@ import java.time.Duration
 class RootSubscription : Subscription {
     val usedTokens = mutableSetOf<String>()
 
-    fun secondsEllapsed(graphqlContext: DefaultGraphQLContext): Flux<String> {
+    fun secondsElapsed(graphqlContext: DefaultGraphQLContext): Flux<String> {
         val token = graphqlContext.token
         graphqlContext.apply {
-            println("secondsEllapsed: $this-${this.token}")
+            println("secondsElapsed: $this-${this.token}")
         }
         if (token == null) {
             throw IllegalStateException("token must not be null")
@@ -25,11 +25,17 @@ class RootSubscription : Subscription {
         usedTokens.add(token)
 
         val start = System.currentTimeMillis()
-        return Flux.interval(Duration.ofSeconds(0), Duration.ofSeconds(1)).map { it ->
-            if (System.currentTimeMillis() - start > 10_000) {
-                throw IllegalStateException("token has expired")
+
+        return Flux.generate({0}, { state, sink ->
+            if (state < 10) {
+                sink.next("${state} seconds ellapsed")
+                Thread.sleep(1000)
+                state + 1
+            } else {
+                println("wait for token")
+                Thread.sleep(1_000_000)
+                -1
             }
-            "$it seconds have ellapsed"
-        }
+        })
     }
 }

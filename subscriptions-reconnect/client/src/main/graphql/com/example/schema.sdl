@@ -3,11 +3,10 @@ type Query {
 }
 
 type Subscription {
-  secondsEllapsed: String!
+  secondsElapsed: String!
 }
 
 schema {
   subscription: Subscription
   query: Query
-  mutation: mutation
 }
