@@ -1,0 +1,13 @@
+type Query {
+  dummy: String!
+}
+
+type Subscription {
+  secondsEllapsed: String!
+}
+
+schema {
+  subscription: Subscription
+  query: Query
+  mutation: mutation
+}
