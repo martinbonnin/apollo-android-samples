@@ -23,6 +23,10 @@ class MainTest {
     runBlocking {
       var count = 0
       val okHttpClient = OkHttpClient.Builder()
+          .addNetworkInterceptor { chain ->
+            val request = chain.request().newBuilder().addHeader("token", accessToken).build()
+            chain.proceed(request)
+          }
           .addInterceptor(
               HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY

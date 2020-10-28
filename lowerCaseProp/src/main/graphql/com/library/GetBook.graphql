@@ -1,7 +1,0 @@
-query GetBook {
-  book
-}
-
-mutation addVisitorCardIssue($input: VisitorCardIssueInput) {
-  addVisitorCard(input: $input)
-}

@@ -1,0 +1,1 @@
+https://github.com/apollographql/apollo-android/issues/2226
