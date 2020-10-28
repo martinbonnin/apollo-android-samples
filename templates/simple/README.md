@@ -1,0 +1,1 @@
+A simple JVM project that generates models

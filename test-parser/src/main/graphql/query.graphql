@@ -1,5 +1,0 @@
-query GetCat {
-    randomPlant {
-        ...CatFragment
-    }
-}
