@@ -31,5 +31,4 @@ type RegularItem implements Item {
 schema {
   subscription: subscription
   query: Query
-  mutation: mutation
 }

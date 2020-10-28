@@ -8,7 +8,7 @@ import org.springframework.boot.runApplication
 import java.io.File
 
 fun main(args: Array<String>) {
-  runApplication<DefaultApplication>(*args)
+  runServer()
 
   val sdlFile = File("../client/src/main/graphql/com/example/schema.sdl")
   println("absolutePath: ${sdlFile.absolutePath}")

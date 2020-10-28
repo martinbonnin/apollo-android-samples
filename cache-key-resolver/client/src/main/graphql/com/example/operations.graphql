@@ -1,0 +1,10 @@
+query getCharacters {
+  allCharacters {
+    id
+    name
+    friends {
+        id
+        name
+    }
+  }
+}

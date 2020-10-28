@@ -1,0 +1,13 @@
+type Character {
+  friends: [Character!]!
+  id: String!
+  name: String!
+}
+
+type Query {
+  allCharacters: [Character!]!
+}
+
+schema {
+  query: Query
+}
