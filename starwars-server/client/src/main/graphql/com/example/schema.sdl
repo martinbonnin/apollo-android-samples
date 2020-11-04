@@ -1,0 +1,41 @@
+interface Character {
+  name: String!
+}
+
+type Droid implements Character {
+  name: String!
+  primaryFunction: String!
+}
+
+type Human implements Character {
+  mass: Float!
+  name: String!
+}
+
+enum Operator {
+  EQ
+  GT
+  LT
+}
+
+type Query {
+  random: SearchResult!
+  search(query: QueryInput!): SearchResult!
+}
+
+input QueryInput {
+  op: Operator!
+  text: String!
+}
+
+union SearchResult = Droid | Human | Starship
+
+type Starship {
+  name: String!
+}
+
+schema {
+  subscription: subscription
+  query: Query
+  mutation: mutation
+}
