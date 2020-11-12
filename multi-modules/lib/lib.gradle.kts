@@ -13,4 +13,10 @@ apollo {
   generateKotlinModels.set(true)
   generateApolloMetadata.set(true)
   customTypeMapping.set(mapOf("Date" to "java.util.Date"))
+
+  service("service1") {
+    schemaFile.set(file("src/main/graphql/com/library/schema.sdl"))
+    sourceFolder.set("com/library")
+    rootPackageName.set("sample.graphql")
+  }
 }

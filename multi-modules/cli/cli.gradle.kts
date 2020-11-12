@@ -18,4 +18,7 @@ application {
 
 apollo {
   generateKotlinModels.set(true)
+
+  service("service1") {
+  }
 }
