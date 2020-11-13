@@ -5,8 +5,9 @@ include(":client")
 pluginManagement {
   repositories {
     gradlePluginPortal()
-    mavenLocal()
     mavenCentral()
+    mavenLocal()
+    maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
   }
 
   resolutionStrategy {

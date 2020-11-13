@@ -1,6 +1,8 @@
 plugins {
   kotlin("jvm").version("1.4.0")
-  id("com.apollographql.apollo").version("3.0.0-SNAPSHOT")
+  id("com.apollographql.apollo")
+  id("application")
+  id("net.mbonnin.one.eight").version("0.1")
 }
 
 repositories {
@@ -9,15 +11,15 @@ repositories {
 }
 dependencies {
   implementation(kotlin("stdlib"))
-  implementation("com.apollographql.apollo:apollo-api:3.0.0-SNAPSHOT")
+  implementation("com.apollographql.apollo:apollo-runtime:${properties.get("apolloVersion")}")
+  implementation("com.apollographql.apollo:apollo-coroutines-support:${properties.get("apolloVersion")}")
   testImplementation(kotlin("test-junit"))
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+application {
+  mainClassName = "MainKt"
 }
 
 apollo {
+  generateKotlinModels.set(true)
 }
