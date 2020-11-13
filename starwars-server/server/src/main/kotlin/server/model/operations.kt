@@ -5,23 +5,28 @@ import org.springframework.stereotype.Component
 
 @Component
 class RootQuery : Query {
+  val characters = listOf(
+      Human("Luke", 75.0),
+      Droid("C3PO", "translator"),
+  )
 
-  fun random(): SearchResult {
-    return listOf(
-        Human("Luke", 75.0),
-        Droid("C3PO", "translator"),
-        Starship("FalconMillenium")
-    ).random()
+  val starships = listOf(
+      Starship("FalconMillenium")
+  )
+
+  val searchResult = (characters as List<SearchResult>) + starships
+
+  fun iAmLucky(): SearchResult {
+    return searchResult.random()
   }
 
   fun search(query: QueryInput): SearchResult {
-    return listOf(
-        Human("Luke", 75.0),
-        Droid("C3PO", "translator"),
-        Starship("FalconMillenium")
-    ).random()
+    return searchResult.random()
   }
 
+  fun randomCharacter(): Character {
+    return (characters as List<Character>).random()
+  }
 }
 enum class Operator {
   EQ,

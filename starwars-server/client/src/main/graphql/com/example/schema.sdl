@@ -19,7 +19,8 @@ enum Operator {
 }
 
 type Query {
-  random: SearchResult!
+  iAmLucky: SearchResult!
+  randomCharacter: Character!
   search(query: QueryInput!): SearchResult!
 }
 
