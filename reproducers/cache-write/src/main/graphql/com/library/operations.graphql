@@ -1,0 +1,21 @@
+fragment messagesFragment on Message {
+    ID
+    text
+    direction
+    agent {
+        fullName
+    }
+    hasUnsupportedContent
+    status
+    createdAt
+}
+
+query GetConversation($ID: ID!, $nextToken: ID, $limit: Int) {
+    conversation: getConversation(ID: $ID) {
+        listMessages(limit: $limit, nextToken: $nextToken) {
+            messages {
+                ...messagesFragment
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+type Query {
+    getConversation(ID: ID!): Conversation
+}
+
+type Conversation {
+    listMessages(limit: Int, nextToken: ID): MessageEdge!
+}
+
+type MessageEdge {
+    messages: [Message!]!
+}
+
+type Message {
+    ID: ID!
+    text: String!
+    direction: String!
+    agent: Agent!
+    hasUnsupportedContent: Boolean!
+    createdAt: String!
+    status: String!
+}
+
+type Agent {
+    fullName: String
+}
