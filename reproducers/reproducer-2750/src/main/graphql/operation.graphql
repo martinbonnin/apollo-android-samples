@@ -1,0 +1,68 @@
+query Period {
+    period {
+        __typename
+        Period {
+            __typename
+            _id
+            year
+            week
+            numberOfFeatures
+            features {
+                __typename
+                _id
+                type
+                name
+                editorialTitle
+                editorialContent
+                suppressName
+                suppressHeader
+                teaser
+                { __typename x xx xxx xxxx svg }
+                teaserCopyright
+                issueId
+                articleSeriesId
+                articleIds
+                issue { __typename _id accessible purchased downloadable designation coverStory brandId cover { __typename x xx xxx xxxx svg } }
+                articleSeries {
+                    __typename
+                    _id
+                    name
+                    description
+                    teaser { __typename x xx xxx xxxx }
+                    teaserCopyright
+                    brandIds
+                    authorIds
+                    articles { __typename _id }
+                }
+                articles {
+                    __typename
+                    _id
+                    accessible
+                    read
+                    type
+                    name
+                    subtitle
+                    brandId
+                    issueId
+                    articleSeriesId
+                    articleSeriesOrder
+                    teaserImage { __typename x xx xxx xxxx }
+                    teaserCopyright
+                    issue {
+                        __typename
+                        id: _id
+                        accessible
+                        purchased
+                        downloadable
+                        designation
+                        brandId
+                        thumbnailSmall { __typename x xx xxx xxxx svg }
+                        cover { __typename x xx xxx xxxx svg }
+                        year
+                        month
+                    }
+                }
+            }
+        }
+    }
+}

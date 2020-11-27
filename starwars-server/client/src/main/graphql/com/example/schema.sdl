@@ -1,21 +1,49 @@
+type Appearance {
+  hairColor: String!
+  measurements: Measurements!
+}
+
 interface Character {
   name: String!
 }
 
 type Droid implements Character {
   name: String!
+  parts: Parts!
   primaryFunction: String!
+  friendsConnection: FriendsConnection!
+}
+
+type FriendsConnection {
+  count: Int!
+  edges: [Character!]!
 }
 
 type Human implements Character {
-  mass: Float!
+  appearance: Appearance!
+  job: String!
   name: String!
+  friendsConnection: FriendsConnection!
+}
+
+type Measurements {
+  height: Int!
+}
+
+type Mechanical {
+  screws: Int!
+  springs: Int!
 }
 
 enum Operator {
   EQ
   GT
   LT
+}
+
+type Parts {
+  mechanical: Mechanical!
+  supplier: String!
 }
 
 type Query {
