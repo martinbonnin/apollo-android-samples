@@ -1,0 +1,4826 @@
+type Query {
+  brands(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], slogan_contains: String, slogan_startsWith: String, slogan_endsWith: String, slogan_regex: String, slogan: String, slogan_ne: String, slogan_in: [String], colour_contains: String, colour_startsWith: String, colour_endsWith: String, colour_regex: String, colour: String, colour_ne: String, colour_in: [String], logo_count: Int, logo: ImageFilters, header_count: Int, header: ImageFilters, productId_contains: String, productId_startsWith: String, productId_endsWith: String, productId_regex: String, productId: String, productId_ne: String, productId_in: [String], price_contains: String, price_startsWith: String, price_endsWith: String, price_regex: String, price: String, price_ne: String, price_in: [String], size: Int, type_contains: BrandType, type_startsWith: BrandType, type_endsWith: BrandType, type_regex: BrandType, type: BrandType, type_ne: BrandType, type_in: [BrandType], introText_contains: String, introText_startsWith: String, introText_endsWith: String, introText_regex: String, introText: String, introText_ne: String, introText_in: [String], publicationFrequency_lt: Int, publicationFrequency_lte: Int, publicationFrequency_gt: Int, publicationFrequency_gte: Int, publicationFrequency: Int, publicationFrequency_ne: Int, publicationFrequency_in: [Int], language_contains: BrandLanguage, language_startsWith: BrandLanguage, language_endsWith: BrandLanguage, language_regex: BrandLanguage, language: BrandLanguage, language_ne: BrandLanguage, language_in: [BrandLanguage], order: Int, isInArticleStream: Boolean, updatedAt_lt: String, updatedAt_lte: String, updatedAt_gt: String, updatedAt_gte: String, updatedAt: String, updatedAt_ne: String, updatedAt_in: [String], publishedAt_lt: String, publishedAt_lte: String, publishedAt_gt: String, publishedAt_gte: String, publishedAt: String, publishedAt_ne: String, publishedAt_in: [String], OR: [BrandFilters], SORT: BrandSort, SORTS: [BrandSort], PAGE: Int, PAGE_SIZE: Int, updatedAt_format: String, publishedAt_format: String, searchArg: String): BrandQueryResults
+  brand(_id: String, updatedAt_format: String, publishedAt_format: String, searchArg: String): BrandSingleQueryResult
+  issues(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], brandId_contains: String, brandId_startsWith: String, brandId_endsWith: String, brandId_regex: String, brandId: String, brandId_ne: String, brandId_in: [String], designation_contains: String, designation_startsWith: String, designation_endsWith: String, designation_regex: String, designation: String, designation_ne: String, designation_in: [String], coverStory_contains: String, coverStory_startsWith: String, coverStory_endsWith: String, coverStory_regex: String, coverStory: String, coverStory_ne: String, coverStory_in: [String], productId_contains: String, productId_startsWith: String, productId_endsWith: String, productId_regex: String, productId: String, productId_ne: String, productId_in: [String], price_contains: String, price_startsWith: String, price_endsWith: String, price_regex: String, price: String, price_ne: String, price_in: [String], publicationDate_lt: String, publicationDate_lte: String, publicationDate_gt: String, publicationDate_gte: String, publicationDate: String, publicationDate_ne: String, publicationDate_in: [String], year_lt: Int, year_lte: Int, year_gt: Int, year_gte: Int, year: Int, year_ne: Int, year_in: [Int], month_lt: Int, month_lte: Int, month_gt: Int, month_gte: Int, month: Int, month_ne: Int, month_in: [Int], cover_count: Int, cover: ImageFilters, thumbnailSmall_count: Int, thumbnailSmall: ImageFilters, thumbnailMedium_count: Int, thumbnailMedium: ImageFilters, thumbnailLarge_count: Int, thumbnailLarge: ImageFilters, banner_count: Int, banner: ImageFilters, bannerCompact_count: Int, bannerCompact: ImageFilters, css_count: Int, css: [JSON], fonts_count: Int, fonts: [JSON], size_lt: Int, size_lte: Int, size_gt: Int, size_gte: Int, size: Int, size_ne: Int, size_in: [Int], updatedAt_lt: String, updatedAt_lte: String, updatedAt_gt: String, updatedAt_gte: String, updatedAt: String, updatedAt_ne: String, updatedAt_in: [String], publishedAt_lt: String, publishedAt_lte: String, publishedAt_gt: String, publishedAt_gte: String, publishedAt: String, publishedAt_ne: String, publishedAt_in: [String], OR: [IssueFilters], SORT: IssueSort, SORTS: [IssueSort], PAGE: Int, PAGE_SIZE: Int, publicationDate_format: String, updatedAt_format: String, publishedAt_format: String, searchArg: String): IssueQueryResults
+  issue(_id: String, publicationDate_format: String, updatedAt_format: String, publishedAt_format: String, searchArg: String): IssueSingleQueryResult
+  purchasedIssues(SORT: IssueSort, SORTS: [IssueSort], PAGE: Int, PAGE_SIZE: Int): IssueQueryResults
+  articles(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], type: ArticleType, type_in: [ArticleType], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], order_lt: Int, order_lte: Int, order_gt: Int, order_gte: Int, order: Int, order_ne: Int, order_in: [Int], articleSeriesOrder_lt: Int, articleSeriesOrder_lte: Int, articleSeriesOrder_gt: Int, articleSeriesOrder_gte: Int, articleSeriesOrder: Int, articleSeriesOrder_ne: Int, articleSeriesOrder_in: [Int], brandId_contains: String, brandId_startsWith: String, brandId_endsWith: String, brandId_regex: String, brandId: String, brandId_ne: String, brandId_in: [String], issueId_contains: String, issueId_startsWith: String, issueId_endsWith: String, issueId_regex: String, issueId: String, issueId_ne: String, issueId_in: [String], articleSeriesId_contains: String, articleSeriesId_startsWith: String, articleSeriesId_endsWith: String, articleSeriesId_regex: String, articleSeriesId: String, articleSeriesId_ne: String, articleSeriesId_in: [String], authorIds_count: Int, authorIds_textContains: String, authorIds_startsWith: String, authorIds_endsWith: String, authorIds_regex: String, authorIds: [String], authorIds_in: [[String]], authorIds_contains: String, authorIds_containsAny: [String], authorIds_ne: [String], sectionId_contains: String, sectionId_startsWith: String, sectionId_endsWith: String, sectionId_regex: String, sectionId: String, sectionId_ne: String, sectionId_in: [String], categoryIds_count: Int, categoryIds_textContains: String, categoryIds_startsWith: String, categoryIds_endsWith: String, categoryIds_regex: String, categoryIds: [String], categoryIds_in: [[String]], categoryIds_contains: String, categoryIds_containsAny: [String], categoryIds_ne: [String], tagIds_count: Int, tagIds_textContains: String, tagIds_startsWith: String, tagIds_endsWith: String, tagIds_regex: String, tagIds: [String], tagIds_in: [[String]], tagIds_contains: String, tagIds_containsAny: [String], tagIds_ne: [String], isEditorial: Boolean, isLeader: Boolean, isNonSearchable: Boolean, isInArticleStream: Boolean, isInGlobalArticleStream: Boolean, isArchetype: Boolean, publicationOrder_lt: Int, publicationOrder_lte: Int, publicationOrder_gt: Int, publicationOrder_gte: Int, publicationOrder: Int, publicationOrder_ne: Int, publicationOrder_in: [Int], streamOrder_lt: Int, streamOrder_lte: Int, streamOrder_gt: Int, streamOrder_gte: Int, streamOrder: Int, streamOrder_ne: Int, streamOrder_in: [Int], updatedAt_lt: String, updatedAt_lte: String, updatedAt_gt: String, updatedAt_gte: String, updatedAt: String, updatedAt_ne: String, updatedAt_in: [String], publishedAt_lt: String, publishedAt_lte: String, publishedAt_gt: String, publishedAt_gte: String, publishedAt: String, publishedAt_ne: String, publishedAt_in: [String], OR: [ArticleFilters], SORT: ArticleSort, SORTS: [ArticleSort], PAGE: Int, PAGE_SIZE: Int, updatedAt_format: String, publishedAt_format: String, searchArg: String): ArticleQueryResults
+  article(_id: String, updatedAt_format: String, publishedAt_format: String, searchArg: String): ArticleSingleQueryResult
+  articleSeriesItems(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], brandIds_count: Int, brandIds_textContains: String, brandIds_startsWith: String, brandIds_endsWith: String, brandIds_regex: String, brandIds: [String], brandIds_in: [[String]], brandIds_contains: String, brandIds_containsAny: [String], brandIds_ne: [String], authorIds_count: Int, authorIds_textContains: String, authorIds_startsWith: String, authorIds_endsWith: String, authorIds_regex: String, authorIds: [String], authorIds_in: [[String]], authorIds_contains: String, authorIds_containsAny: [String], authorIds_ne: [String], type_contains: ArticleSeriesItemType, type_startsWith: ArticleSeriesItemType, type_endsWith: ArticleSeriesItemType, type_regex: ArticleSeriesItemType, type: ArticleSeriesItemType, type_ne: ArticleSeriesItemType, type_in: [ArticleSeriesItemType], publicationDate_lt: String, publicationDate_lte: String, publicationDate_gt: String, publicationDate_gte: String, publicationDate: String, publicationDate_ne: String, publicationDate_in: [String], OR: [ArticleSeriesItemFilters], SORT: ArticleSeriesItemSort, SORTS: [ArticleSeriesItemSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, publicationDate_format: String): ArticleSeriesItemQueryResults
+  articleSeriesItem(_id: String): ArticleSeriesItemQueryResult
+  authors(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], salutation_contains: String, salutation_startsWith: String, salutation_endsWith: String, salutation_regex: String, salutation: String, salutation_ne: String, salutation_in: [String], title_contains: String, title_startsWith: String, title_endsWith: String, title_regex: String, title: String, title_ne: String, title_in: [String], forename_contains: String, forename_startsWith: String, forename_endsWith: String, forename_regex: String, forename: String, forename_ne: String, forename_in: [String], surname_contains: String, surname_startsWith: String, surname_endsWith: String, surname_regex: String, surname: String, surname_ne: String, surname_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], avatarSquareSmall_count: Int, avatarSquareSmall: ImageFilters, avatarSquareLarge_count: Int, avatarSquareLarge: ImageFilters, company_contains: String, company_startsWith: String, company_endsWith: String, company_regex: String, company: String, company_ne: String, company_in: [String], position_contains: String, position_startsWith: String, position_endsWith: String, position_regex: String, position: String, position_ne: String, position_in: [String], roles_contains: String, roles_startsWith: String, roles_endsWith: String, roles_regex: String, roles: String, roles_ne: String, roles_in: [String], bio_contains: String, bio_startsWith: String, bio_endsWith: String, bio_regex: String, bio: String, bio_ne: String, bio_in: [String], contact_contains: String, contact_startsWith: String, contact_endsWith: String, contact_regex: String, contact: String, contact_ne: String, contact_in: [String], email_contains: String, email_startsWith: String, email_endsWith: String, email_regex: String, email: String, email_ne: String, email_in: [String], address_count: Int, address: AddressFilters, telephoneLandline_contains: String, telephoneLandline_startsWith: String, telephoneLandline_endsWith: String, telephoneLandline_regex: String, telephoneLandline: String, telephoneLandline_ne: String, telephoneLandline_in: [String], telephoneMobile_contains: String, telephoneMobile_startsWith: String, telephoneMobile_endsWith: String, telephoneMobile_regex: String, telephoneMobile: String, telephoneMobile_ne: String, telephoneMobile_in: [String], twitter_contains: String, twitter_startsWith: String, twitter_endsWith: String, twitter_regex: String, twitter: String, twitter_ne: String, twitter_in: [String], blog_contains: String, blog_startsWith: String, blog_endsWith: String, blog_regex: String, blog: String, blog_ne: String, blog_in: [String], website_contains: String, website_startsWith: String, website_endsWith: String, website_regex: String, website: String, website_ne: String, website_in: [String], categoryIds_count: Int, categoryIds_textContains: String, categoryIds_startsWith: String, categoryIds_endsWith: String, categoryIds_regex: String, categoryIds: [String], categoryIds_in: [[String]], categoryIds_contains: String, categoryIds_containsAny: [String], categoryIds_ne: [String], tagIds_count: Int, tagIds_textContains: String, tagIds_startsWith: String, tagIds_endsWith: String, tagIds_regex: String, tagIds: [String], tagIds_in: [[String]], tagIds_contains: String, tagIds_containsAny: [String], tagIds_ne: [String], isShortcutAuthor: Boolean, updatedAt_lt: String, updatedAt_lte: String, updatedAt_gt: String, updatedAt_gte: String, updatedAt: String, updatedAt_ne: String, updatedAt_in: [String], publishedAt_lt: String, publishedAt_lte: String, publishedAt_gt: String, publishedAt_gte: String, publishedAt: String, publishedAt_ne: String, publishedAt_in: [String], OR: [AuthorFilters], SORT: AuthorSort, SORTS: [AuthorSort], PAGE: Int, PAGE_SIZE: Int, updatedAt_format: String, publishedAt_format: String, searchArg: String): AuthorQueryResults
+  author(_id: String, updatedAt_format: String, publishedAt_format: String, searchArg: String): AuthorSingleQueryResult
+  sections(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], updatedAt_lt: String, updatedAt_lte: String, updatedAt_gt: String, updatedAt_gte: String, updatedAt: String, updatedAt_ne: String, updatedAt_in: [String], publishedAt_lt: String, publishedAt_lte: String, publishedAt_gt: String, publishedAt_gte: String, publishedAt: String, publishedAt_ne: String, publishedAt_in: [String], OR: [SectionFilters], SORT: SectionSort, SORTS: [SectionSort], PAGE: Int, PAGE_SIZE: Int, updatedAt_format: String, publishedAt_format: String, searchArg: String): SectionQueryResults
+  section(_id: String, updatedAt_format: String, publishedAt_format: String, searchArg: String): SectionSingleQueryResult
+  categories(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], updatedAt_lt: String, updatedAt_lte: String, updatedAt_gt: String, updatedAt_gte: String, updatedAt: String, updatedAt_ne: String, updatedAt_in: [String], publishedAt_lt: String, publishedAt_lte: String, publishedAt_gt: String, publishedAt_gte: String, publishedAt: String, publishedAt_ne: String, publishedAt_in: [String], OR: [CategoryFilters], SORT: CategorySort, SORTS: [CategorySort], PAGE: Int, PAGE_SIZE: Int, updatedAt_format: String, publishedAt_format: String, searchArg: String): CategoryQueryResults
+  category(_id: String, updatedAt_format: String, publishedAt_format: String, searchArg: String): CategorySingleQueryResult
+  tags(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], updatedAt_lt: String, updatedAt_lte: String, updatedAt_gt: String, updatedAt_gte: String, updatedAt: String, updatedAt_ne: String, updatedAt_in: [String], publishedAt_lt: String, publishedAt_lte: String, publishedAt_gt: String, publishedAt_gte: String, publishedAt: String, publishedAt_ne: String, publishedAt_in: [String], OR: [TagFilters], SORT: TagSort, SORTS: [TagSort], PAGE: Int, PAGE_SIZE: Int, updatedAt_format: String, publishedAt_format: String, searchArg: String): TagQueryResults
+  tag(_id: String, updatedAt_format: String, publishedAt_format: String, searchArg: String): TagSingleQueryResult
+  search(keyword: String, filter: FilterInput, PAGE: Int, PAGE_SIZE: Int): ArticleQueryResults
+  cssVersions(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], number_lt: Float, number_lte: Float, number_gt: Float, number_gte: Float, number: Float, number_ne: Float, number_in: [Float], files_count: Int, files: [JSON], publishedAt_lt: String, publishedAt_lte: String, publishedAt_gt: String, publishedAt_gte: String, publishedAt: String, publishedAt_ne: String, publishedAt_in: [String], OR: [CssVersionFilters], SORT: CssVersionSort, SORTS: [CssVersionSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, publishedAt_format: String): CssVersionQueryResults
+  cssVersion(_id: String, publishedAt_format: String): CssVersionSingleQueryResult
+  features(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], type_contains: FeatureType, type_startsWith: FeatureType, type_endsWith: FeatureType, type_regex: FeatureType, type: FeatureType, type_ne: FeatureType, type_in: [FeatureType], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], editorialTitle_contains: String, editorialTitle_startsWith: String, editorialTitle_endsWith: String, editorialTitle_regex: String, editorialTitle: String, editorialTitle_ne: String, editorialTitle_in: [String], editorialContent_contains: String, editorialContent_startsWith: String, editorialContent_endsWith: String, editorialContent_regex: String, editorialContent: String, editorialContent_ne: String, editorialContent_in: [String], suppressName: Boolean, suppressHeader: Boolean, marketingWidget_contains: FeatureMarketingWidget, marketingWidget_startsWith: FeatureMarketingWidget, marketingWidget_endsWith: FeatureMarketingWidget, marketingWidget_regex: FeatureMarketingWidget, marketingWidget: FeatureMarketingWidget, marketingWidget_ne: FeatureMarketingWidget, marketingWidget_in: [FeatureMarketingWidget], deepLink_contains: String, deepLink_startsWith: String, deepLink_endsWith: String, deepLink_regex: String, deepLink: String, deepLink_ne: String, deepLink_in: [String], issueId_contains: String, issueId_startsWith: String, issueId_endsWith: String, issueId_regex: String, issueId: String, issueId_ne: String, issueId_in: [String], articleSeriesId_contains: String, articleSeriesId_startsWith: String, articleSeriesId_endsWith: String, articleSeriesId_regex: String, articleSeriesId: String, articleSeriesId_ne: String, articleSeriesId_in: [String], articleIds_count: Int, articleIds_textContains: String, articleIds_startsWith: String, articleIds_endsWith: String, articleIds_regex: String, articleIds: [String], articleIds_in: [[String]], articleIds_contains: String, articleIds_containsAny: [String], articleIds_ne: [String], OR: [FeatureFilters], SORT: FeatureSort, SORTS: [FeatureSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int): FeatureQueryResults
+  feature(_id: String): FeatureQueryResult
+  periods(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], description_contains: String, description_startsWith: String, description_endsWith: String, description_regex: String, description: String, description_ne: String, description_in: [String], type_contains: PeriodType, type_startsWith: PeriodType, type_endsWith: PeriodType, type_regex: PeriodType, type: PeriodType, type_ne: PeriodType, type_in: [PeriodType], featureIds_count: Int, featureIds_textContains: String, featureIds_startsWith: String, featureIds_endsWith: String, featureIds_regex: String, featureIds: [String], featureIds_in: [[String]], featureIds_contains: String, featureIds_containsAny: [String], featureIds_ne: [String], year_lt: Int, year_lte: Int, year_gt: Int, year_gte: Int, year: Int, year_ne: Int, year_in: [Int], month_lt: Int, month_lte: Int, month_gt: Int, month_gte: Int, month: Int, month_ne: Int, month_in: [Int], week_lt: Int, week_lte: Int, week_gt: Int, week_gte: Int, week: Int, week_ne: Int, week_in: [Int], OR: [PeriodFilters], SORT: PeriodSort, SORTS: [PeriodSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int): PeriodQueryResults
+  period(_id: String, date: String): PeriodQueryResult
+  validate: PetrolUserResponse
+  validateEmail(email: String): MailgunResponse
+  products(code: String, _id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], availableOn_contains: Platform, availableOn_startsWith: Platform, availableOn_endsWith: Platform, availableOn_regex: Platform, availableOn: Platform, availableOn_ne: Platform, availableOn_in: [Platform], inAppPurchaseId_contains: String, inAppPurchaseId_startsWith: String, inAppPurchaseId_endsWith: String, inAppPurchaseId_regex: String, inAppPurchaseId: String, inAppPurchaseId_ne: String, inAppPurchaseId_in: [String], brandId_contains: String, brandId_startsWith: String, brandId_endsWith: String, brandId_regex: String, brandId: String, brandId_ne: String, brandId_in: [String], issueId_contains: String, issueId_startsWith: String, issueId_endsWith: String, issueId_regex: String, issueId: String, issueId_ne: String, issueId_in: [String], isKioskFlatrate: Boolean, isKioskFlatrate_ne: Boolean, isKioskFlatrate_in: [Boolean], isPremium: Boolean, isPremium_ne: Boolean, isPremium_in: [Boolean], isPrinted: Boolean, isPrinted_ne: Boolean, isPrinted_in: [Boolean], duration_lt: Int, duration_lte: Int, duration_gt: Int, duration_gte: Int, duration: Int, duration_ne: Int, duration_in: [Int], numberOfSeats_lt: Int, numberOfSeats_lte: Int, numberOfSeats_gt: Int, numberOfSeats_gte: Int, numberOfSeats: Int, numberOfSeats_ne: Int, numberOfSeats_in: [Int], price_contains: String, price_startsWith: String, price_endsWith: String, price_regex: String, price: String, price_ne: String, price_in: [String], hasFreeTrial: Boolean, hasFreeTrial_ne: Boolean, hasFreeTrial_in: [Boolean], updatedAt_lt: String, updatedAt_lte: String, updatedAt_gt: String, updatedAt_gte: String, updatedAt: String, updatedAt_ne: String, updatedAt_in: [String], publishedAt_lt: String, publishedAt_lte: String, publishedAt_gt: String, publishedAt_gte: String, publishedAt: String, publishedAt_ne: String, publishedAt_in: [String], OR: [ProductFilters], SORT: ProductSort, SORTS: [ProductSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int): ProductQueryResults
+  product(code: String, _id: String): ProductSingleQueryResult
+  transactions(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], origin_contains: String, origin_startsWith: String, origin_endsWith: String, origin_regex: String, origin: String, origin_ne: String, origin_in: [String], receipt: ReceiptFilters, userId_contains: String, userId_startsWith: String, userId_endsWith: String, userId_regex: String, userId: String, userId_ne: String, userId_in: [String], productIds_count: Int, productIds_textContains: String, productIds_startsWith: String, productIds_endsWith: String, productIds_regex: String, productIds: [String], productIds_in: [[String]], productIds_contains: String, productIds_containsAny: [String], productIds_ne: [String], purchasedAt_lt: String, purchasedAt_lte: String, purchasedAt_gt: String, purchasedAt_gte: String, purchasedAt: String, purchasedAt_ne: String, purchasedAt_in: [String], valid: Boolean, valid_ne: Boolean, valid_in: [Boolean], usesInvalidCode: Boolean, usesInvalidCode_ne: Boolean, usesInvalidCode_in: [Boolean], OR: [TransactionFilters], SORT: TransactionSort, SORTS: [TransactionSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, purchasedAt_format: String): TransactionQueryResults
+  transaction(_id: String, purchasedAt_format: String): TransactionSingleQueryResult
+  subscriptionPacks: TransactionQueryResults
+  assignments(status: assignmentQueryStatus, origin: AssignmentOrigin, _id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], assignorUserId_contains: String, assignorUserId_startsWith: String, assignorUserId_endsWith: String, assignorUserId_regex: String, assignorUserId: String, assignorUserId_ne: String, assignorUserId_in: [String], subscriptionCode_contains: String, subscriptionCode_startsWith: String, subscriptionCode_endsWith: String, subscriptionCode_regex: String, subscriptionCode: String, subscriptionCode_ne: String, subscriptionCode_in: [String], isKioskFlatrate: Boolean, isKioskFlatrate_ne: Boolean, isKioskFlatrate_in: [Boolean], startDate_lt: String, startDate_lte: String, startDate_gt: String, startDate_gte: String, startDate: String, startDate_ne: String, startDate_in: [String], endDate_lt: String, endDate_lte: String, endDate_gt: String, endDate_gte: String, endDate: String, endDate_ne: String, endDate_in: [String], valid: Boolean, valid_ne: Boolean, valid_in: [Boolean], OR: [AssignmentFilters], SORT: AssignmentSort, SORTS: [AssignmentSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, startDate_format: String, endDate_format: String): MyAssignmentQueryResults
+  VUConfigurations(_id: String, _id_ne: String, _id_in: [String], csvFileName_contains: String, csvFileName_startsWith: String, csvFileName_endsWith: String, csvFileName_regex: String, csvFileName: String, csvFileName_ne: String, csvFileName_in: [String], brandIds_count: Int, brandIds_textContains: String, brandIds_startsWith: String, brandIds_endsWith: String, brandIds_regex: String, brandIds: [String], brandIds_in: [[String]], brandIds_contains: String, brandIds_containsAny: [String], brandIds_ne: [String], OR: [VUConfigurationFilters], SORT: VUConfigurationSort, SORTS: [VUConfigurationSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int): VUConfigurationQueryResults
+  VUConfiguration(_id: String): VUConfigurationSingleQueryResult
+  usersInDomain(_id: String): [UsersInDomainQueryResult]
+  emailKioskFlatrateAccessesAdminInfo(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], emailDomains_count: Int, emailDomains_textContains: String, emailDomains_startsWith: String, emailDomains_endsWith: String, emailDomains_regex: String, emailDomains: [String], emailDomains_in: [[String]], emailDomains_contains: String, emailDomains_containsAny: [String], emailDomains_ne: [String], assigneeUserIds_count: Int, assigneeUserIds_textContains: String, assigneeUserIds_startsWith: String, assigneeUserIds_endsWith: String, assigneeUserIds_regex: String, assigneeUserIds: [String], assigneeUserIds_in: [[String]], assigneeUserIds_contains: String, assigneeUserIds_containsAny: [String], assigneeUserIds_ne: [String], archivedUserIds_count: Int, archivedUserIds_textContains: String, archivedUserIds_startsWith: String, archivedUserIds_endsWith: String, archivedUserIds_regex: String, archivedUserIds: [String], archivedUserIds_in: [[String]], archivedUserIds_contains: String, archivedUserIds_containsAny: [String], archivedUserIds_ne: [String], numberOfSeats_lt: Int, numberOfSeats_lte: Int, numberOfSeats_gt: Int, numberOfSeats_gte: Int, numberOfSeats: Int, numberOfSeats_ne: Int, numberOfSeats_in: [Int], updatedAt_lt: String, updatedAt_lte: String, updatedAt_gt: String, updatedAt_gte: String, updatedAt: String, updatedAt_ne: String, updatedAt_in: [String], createdAt_lt: String, createdAt_lte: String, createdAt_gt: String, createdAt_gte: String, createdAt: String, createdAt_ne: String, createdAt_in: [String], startDate_lt: String, startDate_lte: String, startDate_gt: String, startDate_gte: String, startDate: String, startDate_ne: String, startDate_in: [String], endDate_lt: String, endDate_lte: String, endDate_gt: String, endDate_gte: String, endDate: String, endDate_ne: String, endDate_in: [String], customerId_lt: String, customerId_lte: String, customerId_gt: String, customerId_gte: String, customerId: String, customerId_ne: String, customerId_in: [String], invoiceId_contains: String, invoiceId_startsWith: String, invoiceId_endsWith: String, invoiceId_regex: String, invoiceId: String, invoiceId_ne: String, invoiceId_in: [String], valid: Boolean, valid_ne: Boolean, valid_in: [Boolean], OR: [EmailKioskFlatrateAccessPublicFilters], SORT: EmailKioskFlatrateAccessPublicSort, SORTS: [EmailKioskFlatrateAccessPublicSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int): EmailKioskFlatrateAccessPublicQueryResults
+  emailKioskFlatrateAccessAdminInfo(_id: String): EmailKioskFlatrateAccessPublicSingleQueryResult
+  ipKioskFlatrateAccessAdminInfo(_id: String): IpKioskFlatrateAccessPublicSingleQueryResult
+  ipKioskFlatrateAccessesAdminInfo(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], ipAddresses_count: Int, ipAddresses_textContains: String, ipAddresses_startsWith: String, ipAddresses_endsWith: String, ipAddresses_regex: String, ipAddresses: [String], ipAddresses_in: [[String]], ipAddresses_contains: String, ipAddresses_containsAny: [String], ipAddresses_ne: [String], assigneeUserIds_count: Int, numberOfSeats_lt: Int, numberOfSeats_lte: Int, numberOfSeats_gt: Int, numberOfSeats_gte: Int, numberOfSeats: Int, numberOfSeats_ne: Int, numberOfSeats_in: [Int], updatedAt_lt: String, updatedAt_lte: String, updatedAt_gt: String, updatedAt_gte: String, updatedAt: String, updatedAt_ne: String, updatedAt_in: [String], createdAt_lt: String, createdAt_lte: String, createdAt_gt: String, createdAt_gte: String, createdAt: String, createdAt_ne: String, createdAt_in: [String], startDate_lt: String, startDate_lte: String, startDate_gt: String, startDate_gte: String, startDate: String, startDate_ne: String, startDate_in: [String], endDate_lt: String, endDate_lte: String, endDate_gt: String, endDate_gte: String, endDate: String, endDate_ne: String, endDate_in: [String], valid: Boolean, valid_ne: Boolean, valid_in: [Boolean], OR: [IpKioskFlatrateAccessFiltersPublic], SORT: IpKioskFlatrateAccessSortPublic, SORTS: [IpKioskFlatrateAccessSortPublic], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int): IpKioskFlatrateAccessPublicQueryResults
+  events(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], uniqueId_contains: String, uniqueId_startsWith: String, uniqueId_endsWith: String, uniqueId_regex: String, uniqueId: String, uniqueId_ne: String, uniqueId_in: [String], swapCardId_contains: String, swapCardId_startsWith: String, swapCardId_endsWith: String, swapCardId_regex: String, swapCardId: String, swapCardId_ne: String, swapCardId_in: [String], type_contains: EventType, type_startsWith: EventType, type_endsWith: EventType, type_regex: EventType, type: EventType, type_ne: EventType, type_in: [EventType], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], OR: [EventFilters], SORT: EventSort, SORTS: [EventSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, startDate_format: String, endDate_format: String, publishedAt_format: String, updatedAt_format: String): EventQueryResults
+  event(_id: String, uniqueId: String, swapCardId: String, name: String, startDate_format: String, endDate_format: String, publishedAt_format: String, updatedAt_format: String): EventSingleQueryResult
+  rooms(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], uniqueId_contains: String, uniqueId_startsWith: String, uniqueId_endsWith: String, uniqueId_regex: String, uniqueId: String, uniqueId_ne: String, uniqueId_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], OR: [RoomFilters], SORT: RoomSort, SORTS: [RoomSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, startDate_format: String, endDate_format: String, publishedAt_format: String, updatedAt_format: String): RoomQueryResults
+  room(_id: String, uniqueId: String, name: String, publishedAt_format: String, updatedAt_format: String): RoomSingleQueryResult
+  conferences(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], uniqueId_contains: String, uniqueId_startsWith: String, uniqueId_endsWith: String, uniqueId_regex: String, uniqueId: String, uniqueId_ne: String, uniqueId_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], startDate_lt: String, startDate_lte: String, startDate_gt: String, startDate_gte: String, startDate: String, startDate_ne: String, startDate_in: [String], endDate_lt: String, endDate_lte: String, endDate_gt: String, endDate_gte: String, endDate: String, endDate_ne: String, endDate_in: [String], eventId_contains: String, eventId_startsWith: String, eventId_endsWith: String, eventId_regex: String, eventId: String, eventId_ne: String, eventId_in: [String], OR: [ConferenceFilters], SORT: ConferenceSort, SORTS: [ConferenceSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, startDate_format: String, endDate_format: String, publishedAt_format: String, updatedAt_format: String): ConferenceQueryResults
+  conference(_id: String, uniqueId: String, name: String, shortName: String, startDate_format: String, endDate_format: String, publishedAt_format: String, updatedAt_format: String): ConferenceSingleQueryResult
+  tracks(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], uniqueId_contains: String, uniqueId_startsWith: String, uniqueId_endsWith: String, uniqueId_regex: String, uniqueId: String, uniqueId_ne: String, uniqueId_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], specialDay: Boolean, eventId_contains: String, eventId_startsWith: String, eventId_endsWith: String, eventId_regex: String, eventId: String, eventId_ne: String, eventId_in: [String], conferenceIds: [String], conferenceIds_in: [[String]], conferenceIds_contains: String, conferenceIds_containsAny: [String], conferenceIds_ne: [String], OR: [TrackFilters], SORT: TrackSort, SORTS: [TrackSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, startDate_format: String, endDate_format: String, updatedAt_format: String): TrackQueryResults
+  track(_id: String, uniqueId: String, startDate_format: String, endDate_format: String, updatedAt_format: String): TrackSingleQueryResult
+  sessionTypes(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], uniqueId_contains: String, uniqueId_startsWith: String, uniqueId_endsWith: String, uniqueId_regex: String, uniqueId: String, uniqueId_ne: String, uniqueId_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], appType_contains: String, appType_startsWith: String, appType_endsWith: String, appType_regex: String, appType: String, appType_ne: String, appType_in: [String], eventId_contains: String, eventId_startsWith: String, eventId_endsWith: String, eventId_regex: String, eventId: String, eventId_ne: String, eventId_in: [String], conferenceIds: [String], conferenceIds_in: [[String]], conferenceIds_contains: String, conferenceIds_containsAny: [String], conferenceIds_ne: [String], OR: [SessionTypeFilters], SORT: SessionTypeSort, SORTS: [SessionTypeSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, startDate_format: String, endDate_format: String, updatedAt_format: String): SessionTypeQueryResults
+  sessionType(_id: String, uniqueId: String, startDate_format: String, endDate_format: String, updatedAt_format: String): SessionTypeSingleQueryResult
+  sessions(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], uniqueId_contains: String, uniqueId_startsWith: String, uniqueId_endsWith: String, uniqueId_regex: String, uniqueId: String, uniqueId_ne: String, uniqueId_in: [String], type_contains: String, type_startsWith: String, type_endsWith: String, type_regex: String, type: String, type_ne: String, type_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], startDate_lt: String, startDate_lte: String, startDate_gt: String, startDate_gte: String, startDate: String, startDate_ne: String, startDate_in: [String], endDate_lt: String, endDate_lte: String, endDate_gt: String, endDate_gte: String, endDate: String, endDate_ne: String, endDate_in: [String], eventId_contains: String, eventId_startsWith: String, eventId_endsWith: String, eventId_regex: String, eventId: String, eventId_ne: String, eventId_in: [String], conferenceIds: [String], conferenceIds_in: [[String]], conferenceIds_contains: String, conferenceIds_containsAny: [String], conferenceIds_ne: [String], OR: [SessionFilters], SORT: SessionSort, SORTS: [SessionSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, startDate_format: String, endDate_format: String, updatedAt_format: String): SessionQueryResults
+  session(_id: String, uniqueId: String, startDate_format: String, endDate_format: String, updatedAt_format: String): SessionSingleQueryResult
+  speakers(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], uniqueId_contains: String, uniqueId_startsWith: String, uniqueId_endsWith: String, uniqueId_regex: String, uniqueId: String, uniqueId_ne: String, uniqueId_in: [String], eventId_contains: String, eventId_startsWith: String, eventId_endsWith: String, eventId_regex: String, eventId: String, eventId_ne: String, eventId_in: [String], conferenceIds: [String], conferenceIds_in: [[String]], conferenceIds_contains: String, conferenceIds_containsAny: [String], conferenceIds_ne: [String], OR: [SpeakerFilters], SORT: SpeakerSort, SORTS: [SpeakerSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, startDate_format: String, endDate_format: String, updatedAt_format: String): SpeakerQueryResults
+  speaker(_id: String, uniqueId: String, startDate_format: String, endDate_format: String, updatedAt_format: String): SpeakerSingleQueryResult
+  modules(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], uniqueId_contains: String, uniqueId_startsWith: String, uniqueId_endsWith: String, uniqueId_regex: String, uniqueId: String, uniqueId_ne: String, uniqueId_in: [String], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], eventId_contains: String, eventId_startsWith: String, eventId_endsWith: String, eventId_regex: String, eventId: String, eventId_ne: String, eventId_in: [String], OR: [ModuleFilters], SORT: ModuleSort, SORTS: [ModuleSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, startDate_format: String, endDate_format: String, publishedAt_format: String, updatedAt_format: String): ModuleQueryResults
+  module(_id: String, uniqueId: String, name: String, publishedAt_format: String, updatedAt_format: String): ModuleSingleQueryResult
+  criteria(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], type: CriterionType, type_ne: CriterionType, type_in: [CriterionType], name_contains: String, name_startsWith: String, name_endsWith: String, name_regex: String, name: String, name_ne: String, name_in: [String], option: CriterionOption, option_ne: CriterionOption, option_in: [CriterionOption], referenceId_contains: String, referenceId_startsWith: String, referenceId_endsWith: String, referenceId_regex: String, referenceId: String, referenceId_ne: String, referenceId_in: [String], actionId_contains: String, actionId_startsWith: String, actionId_endsWith: String, actionId_regex: String, actionId: String, actionId_ne: String, actionId_in: [String], OR: [CriterionFilters], SORT: CriterionSort, SORTS: [CriterionSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, startDate_format: String, endDate_format: String, publishedAt_format: String, updatedAt_format: String): CriterionQueryResults
+  criterion(_id: String, name: String, startDate_format: String, endDate_format: String, publishedAt_format: String, updatedAt_format: String): CriterionSingleQueryResult
+  actions(_id_contains: String, _id_startsWith: String, _id_endsWith: String, _id_regex: String, _id: String, _id_ne: String, _id_in: [String], type: ActionType, type_ne: ActionType, type_in: [ActionType], OR: [ActionFilters], SORT: ActionSort, SORTS: [ActionSort], LIMIT: Int, SKIP: Int, PAGE: Int, PAGE_SIZE: Int, publishedAt_format: String, updatedAt_format: String): ActionQueryResults
+  action(_id: String, publishedAt_format: String, updatedAt_format: String): ActionSingleQueryResult
+}
+
+input ImageFilters {
+  x_contains: String
+  x_startsWith: String
+  x_endsWith: String
+  x_regex: String
+  x: String
+  x_ne: String
+  x_in: [String]
+  xx_contains: String
+  xx_startsWith: String
+  xx_endsWith: String
+  xx_regex: String
+  xx: String
+  xx_ne: String
+  xx_in: [String]
+  xxx_contains: String
+  xxx_startsWith: String
+  xxx_endsWith: String
+  xxx_regex: String
+  xxx: String
+  xxx_ne: String
+  xxx_in: [String]
+  xxxx_contains: String
+  xxxx_startsWith: String
+  xxxx_endsWith: String
+  xxxx_regex: String
+  xxxx: String
+  xxxx_ne: String
+  xxxx_in: [String]
+  svg_contains: String
+  svg_startsWith: String
+  svg_endsWith: String
+  svg_regex: String
+  svg: String
+  svg_ne: String
+  svg_in: [String]
+  OR: [ImageFilters]
+}
+
+enum BrandType {
+  PREMIUM
+  DIGITAL
+  FREE
+}
+
+enum BrandLanguage {
+  ENGLISH
+  GERMAN
+}
+
+input BrandFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  slogan_contains: String
+  slogan_startsWith: String
+  slogan_endsWith: String
+  slogan_regex: String
+  slogan: String
+  slogan_ne: String
+  slogan_in: [String]
+  colour_contains: String
+  colour_startsWith: String
+  colour_endsWith: String
+  colour_regex: String
+  colour: String
+  colour_ne: String
+  colour_in: [String]
+  logo_count: Int
+  logo: ImageFilters
+  header_count: Int
+  header: ImageFilters
+  productId_contains: String
+  productId_startsWith: String
+  productId_endsWith: String
+  productId_regex: String
+  productId: String
+  productId_ne: String
+  productId_in: [String]
+  price_contains: String
+  price_startsWith: String
+  price_endsWith: String
+  price_regex: String
+  price: String
+  price_ne: String
+  price_in: [String]
+  size: Int
+  type_contains: BrandType
+  type_startsWith: BrandType
+  type_endsWith: BrandType
+  type_regex: BrandType
+  type: BrandType
+  type_ne: BrandType
+  type_in: [BrandType]
+  introText_contains: String
+  introText_startsWith: String
+  introText_endsWith: String
+  introText_regex: String
+  introText: String
+  introText_ne: String
+  introText_in: [String]
+  publicationFrequency_lt: Int
+  publicationFrequency_lte: Int
+  publicationFrequency_gt: Int
+  publicationFrequency_gte: Int
+  publicationFrequency: Int
+  publicationFrequency_ne: Int
+  publicationFrequency_in: [Int]
+  language_contains: BrandLanguage
+  language_startsWith: BrandLanguage
+  language_endsWith: BrandLanguage
+  language_regex: BrandLanguage
+  language: BrandLanguage
+  language_ne: BrandLanguage
+  language_in: [BrandLanguage]
+  order: Int
+  isInArticleStream: Boolean
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  publishedAt_lt: String
+  publishedAt_lte: String
+  publishedAt_gt: String
+  publishedAt_gte: String
+  publishedAt: String
+  publishedAt_ne: String
+  publishedAt_in: [String]
+  OR: [BrandFilters]
+}
+
+input BrandSort {
+  _id: Int
+  order: Int
+  name: Int
+  slogan: Int
+  updatedAt: Int
+  publishedAt: Int
+}
+
+type BrandQueryResults {
+  Brands: [Brand]
+  Meta: QueryResultsMetadata
+}
+
+type Brand {
+  _id: String
+  name: String
+  slogan: String
+  logo: Image
+  header: Image
+  productId: String
+  price: String
+  size: Int
+  type: BrandType
+  introText: String
+  publicationFrequency: Int
+  language: BrandLanguage
+  deepLink: String
+  order: Int
+  isInArticleStream: Boolean
+  accessible: Boolean
+  updatedAt: String
+  publishedAt: String
+  numberOfIssues: Int
+  issues(SORT: IssueSort, SORTS: [IssueSort]): [Issue]
+  latestIssue: Issue
+}
+
+type Image {
+  x: String
+  xx: String
+  xxx: String
+  xxxx: String
+  svg: String
+}
+
+input IssueSort {
+  _id: Int
+  brandId: Int
+  designation: Int
+  publicationDate: Int
+  year: Int
+  month: Int
+  updatedAt: Int
+  publishedAt: Int
+}
+
+type Issue {
+  _id: String
+  brandId: String
+  designation: String
+  coverStory: String
+  productId: String
+  price: String
+  publicationDate: String
+  year: Int
+  month: Int
+  cover: Image
+  thumbnailSmall: Image
+  thumbnailMedium: Image
+  thumbnailLarge: Image
+  banner: Image
+  bannerCompact: Image
+  css: [File]
+  fonts: [File]
+  resources: [File]
+  size: Int
+  accessible: Boolean
+  downloadable: Boolean
+  purchased: Boolean
+  deepLink: String
+  updatedAt: String
+  publishedAt: String
+  numberOfArticles: Int
+  numberOfAuthors: Int
+  brand: Brand
+  articles(SORT: ArticleSort, SORTS: [ArticleSort]): [Article]
+}
+
+type File {
+  name: String
+  type: String
+  url: String
+  uploadedAt: String
+}
+
+input ArticleSort {
+  _id: Int
+  name: Int
+  type: Int
+  subtitle: Int
+  order: Int
+  articleSeriesOrder: Int
+  publicationOrder: Int
+  streamOrder: Int
+  leaderOrder: Int
+  updatedAt: Int
+  publishedAt: Int
+}
+
+type Article {
+  _id: String
+  name: String
+  subtitle: String
+  abstract: String
+  textExcerpt: String @deprecated(reason: "No longer supported")
+  content: String
+  paywallContent: String
+  order: Int
+  articleSeriesOrder: Int
+  htmlContent: String @deprecated(reason: "No longer supported")
+  searchContent: String
+  teaserImage: Image
+  teaserCopyright: String
+  baseUrl: String
+  images: [String]
+  resource: File
+  brandId: String
+  issueId: String
+  articleSeriesId: String
+  authorIds: [String]
+  sectionId: String
+  categoryIds: [String]
+  tagIds: [String]
+  type: ArticleType
+  isEditorial: Boolean @deprecated(reason: "No longer supported")
+  isLeader: Boolean
+  isNonSearchable: Boolean
+  isInArticleStream: Boolean
+  isInGlobalArticleStream: Boolean
+  isArchetype: Boolean
+  deepLink: String
+  publicationOrder: Int
+  streamOrder: Int
+  leaderOrder: Int
+  year: Int
+  month: Int
+  accessible: Boolean
+  downloadable: Boolean
+  read: Boolean
+  updatedAt: String
+  publishedAt: String
+  brand: Brand
+  issue: Issue
+  articleSeries: ArticleSeriesItem
+  authors(SORT: AuthorSort, SORTS: [AuthorSort]): [Author]
+  section: Section
+  categories(SORT: CategorySort, SORTS: [CategorySort]): [Category]
+  tags(SORT: TagSort, SORTS: [TagSort]): [Tag]
+  score: String
+}
+
+enum ArticleType {
+  STANDARD
+  EDITORIAL
+  SERIES
+  KOLUMNE
+  INTERVIEW
+  BUCHREVIEW
+  INFOGRAFIK
+  IMPRESSUM
+}
+
+type ArticleSeriesItem {
+  _id: String
+  name: String
+  description: String
+  teaser: Image
+  teaserCopyright: String
+  brandIds: [String]
+  authorIds: [String]
+  type: ArticleSeriesItemType
+  deepLink: String
+  publicationDate: String
+  updatedAt: String
+  publishedAt: String
+  brands(SORT: BrandSort, SORTS: [BrandSort]): [Brand]
+  authors(SORT: AuthorSort, SORTS: [AuthorSort]): [Author]
+  articles(SORT: ArticleSort, SORTS: [ArticleSort]): [Article]
+}
+
+enum ArticleSeriesItemType {
+  SERIES
+  COLUMN
+}
+
+input AuthorSort {
+  _id: Int
+  salutation: Int
+  title: Int
+  forename: Int
+  surname: Int
+  name: Int
+  company: Int
+  isShortcutAuthor: Int
+  updatedAt: Int
+  publishedAt: Int
+}
+
+type Author {
+  _id: String
+  salutation: String
+  title: String
+  forename: String
+  surname: String
+  name: String
+  avatarSquareSmall: Image
+  avatarSquareLarge: Image
+  company: String
+  position: String
+  roles: String
+  bio: String
+  contact: String
+  email: String
+  address: Address
+  telephoneLandline: String
+  telephoneMobile: String
+  twitter: String
+  blog: String
+  website: String
+  categoryIds: [String]
+  tagIds: [String]
+  deepLink: String
+  isShortcutAuthor: Boolean
+  updatedAt: String
+  publishedAt: String
+  numberOfArticles: Int
+  articles(SORT: ArticleSort, SORTS: [ArticleSort]): [Article]
+  categories(SORT: CategorySort, SORTS: [CategorySort]): [Category]
+  tags(SORT: TagSort, SORTS: [TagSort]): [Tag]
+}
+
+type Address {
+  name: String
+  latitude: Float
+  longitude: Float
+  street: String
+  zipCode: Int
+  ort: String
+  country: String
+}
+
+input CategorySort {
+  _id: Int
+  name: Int
+  updatedAt: Int
+  publishedAt: Int
+}
+
+type Category {
+  _id: String
+  name: String
+  deepLink: String
+  updatedAt: String
+  publishedAt: String
+  numberOfArticles: Int
+  numberOfAuthors: Int
+  articles(SORT: ArticleSort, SORTS: [ArticleSort]): [Article]
+  authors(SORT: AuthorSort, SORTS: [AuthorSort]): [Author]
+}
+
+input TagSort {
+  _id: Int
+  name: Int
+  updatedAt: Int
+  publishedAt: Int
+}
+
+type Tag {
+  _id: String
+  name: String
+  deepLink: String
+  updatedAt: String
+  publishedAt: String
+  numberOfArticles: Int
+  numberOfAuthors: Int
+  articles(SORT: ArticleSort, SORTS: [ArticleSort]): [Article]
+  authors(SORT: AuthorSort, SORTS: [AuthorSort]): [Author]
+}
+
+type Section {
+  _id: String
+  name: String
+  deepLink: String
+  updatedAt: String
+  publishedAt: String
+  numberOfArticles: Int
+  articles(SORT: ArticleSort, SORTS: [ArticleSort]): [Article]
+}
+
+type QueryResultsMetadata {
+  count: Int
+}
+
+type BrandSingleQueryResult {
+  Brand: Brand
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+input IssueFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  brandId_contains: String
+  brandId_startsWith: String
+  brandId_endsWith: String
+  brandId_regex: String
+  brandId: String
+  brandId_ne: String
+  brandId_in: [String]
+  designation_contains: String
+  designation_startsWith: String
+  designation_endsWith: String
+  designation_regex: String
+  designation: String
+  designation_ne: String
+  designation_in: [String]
+  coverStory_contains: String
+  coverStory_startsWith: String
+  coverStory_endsWith: String
+  coverStory_regex: String
+  coverStory: String
+  coverStory_ne: String
+  coverStory_in: [String]
+  productId_contains: String
+  productId_startsWith: String
+  productId_endsWith: String
+  productId_regex: String
+  productId: String
+  productId_ne: String
+  productId_in: [String]
+  price_contains: String
+  price_startsWith: String
+  price_endsWith: String
+  price_regex: String
+  price: String
+  price_ne: String
+  price_in: [String]
+  publicationDate_lt: String
+  publicationDate_lte: String
+  publicationDate_gt: String
+  publicationDate_gte: String
+  publicationDate: String
+  publicationDate_ne: String
+  publicationDate_in: [String]
+  year_lt: Int
+  year_lte: Int
+  year_gt: Int
+  year_gte: Int
+  year: Int
+  year_ne: Int
+  year_in: [Int]
+  month_lt: Int
+  month_lte: Int
+  month_gt: Int
+  month_gte: Int
+  month: Int
+  month_ne: Int
+  month_in: [Int]
+  cover_count: Int
+  cover: ImageFilters
+  thumbnailSmall_count: Int
+  thumbnailSmall: ImageFilters
+  thumbnailMedium_count: Int
+  thumbnailMedium: ImageFilters
+  thumbnailLarge_count: Int
+  thumbnailLarge: ImageFilters
+  banner_count: Int
+  banner: ImageFilters
+  bannerCompact_count: Int
+  bannerCompact: ImageFilters
+  css_count: Int
+  css: [FileFilters]
+  fonts_count: Int
+  fonts: [FileFilters]
+  size_lt: Int
+  size_lte: Int
+  size_gt: Int
+  size_gte: Int
+  size: Int
+  size_ne: Int
+  size_in: [Int]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  publishedAt_lt: String
+  publishedAt_lte: String
+  publishedAt_gt: String
+  publishedAt_gte: String
+  publishedAt: String
+  publishedAt_ne: String
+  publishedAt_in: [String]
+  OR: [IssueFilters]
+}
+
+input FileFilters {
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  type_contains: String
+  type_startsWith: String
+  type_endsWith: String
+  type_regex: String
+  type: String
+  type_ne: String
+  type_in: [String]
+  url_contains: String
+  url_startsWith: String
+  url_endsWith: String
+  url_regex: String
+  url: String
+  url_ne: String
+  url_in: [String]
+  uploadedAt_contains: String
+  uploadedAt_startsWith: String
+  uploadedAt_endsWith: String
+  uploadedAt_regex: String
+  uploadedAt: String
+  uploadedAt_ne: String
+  uploadedAt_in: [String]
+  OR: [FileFilters]
+}
+
+type IssueQueryResults {
+  Issues: [Issue]
+  Meta: QueryResultsMetadata
+}
+
+type IssueSingleQueryResult {
+  Issue: Issue
+}
+
+input ArticleFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  type: ArticleType
+  type_in: [ArticleType]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  subtitle_contains: String
+  subtitle_startsWith: String
+  subtitle_endsWith: String
+  subtitle_regex: String
+  subtitle: String
+  subtitle_ne: String
+  subtitle_in: [String]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  order: Int
+  order_ne: Int
+  order_in: [Int]
+  articleSeriesOrder_lt: Int
+  articleSeriesOrder_lte: Int
+  articleSeriesOrder_gt: Int
+  articleSeriesOrder_gte: Int
+  articleSeriesOrder: Int
+  articleSeriesOrder_ne: Int
+  articleSeriesOrder_in: [Int]
+  teaserImage_count: Int
+  teaserImage: ImageFilters
+  baseUrl_contains: String
+  baseUrl_startsWith: String
+  baseUrl_endsWith: String
+  baseUrl_regex: String
+  baseUrl: String
+  baseUrl_ne: String
+  baseUrl_in: [String]
+  images_count: Int
+  images_textContains: String
+  images_startsWith: String
+  images_endsWith: String
+  images_regex: String
+  images: [String]
+  images_in: [[String]]
+  images_contains: String
+  images_containsAny: [String]
+  images_ne: [String]
+  resource_count: Int
+  resource: FileFilters
+  brandId_contains: String
+  brandId_startsWith: String
+  brandId_endsWith: String
+  brandId_regex: String
+  brandId: String
+  brandId_ne: String
+  brandId_in: [String]
+  issueId_contains: String
+  issueId_startsWith: String
+  issueId_endsWith: String
+  issueId_regex: String
+  issueId: String
+  issueId_ne: String
+  issueId_in: [String]
+  articleSeriesId_contains: String
+  articleSeriesId_startsWith: String
+  articleSeriesId_endsWith: String
+  articleSeriesId_regex: String
+  articleSeriesId: String
+  articleSeriesId_ne: String
+  articleSeriesId_in: [String]
+  authorIds_count: Int
+  authorIds_textContains: String
+  authorIds_startsWith: String
+  authorIds_endsWith: String
+  authorIds_regex: String
+  authorIds: [String]
+  authorIds_in: [[String]]
+  authorIds_contains: String
+  authorIds_containsAny: [String]
+  authorIds_ne: [String]
+  sectionId_contains: String
+  sectionId_startsWith: String
+  sectionId_endsWith: String
+  sectionId_regex: String
+  sectionId: String
+  sectionId_ne: String
+  sectionId_in: [String]
+  categoryIds_count: Int
+  categoryIds_textContains: String
+  categoryIds_startsWith: String
+  categoryIds_endsWith: String
+  categoryIds_regex: String
+  categoryIds: [String]
+  categoryIds_in: [[String]]
+  categoryIds_contains: String
+  categoryIds_containsAny: [String]
+  categoryIds_ne: [String]
+  tagIds_count: Int
+  tagIds_textContains: String
+  tagIds_startsWith: String
+  tagIds_endsWith: String
+  tagIds_regex: String
+  tagIds: [String]
+  tagIds_in: [[String]]
+  tagIds_contains: String
+  tagIds_containsAny: [String]
+  tagIds_ne: [String]
+  isEditorial: Boolean
+  isLeader: Boolean
+  isNonSearchable: Boolean
+  isInArticleStream: Boolean
+  isInGlobalArticleStream: Boolean
+  isArchetype: Boolean
+  publicationOrder_lt: Int
+  publicationOrder_lte: Int
+  publicationOrder_gt: Int
+  publicationOrder_gte: Int
+  publicationOrder: Int
+  publicationOrder_ne: Int
+  publicationOrder_in: [Int]
+  streamOrder_lt: Int
+  streamOrder_lte: Int
+  streamOrder_gt: Int
+  streamOrder_gte: Int
+  streamOrder: Int
+  streamOrder_ne: Int
+  streamOrder_in: [Int]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  publishedAt_lt: String
+  publishedAt_lte: String
+  publishedAt_gt: String
+  publishedAt_gte: String
+  publishedAt: String
+  publishedAt_ne: String
+  publishedAt_in: [String]
+  OR: [ArticleFilters]
+}
+
+type ArticleQueryResults {
+  Articles: [Article]
+  Meta: QueryResultsMetadata
+}
+
+type ArticleSingleQueryResult {
+  Article: Article
+}
+
+input ArticleSeriesItemFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  brandIds_count: Int
+  brandIds_textContains: String
+  brandIds_startsWith: String
+  brandIds_endsWith: String
+  brandIds_regex: String
+  brandIds: [String]
+  brandIds_in: [[String]]
+  brandIds_contains: String
+  brandIds_containsAny: [String]
+  brandIds_ne: [String]
+  authorIds_count: Int
+  authorIds_textContains: String
+  authorIds_startsWith: String
+  authorIds_endsWith: String
+  authorIds_regex: String
+  authorIds: [String]
+  authorIds_in: [[String]]
+  authorIds_contains: String
+  authorIds_containsAny: [String]
+  authorIds_ne: [String]
+  type_contains: ArticleSeriesItemType
+  type_startsWith: ArticleSeriesItemType
+  type_endsWith: ArticleSeriesItemType
+  type_regex: ArticleSeriesItemType
+  type: ArticleSeriesItemType
+  type_ne: ArticleSeriesItemType
+  type_in: [ArticleSeriesItemType]
+  publicationDate_lt: String
+  publicationDate_lte: String
+  publicationDate_gt: String
+  publicationDate_gte: String
+  publicationDate: String
+  publicationDate_ne: String
+  publicationDate_in: [String]
+  OR: [ArticleSeriesItemFilters]
+}
+
+input ArticleSeriesItemSort {
+  _id: Int
+  name: Int
+  publicationDate: Int
+}
+
+type ArticleSeriesItemQueryResults {
+  ArticleSeriesItems: [ArticleSeriesItem]
+  Meta: QueryResultsMetadata
+}
+
+type ArticleSeriesItemQueryResult {
+  ArticleSeriesItem: ArticleSeriesItem
+}
+
+input AddressFilters {
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  latitude: Float
+  latitude_ne: Float
+  latitude_in: [Float]
+  longitude: Float
+  longitude_ne: Float
+  longitude_in: [Float]
+  street_contains: String
+  street_startsWith: String
+  street_endsWith: String
+  street_regex: String
+  street: String
+  street_ne: String
+  street_in: [String]
+  zipCode: Int
+  zipCode_ne: Int
+  zipCode_in: [Int]
+  ort_contains: String
+  ort_startsWith: String
+  ort_endsWith: String
+  ort_regex: String
+  ort: String
+  ort_ne: String
+  ort_in: [String]
+  country_contains: String
+  country_startsWith: String
+  country_endsWith: String
+  country_regex: String
+  country: String
+  country_ne: String
+  country_in: [String]
+  OR: [AddressFilters]
+}
+
+input AuthorFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  salutation_contains: String
+  salutation_startsWith: String
+  salutation_endsWith: String
+  salutation_regex: String
+  salutation: String
+  salutation_ne: String
+  salutation_in: [String]
+  title_contains: String
+  title_startsWith: String
+  title_endsWith: String
+  title_regex: String
+  title: String
+  title_ne: String
+  title_in: [String]
+  forename_contains: String
+  forename_startsWith: String
+  forename_endsWith: String
+  forename_regex: String
+  forename: String
+  forename_ne: String
+  forename_in: [String]
+  surname_contains: String
+  surname_startsWith: String
+  surname_endsWith: String
+  surname_regex: String
+  surname: String
+  surname_ne: String
+  surname_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  avatarSquareSmall_count: Int
+  avatarSquareSmall: ImageFilters
+  avatarSquareLarge_count: Int
+  avatarSquareLarge: ImageFilters
+  company_contains: String
+  company_startsWith: String
+  company_endsWith: String
+  company_regex: String
+  company: String
+  company_ne: String
+  company_in: [String]
+  position_contains: String
+  position_startsWith: String
+  position_endsWith: String
+  position_regex: String
+  position: String
+  position_ne: String
+  position_in: [String]
+  roles_contains: String
+  roles_startsWith: String
+  roles_endsWith: String
+  roles_regex: String
+  roles: String
+  roles_ne: String
+  roles_in: [String]
+  bio_contains: String
+  bio_startsWith: String
+  bio_endsWith: String
+  bio_regex: String
+  bio: String
+  bio_ne: String
+  bio_in: [String]
+  contact_contains: String
+  contact_startsWith: String
+  contact_endsWith: String
+  contact_regex: String
+  contact: String
+  contact_ne: String
+  contact_in: [String]
+  email_contains: String
+  email_startsWith: String
+  email_endsWith: String
+  email_regex: String
+  email: String
+  email_ne: String
+  email_in: [String]
+  address_count: Int
+  address: AddressFilters
+  telephoneLandline_contains: String
+  telephoneLandline_startsWith: String
+  telephoneLandline_endsWith: String
+  telephoneLandline_regex: String
+  telephoneLandline: String
+  telephoneLandline_ne: String
+  telephoneLandline_in: [String]
+  telephoneMobile_contains: String
+  telephoneMobile_startsWith: String
+  telephoneMobile_endsWith: String
+  telephoneMobile_regex: String
+  telephoneMobile: String
+  telephoneMobile_ne: String
+  telephoneMobile_in: [String]
+  twitter_contains: String
+  twitter_startsWith: String
+  twitter_endsWith: String
+  twitter_regex: String
+  twitter: String
+  twitter_ne: String
+  twitter_in: [String]
+  blog_contains: String
+  blog_startsWith: String
+  blog_endsWith: String
+  blog_regex: String
+  blog: String
+  blog_ne: String
+  blog_in: [String]
+  website_contains: String
+  website_startsWith: String
+  website_endsWith: String
+  website_regex: String
+  website: String
+  website_ne: String
+  website_in: [String]
+  categoryIds_count: Int
+  categoryIds_textContains: String
+  categoryIds_startsWith: String
+  categoryIds_endsWith: String
+  categoryIds_regex: String
+  categoryIds: [String]
+  categoryIds_in: [[String]]
+  categoryIds_contains: String
+  categoryIds_containsAny: [String]
+  categoryIds_ne: [String]
+  tagIds_count: Int
+  tagIds_textContains: String
+  tagIds_startsWith: String
+  tagIds_endsWith: String
+  tagIds_regex: String
+  tagIds: [String]
+  tagIds_in: [[String]]
+  tagIds_contains: String
+  tagIds_containsAny: [String]
+  tagIds_ne: [String]
+  isShortcutAuthor: Boolean
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  publishedAt_lt: String
+  publishedAt_lte: String
+  publishedAt_gt: String
+  publishedAt_gte: String
+  publishedAt: String
+  publishedAt_ne: String
+  publishedAt_in: [String]
+  OR: [AuthorFilters]
+}
+
+type AuthorQueryResults {
+  Authors: [Author]
+  Meta: QueryResultsMetadata
+}
+
+type AuthorSingleQueryResult {
+  Author: Author
+}
+
+input SectionFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  publishedAt_lt: String
+  publishedAt_lte: String
+  publishedAt_gt: String
+  publishedAt_gte: String
+  publishedAt: String
+  publishedAt_ne: String
+  publishedAt_in: [String]
+  OR: [SectionFilters]
+}
+
+input SectionSort {
+  _id: Int
+  name: Int
+  updatedAt: Int
+  publishedAt: Int
+}
+
+type SectionQueryResults {
+  Sections: [Section]
+  Meta: QueryResultsMetadata
+}
+
+type SectionSingleQueryResult {
+  Section: Section
+}
+
+input CategoryFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  publishedAt_lt: String
+  publishedAt_lte: String
+  publishedAt_gt: String
+  publishedAt_gte: String
+  publishedAt: String
+  publishedAt_ne: String
+  publishedAt_in: [String]
+  OR: [CategoryFilters]
+}
+
+type CategoryQueryResults {
+  Categories: [Category]
+  Meta: QueryResultsMetadata
+}
+
+type CategorySingleQueryResult {
+  Category: Category
+}
+
+input TagFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  publishedAt_lt: String
+  publishedAt_lte: String
+  publishedAt_gt: String
+  publishedAt_gte: String
+  publishedAt: String
+  publishedAt_ne: String
+  publishedAt_in: [String]
+  OR: [TagFilters]
+}
+
+type TagQueryResults {
+  Tags: [Tag]
+  Meta: QueryResultsMetadata
+}
+
+type TagSingleQueryResult {
+  Tag: Tag
+}
+
+input FilterInput {
+  articleTypes: [ArticleType]
+  brandIds: [String]
+  years: [Int]
+  months: [Int]
+  categoryIds: [String]
+  forceSearchable: Boolean
+}
+
+input CssVersionFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  number_lt: Float
+  number_lte: Float
+  number_gt: Float
+  number_gte: Float
+  number: Float
+  number_ne: Float
+  number_in: [Float]
+  files_count: Int
+  files: [FileFilters]
+  publishedAt_lt: String
+  publishedAt_lte: String
+  publishedAt_gt: String
+  publishedAt_gte: String
+  publishedAt: String
+  publishedAt_ne: String
+  publishedAt_in: [String]
+  OR: [CssVersionFilters]
+}
+
+input CssVersionSort {
+  _id: Int
+  number: Int
+  files: Int
+  publishedAt: Int
+}
+
+type CssVersionQueryResults {
+  CssVersions: [CssVersion]
+  Meta: QueryResultsMetadata
+}
+
+type CssVersion {
+  _id: String
+  number: Float
+  files: [File]
+  fileUrls: [String]
+  publishedAt: String
+}
+
+type CssVersionSingleQueryResult {
+  CssVersion: CssVersion
+}
+
+enum FeatureType {
+  ARTICLE_EDITORS_PICK
+  ARTICLE_TOPIC_IN_FOCUS
+  ISSUE
+  ARTICLE_SERIES_SERIES
+  ARTICLE_SERIES_COLUMN
+}
+
+enum FeatureMarketingWidget {
+  NONE
+  WIDGET_ONE
+  WIDGET_TWO
+  WIDGET_THREE
+  WIDGET_FOUR
+  WIDGET_FIVE
+}
+
+input FeatureFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  type_contains: FeatureType
+  type_startsWith: FeatureType
+  type_endsWith: FeatureType
+  type_regex: FeatureType
+  type: FeatureType
+  type_ne: FeatureType
+  type_in: [FeatureType]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  editorialTitle_contains: String
+  editorialTitle_startsWith: String
+  editorialTitle_endsWith: String
+  editorialTitle_regex: String
+  editorialTitle: String
+  editorialTitle_ne: String
+  editorialTitle_in: [String]
+  editorialContent_contains: String
+  editorialContent_startsWith: String
+  editorialContent_endsWith: String
+  editorialContent_regex: String
+  editorialContent: String
+  editorialContent_ne: String
+  editorialContent_in: [String]
+  suppressName: Boolean
+  suppressHeader: Boolean
+  marketingWidget_contains: FeatureMarketingWidget
+  marketingWidget_startsWith: FeatureMarketingWidget
+  marketingWidget_endsWith: FeatureMarketingWidget
+  marketingWidget_regex: FeatureMarketingWidget
+  marketingWidget: FeatureMarketingWidget
+  marketingWidget_ne: FeatureMarketingWidget
+  marketingWidget_in: [FeatureMarketingWidget]
+  deepLink_contains: String
+  deepLink_startsWith: String
+  deepLink_endsWith: String
+  deepLink_regex: String
+  deepLink: String
+  deepLink_ne: String
+  deepLink_in: [String]
+  issueId_contains: String
+  issueId_startsWith: String
+  issueId_endsWith: String
+  issueId_regex: String
+  issueId: String
+  issueId_ne: String
+  issueId_in: [String]
+  articleSeriesId_contains: String
+  articleSeriesId_startsWith: String
+  articleSeriesId_endsWith: String
+  articleSeriesId_regex: String
+  articleSeriesId: String
+  articleSeriesId_ne: String
+  articleSeriesId_in: [String]
+  articleIds_count: Int
+  articleIds_textContains: String
+  articleIds_startsWith: String
+  articleIds_endsWith: String
+  articleIds_regex: String
+  articleIds: [String]
+  articleIds_in: [[String]]
+  articleIds_contains: String
+  articleIds_containsAny: [String]
+  articleIds_ne: [String]
+  OR: [FeatureFilters]
+}
+
+input FeatureSort {
+  _id: Int
+  name: Int
+}
+
+type FeatureQueryResults {
+  Features: [Feature]
+  Meta: QueryResultsMetadata
+}
+
+type Feature {
+  _id: String
+  type: FeatureType
+  name: String
+  editorialTitle: String
+  editorialContent: String
+  teaser: Image
+  teaserCopyright: String
+  suppressName: Boolean
+  suppressHeader: Boolean
+  marketingWidget: FeatureMarketingWidget
+  deepLink: String
+  emphasiseInitialArticles: Int
+  issueId: String
+  articleSeriesId: String
+  articleIds: [String]
+  updatedAt: String
+  publishedAt: String
+  numberOfArticles: Int
+  issue: Issue
+  articleSeries: ArticleSeriesItem
+  articles(SORT: ArticleSort, SORTS: [ArticleSort]): [Article]
+}
+
+type FeatureQueryResult {
+  Feature: Feature
+}
+
+enum PeriodType {
+  WEEKLY
+  MONTHLY
+}
+
+input PeriodFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  description_contains: String
+  description_startsWith: String
+  description_endsWith: String
+  description_regex: String
+  description: String
+  description_ne: String
+  description_in: [String]
+  type_contains: PeriodType
+  type_startsWith: PeriodType
+  type_endsWith: PeriodType
+  type_regex: PeriodType
+  type: PeriodType
+  type_ne: PeriodType
+  type_in: [PeriodType]
+  featureIds_count: Int
+  featureIds_textContains: String
+  featureIds_startsWith: String
+  featureIds_endsWith: String
+  featureIds_regex: String
+  featureIds: [String]
+  featureIds_in: [[String]]
+  featureIds_contains: String
+  featureIds_containsAny: [String]
+  featureIds_ne: [String]
+  year_lt: Int
+  year_lte: Int
+  year_gt: Int
+  year_gte: Int
+  year: Int
+  year_ne: Int
+  year_in: [Int]
+  month_lt: Int
+  month_lte: Int
+  month_gt: Int
+  month_gte: Int
+  month: Int
+  month_ne: Int
+  month_in: [Int]
+  week_lt: Int
+  week_lte: Int
+  week_gt: Int
+  week_gte: Int
+  week: Int
+  week_ne: Int
+  week_in: [Int]
+  OR: [PeriodFilters]
+}
+
+input PeriodSort {
+  _id: Int
+  name: Int
+  year: Int
+  month: Int
+  week: Int
+}
+
+type PeriodQueryResults {
+  Periods: [Period]
+  Meta: QueryResultsMetadata
+}
+
+type Period {
+  _id: String
+  name: String
+  description: String
+  type: PeriodType
+  featureIds: [String]
+  year: Int
+  month: Int
+  week: Int
+  updatedAt: String
+  publishedAt: String
+  numberOfFeatures: Int
+  features(SORT: FeatureSort, SORTS: [FeatureSort]): [Feature]
+}
+
+type PeriodQueryResult {
+  Period: Period
+}
+
+type PetrolUserResponse {
+  statusCode: Int
+  success: Boolean
+  User: User
+}
+
+type User {
+  _id: String
+  isVerified: Boolean
+  role: Role
+  email: String
+  token: String
+  hadKioskFlatrate: Boolean
+  archivedSearches: [String]
+  attendeeIds: [String]
+  isIPAccessAdmin: Boolean
+  isDomainAccessAdmin: Boolean
+  isFlatrateSubscriptionAdmin: Boolean
+  preferences: [Preference]
+  hasKioskFlatrate: Boolean
+  hasIPAccess: Boolean
+  hasDomainAccess: Boolean
+  brands: [UserBrand]
+  issues: [UserIssue]
+  articles: [UserArticle]
+  authors: [UserAuthor]
+  categories: [UserCategory]
+  conferences: [UserConference] @deprecated(reason: "No longer supported")
+  events: [UserEvent]
+  tutorials: [UserTutorial]
+  collections: [Collection]
+  searches: [String]
+  marketingConsents: [MarketingConsent]
+  hasConferenceSlides: Boolean
+  hasTutorials: Boolean
+  segment: Segment
+  attendees: [UserAttendee]
+  forgotPasswordToken: String
+  createdAt: String
+}
+
+enum Role {
+  ADMIN
+  ACCESS
+  USER
+  WORDPRESS
+  MONITOR
+  CONFERENCE
+}
+
+type Preference {
+  name: String
+  value: Boolean
+  timestamp: Float
+}
+
+type UserBrand {
+  _id: String
+  accessible: Boolean
+}
+
+type UserIssue {
+  _id: String
+  accessible: Boolean
+  purchased: Boolean
+}
+
+type UserArticle {
+  _id: String
+  notes: [Note]
+  read: Read
+}
+
+type Note {
+  _id: String
+  selection: Selection
+  content: String
+  origin: NoteOrigin
+  timestamp: Float
+}
+
+type Selection {
+  startElement: String
+  endElement: String
+  startPath: String
+  endPath: String
+  start: Int
+  end: Int
+  text: String
+}
+
+enum NoteOrigin {
+  ANDROID
+  IOS
+  WEB
+}
+
+type Read {
+  origin: ReadOrigin
+  timestamp: Float
+}
+
+enum ReadOrigin {
+  ANDROID
+  IOS
+  WEB
+}
+
+type UserAuthor {
+  _id: String
+  favourite: Favourite
+}
+
+type Favourite {
+  state: Boolean
+  timestamp: Float
+}
+
+type UserCategory {
+  _id: String
+  favourite: Favourite
+}
+
+type UserConference {
+  _id: String
+  accessible: Boolean
+}
+
+type UserEvent {
+  _id: String
+  accessible: Boolean
+}
+
+type UserTutorial {
+  _id: String
+  accessible: Boolean
+}
+
+type Collection {
+  _id: String
+  name: String
+  description: String
+  articleIds: [String]
+  thumbnail: String
+  timestamp: Float
+}
+
+type MarketingConsent {
+  type: ConsentType
+  uniqueId: String
+  kioskMarketingConsent: OptInType
+  createdAt: String
+  updatedAt: String
+}
+
+enum ConsentType {
+  EVENT
+  OTHER
+}
+
+enum OptInType {
+  NONE
+  PENDING
+  YES
+  NO
+}
+
+type Segment {
+  kioskSubscriptionState: KioskSubscription
+  eventMarketingConsent: OptInType
+}
+
+enum KioskSubscription {
+  NEVER
+  NEVER_PRINT
+  NONE
+  NONE_PRINT
+  IP
+  DOMAIN
+  ACTION
+  ABO_CODE
+  CONFERENCE_CODE
+  OTHER_CODE
+  YEARLY
+  MONTHLY_OVER_6MTHS
+  MONTHLY_BELOW_6MTHS
+  OTHER_APPLE
+  OTHER_GOOGLE
+  OTHER_PAYPAL
+  OTHER_STRIPE
+  OTHER_BILLING
+  OTHER_SUBSCRIPTION_CODE
+  OTHER_NONE
+}
+
+type UserAttendee {
+  _id: String
+  uniqueId: String
+  mode: String
+  firstName: String
+  lastName: String
+  swapCardEmail: String
+  tsAttendeeEmail: String
+  company: String
+  sponsorOptIn: Boolean
+  groups: [String]
+  moduleIds: [String]
+  days: [String]
+  certificateUrl: String
+  extra: JSON
+  eventId: String
+  event: AttendeeEvent
+}
+
+type AttendeeEvent {
+  _id: String
+  uniqueId: String
+  type: EventType
+  name: String
+  logo: Image
+  startDate: String
+  endDate: String
+  accessible: Boolean
+}
+
+enum EventType {
+  PHYSICAL
+  REMOTE
+  HYBRID
+  SPECIAL_WORKSHOP
+}
+
+type MailgunResponse {
+  statusCode: Int
+  valid: Boolean
+}
+
+enum Platform {
+  NONE
+  ALL
+  WEB
+  APP
+}
+
+input ProductFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  availableOn_contains: Platform
+  availableOn_startsWith: Platform
+  availableOn_endsWith: Platform
+  availableOn_regex: Platform
+  availableOn: Platform
+  availableOn_ne: Platform
+  availableOn_in: [Platform]
+  inAppPurchaseId_contains: String
+  inAppPurchaseId_startsWith: String
+  inAppPurchaseId_endsWith: String
+  inAppPurchaseId_regex: String
+  inAppPurchaseId: String
+  inAppPurchaseId_ne: String
+  inAppPurchaseId_in: [String]
+  brandId_contains: String
+  brandId_startsWith: String
+  brandId_endsWith: String
+  brandId_regex: String
+  brandId: String
+  brandId_ne: String
+  brandId_in: [String]
+  issueId_contains: String
+  issueId_startsWith: String
+  issueId_endsWith: String
+  issueId_regex: String
+  issueId: String
+  issueId_ne: String
+  issueId_in: [String]
+  isKioskFlatrate: Boolean
+  isKioskFlatrate_ne: Boolean
+  isKioskFlatrate_in: [Boolean]
+  isPremium: Boolean
+  isPremium_ne: Boolean
+  isPremium_in: [Boolean]
+  isPrinted: Boolean
+  isPrinted_ne: Boolean
+  isPrinted_in: [Boolean]
+  duration_lt: Int
+  duration_lte: Int
+  duration_gt: Int
+  duration_gte: Int
+  duration: Int
+  duration_ne: Int
+  duration_in: [Int]
+  numberOfSeats_lt: Int
+  numberOfSeats_lte: Int
+  numberOfSeats_gt: Int
+  numberOfSeats_gte: Int
+  numberOfSeats: Int
+  numberOfSeats_ne: Int
+  numberOfSeats_in: [Int]
+  price_contains: String
+  price_startsWith: String
+  price_endsWith: String
+  price_regex: String
+  price: String
+  price_ne: String
+  price_in: [String]
+  hasFreeTrial: Boolean
+  hasFreeTrial_ne: Boolean
+  hasFreeTrial_in: [Boolean]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  publishedAt_lt: String
+  publishedAt_lte: String
+  publishedAt_gt: String
+  publishedAt_gte: String
+  publishedAt: String
+  publishedAt_ne: String
+  publishedAt_in: [String]
+  OR: [ProductFilters]
+}
+
+input ProductSort {
+  _id: Int
+  name: Int
+  availableOn: Int
+  inAppPurchaseId: Int
+  brandId: Int
+  issueId: Int
+  isKioskFlatrate: Int
+  isPremium: Int
+  isPrinted: Int
+  duration: Int
+  numberOfSeats: Int
+  price: Int
+  hasFreeTrial: Int
+  updatedAt: Int
+  publishedAt: Int
+}
+
+type ProductQueryResults {
+  Products: [Product]
+  Meta: QueryResultsMetadata
+}
+
+type Product {
+  _id: String
+  name: String
+  availableOn: Platform
+  inAppPurchaseId: String
+  brandId: String
+  issueId: String
+  isKioskFlatrate: Boolean
+  isPremium: Boolean
+  isPrinted: Boolean
+  duration: Int
+  numberOfSeats: Int
+  price: String
+  hasFreeTrial: Boolean
+  updatedAt: String
+  publishedAt: String
+  upgradeAvailable: Boolean
+}
+
+type ProductSingleQueryResult {
+  Product: Product
+}
+
+input ReceiptFilters {
+  subscriptionId: String
+  purchaseToken: String
+  productId: String
+  packageName: String
+}
+
+input TransactionFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  origin_contains: TransactionOrigin
+  origin_startsWith: TransactionOrigin
+  origin_endsWith: TransactionOrigin
+  origin_regex: TransactionOrigin
+  origin: TransactionOrigin
+  origin_ne: TransactionOrigin
+  origin_in: [TransactionOrigin]
+  receipt: ReceiptFilters
+  userId_contains: String
+  userId_startsWith: String
+  userId_endsWith: String
+  userId_regex: String
+  userId: String
+  userId_ne: String
+  userId_in: [String]
+  productIds_count: Int
+  productIds_textContains: String
+  productIds_startsWith: String
+  productIds_endsWith: String
+  productIds_regex: String
+  productIds: [String]
+  productIds_in: [[String]]
+  productIds_contains: String
+  productIds_containsAny: [String]
+  productIds_ne: [String]
+  purchasedAt_lt: String
+  purchasedAt_lte: String
+  purchasedAt_gt: String
+  purchasedAt_gte: String
+  purchasedAt: String
+  purchasedAt_ne: String
+  purchasedAt_in: [String]
+  valid: Boolean
+  valid_ne: Boolean
+  valid_in: [Boolean]
+  usesInvalidCode: Boolean
+  usesInvalidCode_ne: Boolean
+  usesInvalidCode_in: [Boolean]
+  OR: [TransactionFilters]
+}
+
+enum TransactionOrigin {
+  APPLE
+  BILLING
+  GOOGLE
+  STRIPE
+  PAYPAL
+}
+
+input TransactionSort {
+  _id: Int
+  origin: Int
+  receipt: Int
+  userId: Int
+  productIds: Int
+  purchasedAt: Int
+  valid: Int
+  usesInvalidCode: Int
+}
+
+type TransactionQueryResults {
+  Transactions: [Transaction]
+  Meta: QueryResultsMetadata
+}
+
+type Transaction {
+  _id: String
+  origin: TransactionOrigin
+  receipt: Receipt
+  userId: String
+  productIds: [String]
+  purchasedAt: String
+  valid: Boolean
+  usesInvalidCode: Boolean
+  products(SORT: ProductSort, SORTS: [ProductSort]): [Product]
+  assignments: [TransactionAssignment]
+}
+
+type Receipt {
+  subscriptionId: String
+  purchaseToken: String
+  productId: String
+  packageName: String
+}
+
+type TransactionAssignment {
+  _id: String
+  assignorUserId: String
+  assigneeUserId: String
+  assigneeUserEmail: String
+  transactionId: String
+  subscriptionCode: String
+  issueIds: [String]
+  brandIds: [String]
+  isKioskFlatrate: Boolean
+  startDate: String
+  endDate: String
+  valid: Boolean
+  usesInvalidCode: Boolean
+}
+
+type TransactionSingleQueryResult {
+  Transaction: Transaction
+}
+
+enum assignmentQueryStatus {
+  ASSIGNOR
+  ASSIGNEE
+  BOTH
+}
+
+enum AssignmentOrigin {
+  ALL
+  CODE
+  TRANSACTION
+  ATTENDEE
+}
+
+input AssignmentFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  assignorUserId_contains: String
+  assignorUserId_startsWith: String
+  assignorUserId_endsWith: String
+  assignorUserId_regex: String
+  assignorUserId: String
+  assignorUserId_ne: String
+  assignorUserId_in: [String]
+  assigneeUserId_contains: String
+  assigneeUserId_startsWith: String
+  assigneeUserId_endsWith: String
+  assigneeUserId_regex: String
+  assigneeUserId: String
+  assigneeUserId_ne: String
+  assigneeUserId_in: [String]
+  transactionId_contains: String
+  transactionId_startsWith: String
+  transactionId_endsWith: String
+  transactionId_regex: String
+  transactionId: String
+  transactionId_ne: String
+  transactionId_in: [String]
+  subscriptionCode_contains: String
+  subscriptionCode_startsWith: String
+  subscriptionCode_endsWith: String
+  subscriptionCode_regex: String
+  subscriptionCode: String
+  subscriptionCode_ne: String
+  subscriptionCode_in: [String]
+  isKioskFlatrate: Boolean
+  isKioskFlatrate_ne: Boolean
+  isKioskFlatrate_in: [Boolean]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate: String
+  startDate_ne: String
+  startDate_in: [String]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate: String
+  endDate_ne: String
+  endDate_in: [String]
+  valid: Boolean
+  valid_ne: Boolean
+  valid_in: [Boolean]
+  OR: [AssignmentFilters]
+}
+
+input AssignmentSort {
+  _id: Int
+  assignorUserId: Int
+  assigneeUserId: Int
+  transactionId: Int
+  subscriptionCode: Int
+  isKioskFlatrate: Int
+  startDate: Int
+  endDate: Int
+  valid: Int
+}
+
+type MyAssignmentQueryResults {
+  Assignments: [Assignment]
+  Meta: QueryResultsMetadata
+}
+
+type Assignment {
+  _id: String
+  assignorUserId: String
+  assigneeUserId: String
+  assigneeUserEmail: String
+  transactionId: String
+  subscriptionCode: String
+  issueIds: [String]
+  brandIds: [String]
+  isKioskFlatrate: Boolean
+  attendeeId: String
+  actionId: String
+  eventIds: [String]
+  tutorialIds: [String]
+  startDate: String
+  endDate: String
+  valid: Boolean
+  origin: String
+  subscriptionStartDate: String
+  duration: Int
+  brands: [ContentItem]
+  issues: [ContentItem]
+  transaction: AssignmentTransaction
+}
+
+type ContentItem {
+  _id: String
+  displayName: String
+}
+
+type AssignmentTransaction {
+  _id: String
+  receipt: TransactionReceipt
+}
+
+type TransactionReceipt {
+  subscriptionId: String
+}
+
+input VUConfigurationFilters {
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  csvFileName_contains: String
+  csvFileName_startsWith: String
+  csvFileName_endsWith: String
+  csvFileName_regex: String
+  csvFileName: String
+  csvFileName_ne: String
+  csvFileName_in: [String]
+  brandIds_count: Int
+  brandIds_textContains: String
+  brandIds_startsWith: String
+  brandIds_endsWith: String
+  brandIds_regex: String
+  brandIds: [String]
+  brandIds_in: [[String]]
+  brandIds_contains: String
+  brandIds_containsAny: [String]
+  brandIds_ne: [String]
+  OR: [VUConfigurationFilters]
+}
+
+input VUConfigurationSort {
+  _id: Int
+  csvFileName: Int
+  brandIds: Int
+}
+
+type VUConfigurationQueryResults {
+  VUConfigurations: [VUConfiguration]
+  Meta: QueryResultsMetadata
+}
+
+type VUConfiguration {
+  _id: String
+  csvFileName: String
+  brandIds: [String]
+}
+
+type VUConfigurationSingleQueryResult {
+  VUConfiguration: VUConfiguration
+}
+
+type UsersInDomainQueryResult {
+  userId: String
+  email: String
+}
+
+input EmailKioskFlatrateAccessPublicFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  emailDomains_count: Int
+  emailDomains_textContains: String
+  emailDomains_startsWith: String
+  emailDomains_endsWith: String
+  emailDomains_regex: String
+  emailDomains: [String]
+  emailDomains_in: [[String]]
+  emailDomains_contains: String
+  emailDomains_containsAny: [String]
+  emailDomains_ne: [String]
+  assignorUserId_contains: String
+  assignorUserId_startsWith: String
+  assignorUserId_endsWith: String
+  assignorUserId_regex: String
+  assignorUserId: String
+  assignorUserId_ne: String
+  assignorUserId_in: [String]
+  assigneeUserIds_count: Int
+  assigneeUserIds_textContains: String
+  assigneeUserIds_startsWith: String
+  assigneeUserIds_endsWith: String
+  assigneeUserIds_regex: String
+  assigneeUserIds: [String]
+  assigneeUserIds_in: [[String]]
+  assigneeUserIds_contains: String
+  assigneeUserIds_containsAny: [String]
+  assigneeUserIds_ne: [String]
+  archivedUserIds_count: Int
+  archivedUserIds_textContains: String
+  archivedUserIds_startsWith: String
+  archivedUserIds_endsWith: String
+  archivedUserIds_regex: String
+  archivedUserIds: [String]
+  archivedUserIds_in: [[String]]
+  archivedUserIds_contains: String
+  archivedUserIds_containsAny: [String]
+  archivedUserIds_ne: [String]
+  numberOfSeats_lt: Int
+  numberOfSeats_lte: Int
+  numberOfSeats_gt: Int
+  numberOfSeats_gte: Int
+  numberOfSeats: Int
+  numberOfSeats_ne: Int
+  numberOfSeats_in: [Int]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  createdAt_lt: String
+  createdAt_lte: String
+  createdAt_gt: String
+  createdAt_gte: String
+  createdAt: String
+  createdAt_ne: String
+  createdAt_in: [String]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate: String
+  startDate_ne: String
+  startDate_in: [String]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate: String
+  endDate_ne: String
+  endDate_in: [String]
+  valid: Boolean
+  valid_ne: Boolean
+  valid_in: [Boolean]
+  OR: [EmailKioskFlatrateAccessPublicFilters]
+}
+
+input EmailKioskFlatrateAccessPublicSort {
+  _id: Int
+  emailDomains: Int
+  assignorUserId: Int
+  assigneeUserIds: Int
+  archivedUserIds: Int
+  numberOfSeats: Int
+  updatedAt: Int
+  createdAt: Int
+  startDate: Int
+  endDate: Int
+  valid: Int
+}
+
+type EmailKioskFlatrateAccessPublicQueryResults {
+  EmailKioskFlatrateAccesses: [EmailKioskFlatrateAccessPublic]
+  Meta: QueryResultsMetadata
+}
+
+type EmailKioskFlatrateAccessPublic {
+  _id: String
+  emailDomains: [String]
+  assignorUserId: String
+  assigneeUserIds: [String]
+  assigneeUserEmails: [String]
+  numberOfAssignees: Int
+  archivedUserIds: [String]
+  archivedUserEmails: [String]
+  numberOfSeats: Int
+  updatedAt: String
+  createdAt: String
+  startDate: String
+  endDate: String
+  valid: Boolean
+}
+
+type EmailKioskFlatrateAccessPublicSingleQueryResult {
+  EmailKioskFlatrateAccess: EmailKioskFlatrateAccessPublic
+}
+
+type IpKioskFlatrateAccessPublicSingleQueryResult {
+  IpKioskFlatrateAccess: IpKioskFlatrateAccessPublic
+}
+
+type IpKioskFlatrateAccessPublic {
+  _id: String
+  numberOfAssignees: Int
+  numberOfSeats: Int
+  ipAddresses: [String]
+  updatedAt: String
+  createdAt: String
+  startDate: String
+  endDate: String
+  valid: Boolean
+  ipKioskFlatrateUsages: [IpKioskFlatrateUsage]
+}
+
+type IpKioskFlatrateUsage {
+  _id: String
+  ipKioskFlatrateAccessId: String
+  userIds: [String]
+  createdAt: String
+}
+
+input IpKioskFlatrateAccessFiltersPublic {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  ipAddresses_count: Int
+  ipAddresses_textContains: String
+  ipAddresses_startsWith: String
+  ipAddresses_endsWith: String
+  ipAddresses_regex: String
+  ipAddresses: [String]
+  ipAddresses_in: [[String]]
+  ipAddresses_contains: String
+  ipAddresses_containsAny: [String]
+  ipAddresses_ne: [String]
+  assigneeUserIds_count: Int
+  numberOfSeats_lt: Int
+  numberOfSeats_lte: Int
+  numberOfSeats_gt: Int
+  numberOfSeats_gte: Int
+  numberOfSeats: Int
+  numberOfSeats_ne: Int
+  numberOfSeats_in: [Int]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  createdAt_lt: String
+  createdAt_lte: String
+  createdAt_gt: String
+  createdAt_gte: String
+  createdAt: String
+  createdAt_ne: String
+  createdAt_in: [String]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate: String
+  startDate_ne: String
+  startDate_in: [String]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate: String
+  endDate_ne: String
+  endDate_in: [String]
+  valid: Boolean
+  valid_ne: Boolean
+  valid_in: [Boolean]
+  OR: [IpKioskFlatrateAccessFiltersPublic]
+}
+
+input IpKioskFlatrateAccessSortPublic {
+  _id: Int
+  ipAddresses: Int
+  numberOfSeats: Int
+  updatedAt: Int
+  createdAt: Int
+  startDate: Int
+  endDate: Int
+  valid: Int
+}
+
+type IpKioskFlatrateAccessPublicQueryResults {
+  IpKioskFlatrateAccesses: [IpKioskFlatrateAccessPublic]
+  Meta: QueryResultsMetadata
+}
+
+input EventFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  uniqueId_contains: String
+  uniqueId_startsWith: String
+  uniqueId_endsWith: String
+  uniqueId_regex: String
+  uniqueId: String
+  uniqueId_ne: String
+  uniqueId_in: [String]
+  swapCardId_contains: String
+  swapCardId_startsWith: String
+  swapCardId_endsWith: String
+  swapCardId_regex: String
+  swapCardId: String
+  swapCardId_ne: String
+  swapCardId_in: [String]
+  type_contains: EventType
+  type_startsWith: EventType
+  type_endsWith: EventType
+  type_regex: EventType
+  type: EventType
+  type_ne: EventType
+  type_in: [EventType]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  OR: [EventFilters]
+}
+
+input EventSort {
+  _id: Int
+  uniqueId: Int
+  swapCardId: Int
+  name: Int
+  startDate: Int
+  endDate: Int
+}
+
+type EventQueryResults {
+  Events: [Event]
+  Meta: QueryResultsMetadata
+}
+
+type Event {
+  _id: String
+  uniqueId: String
+  swapCardId: String
+  type: EventType
+  name: String
+  logo: Image
+  emailLogo: Image
+  startDate: String
+  endDate: String
+  emailTemplateNameNewUser: String
+  emailTemplateNameExistingUser: String
+  emailSender: String
+  borderHexCode: String
+  textHexCode: String
+  publishedAt: String
+  updatedAt: String
+  accessible: Boolean
+  conferences(SORT: ConferenceSort, SORTS: [ConferenceSort]): [Conference]
+  sessions(SORT: SessionSort, SORTS: [SessionSort]): [Session]
+}
+
+input ConferenceSort {
+  _id: Int
+  uniqueId: Int
+  name: Int
+  startDate: Int
+  endDate: Int
+  eventId: Int
+}
+
+type Conference {
+  _id: String
+  uniqueId: String
+  name: String
+  city: String
+  startDate: String
+  endDate: String
+  websiteUrl: String
+  eventId: String
+  publishedAt: String
+  updatedAt: String
+  accessible: Boolean
+  sessions(SORT: SessionSort, SORTS: [SessionSort]): [Session]
+}
+
+input SessionSort {
+  _id: Int
+  uniqueId: Int
+  type: Int
+  name: Int
+  startDate: Int
+  endDate: Int
+  eventId: Int
+}
+
+type Session {
+  _id: String
+  uniqueId: String
+  type: String
+  name: String
+  startDate: String
+  endDate: String
+  details: String
+  videoUrl: String
+  pdf: File
+  eventId: String
+  conferenceIds: [String]
+  speakerIds: [String]
+  updatedAt: String
+  sessionType: SessionType
+  speakers: [Speaker]
+}
+
+type SessionType {
+  _id: String
+  uniqueId: String
+  name: String
+  appType: String
+  image: Image
+  eventId: String
+  conferenceIds: [String]
+  updatedAt: String
+}
+
+type Speaker {
+  _id: String
+  uniqueId: String
+  firstName: String
+  lastName: String
+  company: String
+  details: String
+  image: Image
+  email: String
+  twitter: String
+  facebook: String
+  linkedIn: String
+  blog: String
+  eventId: String
+  conferenceIds: [String]
+  updatedAt: String
+}
+
+type EventSingleQueryResult {
+  Event: Event
+}
+
+input RoomFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  uniqueId_contains: String
+  uniqueId_startsWith: String
+  uniqueId_endsWith: String
+  uniqueId_regex: String
+  uniqueId: String
+  uniqueId_ne: String
+  uniqueId_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  location_contains: String
+  location_startsWith: String
+  location_endsWith: String
+  location_regex: String
+  location: String
+  location_ne: String
+  location_in: [String]
+  limit: Int
+  limit_ne: Int
+  limit_in: [Int]
+  newLimit: Int
+  newLimit_ne: Int
+  newLimit_in: [Int]
+  OR: [RoomFilters]
+}
+
+input RoomSort {
+  _id: Int
+  uniqueId: Int
+  name: Int
+  location: Int
+}
+
+type RoomQueryResults {
+  Rooms: [Room]
+  Meta: QueryResultsMetadata
+}
+
+type Room {
+  _id: String
+  uniqueId: String
+  name: String
+  location: String
+  limit: Int
+  newLimit: Int
+  publishedAt: String
+  updatedAt: String
+}
+
+type RoomSingleQueryResult {
+  Room: Room
+}
+
+input ConferenceFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  uniqueId_contains: String
+  uniqueId_startsWith: String
+  uniqueId_endsWith: String
+  uniqueId_regex: String
+  uniqueId: String
+  uniqueId_ne: String
+  uniqueId_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate: String
+  startDate_ne: String
+  startDate_in: [String]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate: String
+  endDate_ne: String
+  endDate_in: [String]
+  eventId_contains: String
+  eventId_startsWith: String
+  eventId_endsWith: String
+  eventId_regex: String
+  eventId: String
+  eventId_ne: String
+  eventId_in: [String]
+  OR: [ConferenceFilters]
+}
+
+type ConferenceQueryResults {
+  Conferences: [Conference]
+  Meta: QueryResultsMetadata
+}
+
+type ConferenceSingleQueryResult {
+  Conference: Conference
+}
+
+input TrackFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  uniqueId_contains: String
+  uniqueId_startsWith: String
+  uniqueId_endsWith: String
+  uniqueId_regex: String
+  uniqueId: String
+  uniqueId_ne: String
+  uniqueId_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  specialDay: Boolean
+  eventId_contains: String
+  eventId_startsWith: String
+  eventId_endsWith: String
+  eventId_regex: String
+  eventId: String
+  eventId_ne: String
+  eventId_in: [String]
+  conferenceIds: [String]
+  conferenceIds_in: [[String]]
+  conferenceIds_contains: String
+  conferenceIds_containsAny: [String]
+  conferenceIds_ne: [String]
+  OR: [TrackFilters]
+}
+
+input TrackSort {
+  _id: Int
+  uniqueId: Int
+  name: Int
+  startDate: Int
+  endDate: Int
+  eventId: Int
+}
+
+type TrackQueryResults {
+  Tracks: [Track]
+  Meta: QueryResultsMetadata
+}
+
+type Track {
+  _id: String
+  uniqueId: String
+  name: String
+  specialDay: Boolean
+  startDate: String
+  endDate: String
+  eventId: String
+  conferenceIds: [String]
+  updatedAt: String
+}
+
+type TrackSingleQueryResult {
+  Track: Track
+}
+
+input SessionTypeFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  uniqueId_contains: String
+  uniqueId_startsWith: String
+  uniqueId_endsWith: String
+  uniqueId_regex: String
+  uniqueId: String
+  uniqueId_ne: String
+  uniqueId_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  appType_contains: String
+  appType_startsWith: String
+  appType_endsWith: String
+  appType_regex: String
+  appType: String
+  appType_ne: String
+  appType_in: [String]
+  eventId_contains: String
+  eventId_startsWith: String
+  eventId_endsWith: String
+  eventId_regex: String
+  eventId: String
+  eventId_ne: String
+  eventId_in: [String]
+  conferenceIds: [String]
+  conferenceIds_in: [[String]]
+  conferenceIds_contains: String
+  conferenceIds_containsAny: [String]
+  conferenceIds_ne: [String]
+  OR: [SessionTypeFilters]
+}
+
+input SessionTypeSort {
+  _id: Int
+  uniqueId: Int
+  name: Int
+  appType: Int
+  eventId: Int
+}
+
+type SessionTypeQueryResults {
+  SessionTypes: [SessionType]
+  Meta: QueryResultsMetadata
+}
+
+type SessionTypeSingleQueryResult {
+  SessionType: SessionType
+}
+
+input SessionFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  uniqueId_contains: String
+  uniqueId_startsWith: String
+  uniqueId_endsWith: String
+  uniqueId_regex: String
+  uniqueId: String
+  uniqueId_ne: String
+  uniqueId_in: [String]
+  type_contains: String
+  type_startsWith: String
+  type_endsWith: String
+  type_regex: String
+  type: String
+  type_ne: String
+  type_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate: String
+  startDate_ne: String
+  startDate_in: [String]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate: String
+  endDate_ne: String
+  endDate_in: [String]
+  eventId_contains: String
+  eventId_startsWith: String
+  eventId_endsWith: String
+  eventId_regex: String
+  eventId: String
+  eventId_ne: String
+  eventId_in: [String]
+  conferenceIds: [String]
+  conferenceIds_in: [[String]]
+  conferenceIds_contains: String
+  conferenceIds_containsAny: [String]
+  conferenceIds_ne: [String]
+  OR: [SessionFilters]
+}
+
+type SessionQueryResults {
+  Sessions: [Session]
+  Meta: QueryResultsMetadata
+}
+
+type SessionSingleQueryResult {
+  Session: Session
+}
+
+input SpeakerFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  uniqueId_contains: String
+  uniqueId_startsWith: String
+  uniqueId_endsWith: String
+  uniqueId_regex: String
+  uniqueId: String
+  uniqueId_ne: String
+  uniqueId_in: [String]
+  eventId_contains: String
+  eventId_startsWith: String
+  eventId_endsWith: String
+  eventId_regex: String
+  eventId: String
+  eventId_ne: String
+  eventId_in: [String]
+  conferenceIds: [String]
+  conferenceIds_in: [[String]]
+  conferenceIds_contains: String
+  conferenceIds_containsAny: [String]
+  conferenceIds_ne: [String]
+  OR: [SpeakerFilters]
+}
+
+input SpeakerSort {
+  _id: Int
+  uniqueId: Int
+  firstName: Int
+  lastName: Int
+  eventId: Int
+}
+
+type SpeakerQueryResults {
+  Speakers: [Speaker]
+  Meta: QueryResultsMetadata
+}
+
+type SpeakerSingleQueryResult {
+  Speaker: Speaker
+}
+
+input ModuleFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  uniqueId_contains: String
+  uniqueId_startsWith: String
+  uniqueId_endsWith: String
+  uniqueId_regex: String
+  uniqueId: String
+  uniqueId_ne: String
+  uniqueId_in: [String]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  eventId_contains: String
+  eventId_startsWith: String
+  eventId_endsWith: String
+  eventId_regex: String
+  eventId: String
+  eventId_ne: String
+  eventId_in: [String]
+  OR: [ModuleFilters]
+}
+
+input ModuleSort {
+  _id: Int
+  uniqueId: Int
+  name: Int
+  day: Int
+  dayInt: Int
+  time: Int
+  timeInt: Int
+  attendeeCount: Int
+  eventId: Int
+}
+
+type ModuleQueryResults {
+  Modules: [Module]
+  Meta: QueryResultsMetadata
+}
+
+type Module {
+  _id: String
+  uniqueId: String
+  name: String
+  roomId: String
+  day: String
+  dayInt: Int
+  time: String
+  timeInt: Int
+  attendeeCount: Int
+  eventId: String
+  publishedAt: String
+  updatedAt: String
+  room: Room
+}
+
+type ModuleSingleQueryResult {
+  Module: Module
+}
+
+enum CriterionType {
+  EVENT
+}
+
+enum CriterionOption {
+  ATTENDEE_CONSENT_GRANTED
+  ATTENDEE_LINKED
+}
+
+input CriterionFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  type: CriterionType
+  type_ne: CriterionType
+  type_in: [CriterionType]
+  name_contains: String
+  name_startsWith: String
+  name_endsWith: String
+  name_regex: String
+  name: String
+  name_ne: String
+  name_in: [String]
+  option: CriterionOption
+  option_ne: CriterionOption
+  option_in: [CriterionOption]
+  referenceId_contains: String
+  referenceId_startsWith: String
+  referenceId_endsWith: String
+  referenceId_regex: String
+  referenceId: String
+  referenceId_ne: String
+  referenceId_in: [String]
+  actionId_contains: String
+  actionId_startsWith: String
+  actionId_endsWith: String
+  actionId_regex: String
+  actionId: String
+  actionId_ne: String
+  actionId_in: [String]
+  OR: [CriterionFilters]
+}
+
+input CriterionSort {
+  _id: Int
+  name: Int
+  type: Int
+  startDate: String
+  endDate: String
+}
+
+type CriterionQueryResults {
+  Criteria: [Criterion]
+  Meta: QueryResultsMetadata
+}
+
+type Criterion {
+  _id: String
+  type: CriterionType
+  name: String
+  option: CriterionOption
+  text: String
+  referenceId: String
+  actionId: String
+  startDate: String
+  endDate: String
+  publishedAt: String
+  updatedAt: String
+}
+
+type CriterionSingleQueryResult {
+  Criterion: Criterion
+}
+
+enum ActionType {
+  ASSIGNMENT
+  CERTIFICATE
+}
+
+input ActionFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  type: ActionType
+  type_ne: ActionType
+  type_in: [ActionType]
+  OR: [ActionFilters]
+}
+
+input ActionSort {
+  _id: Int
+  type: Int
+  publishedAt: Int
+}
+
+type ActionQueryResults {
+  Actions: [Action]
+  Meta: QueryResultsMetadata
+}
+
+type Action {
+  _id: String
+  type: ActionType
+  duration: Int
+  assignment: AssignmentType
+  certificate: CertificateType
+  publishedAt: String
+  updatedAt: String
+}
+
+enum AssignmentType {
+  KIOSK_FLATRATE
+}
+
+enum CertificateType {
+  CERTIFICATE_ONE_DE
+  CERTIFICATE_ONE_EN
+}
+
+type ActionSingleQueryResult {
+  Action: Action
+}
+
+type Mutation {
+  register(email: String, password: String): PetrolUserResponse
+  login(email: String, password: String): PetrolUserResponse
+  resendVerifyEmail(email: String): SuccessResponse
+  forgotPassword(email: String): SuccessResponse
+  updateEmail(email: String): PetrolUserResponse
+  updatePassword(password: String): PetrolUserResponse
+  updateUserProfile(preferences: [PreferenceInput], articles: [UserArticleInput], authors: [UserAuthorInput], categories: [UserCategoryInput], collections: [CollectionInput]): PetrolUserResponse
+  updatePreference(preference: PreferenceInput): PetrolUserResponse
+  updateArticle(article: UserArticleInput): PetrolUserResponse
+  updateAuthor(author: UserAuthorInput): PetrolUserResponse
+  updateCategory(category: UserCategoryInput): PetrolUserResponse
+  updateCollection(collection: CollectionInput): PetrolUserResponse
+  clearUserSearches: PetrolUserResponse
+  updateMarketingConsent(type: ConsentType, uniqueId: String, optIn: OptInType): SuccessResponse
+  purchased(transactions: [TransactionInput], userId: String, code: String, assignToMe: Boolean): TransactionsMutationResult
+  updateSubscriptionCode(code: String, isAssigned: Boolean): AssignmentMutationResult
+  updateAssignment(_id: String, assigneeUserId: String, assigneeEmail: String): BooleanWithMessage
+  updateEmailKioskFlatrateAccess(_id: String, Updates: PublicEmailKioskFlatrateAccessMutationInput): EmailKioskFlatrateAccessMutationResult
+  importEvents(events: [EventInput]): EventMutationResults
+  deleteEvents(eventIds: [String]): EventMutationResults
+  importRooms(rooms: [RoomInput]): RoomMutationResults
+  deleteRooms(roomIds: [String]): RoomMutationResults
+  publishConferences(conferences: [ConferenceInput]): ConferenceMutationResults
+  withdrawConferences(conferenceIds: [String]): ConferenceMutationResults
+  publishTracks(tracks: [TrackInput]): TrackMutationResults
+  withdrawTracks(trackIds: [String]): TrackMutationResults
+  publishSessionTypes(sessionTypes: [SessionTypeInput]): SessionTypeMutationResults
+  withdrawSessionTypes(sessionTypeIds: [String]): SessionTypeMutationResults
+  publishSessions(sessions: [SessionInput]): SessionMutationResults
+  withdrawSessions(sessionIds: [String]): SessionMutationResults
+  publishSpeakers(speakers: [SpeakerInput]): SpeakerMutationResults
+  withdrawSpeakers(speakerIds: [String]): SpeakerMutationResults
+  importModules(modules: [ModuleInput]): ModuleMutationResults
+  deleteModules(moduleIds: [String]): ModuleMutationResults
+  scanAttendees(scannedAttendees: [ScannedAttendeeInput]): AttendeeMutationResults
+  linkAttendees(linkedAttendees: [LinkedAttendeeInput]): AttendeeResponse
+  unlinkAttendee(linkedAttendee: LinkedAttendeeInput): AttendeeResponse
+  importCriteria(criteria: [CriterionInput]): CriterionMutationResults
+  deleteCriteria(criterionIds: [String]): CriterionMutationResults
+  importActions(actions: [ActionInput]): ActionMutationResults
+  deleteActions(actionIds: [String]): ActionMutationResults
+}
+
+type SuccessResponse {
+  success: Boolean
+}
+
+input PreferenceInput {
+  name: String
+  value: Boolean
+  timestamp: Float
+}
+
+input UserArticleInput {
+  _id: String
+  notes: [NoteInput]
+  read: ReadInput
+}
+
+input NoteInput {
+  _id: String
+  deletion: Boolean
+  selection: SelectionInput
+  content: String
+  origin: NoteOrigin
+  timestamp: Float
+}
+
+input SelectionInput {
+  startElement: String
+  endElement: String
+  startPath: String
+  endPath: String
+  start: Int
+  end: Int
+  text: String
+}
+
+input ReadInput {
+  origin: ReadOrigin
+  timestamp: Float
+}
+
+input UserAuthorInput {
+  _id: String
+  favourite: FavouriteInput
+}
+
+input FavouriteInput {
+  state: Boolean
+  timestamp: Float
+}
+
+input UserCategoryInput {
+  _id: String
+  favourite: FavouriteInput
+}
+
+input CollectionInput {
+  _id: String
+  deletion: Boolean
+  name: String
+  description: String
+  articleIds: [String]
+  timestamp: Float
+}
+
+input TransactionInput {
+  origin: TransactionOrigin
+  receipt: ReceiptInput
+  productIds: [String]
+  purchasedAt: String
+}
+
+input ReceiptInput {
+  subscriptionId: String
+  purchaseToken: String
+  productId: String
+  packageName: String
+}
+
+type TransactionsMutationResult {
+  success: Boolean
+  message: String
+  Transactions: [Transaction]
+}
+
+type AssignmentMutationResult {
+  success: Boolean
+  message: String
+  Assignment: Assignment
+  UserAccess: UserAccess
+}
+
+type UserAccess {
+  _id: String
+  hasKioskFlatrate: Boolean
+  brands: [UserAccessItem]
+  issues: [UserAccessItem]
+  events: [UserAccessItem]
+  tutorials: [UserAccessItem]
+}
+
+type UserAccessItem {
+  _id: String
+  accessible: Boolean
+}
+
+type BooleanWithMessage {
+  success: Boolean
+  message: String
+}
+
+input PublicEmailKioskFlatrateAccessMutationInput {
+  archivedEmails_PUSH: String
+  archivedEmails_CONCAT: [String]
+  archivedEmails_PULL: [String]
+}
+
+type EmailKioskFlatrateAccessMutationResult {
+  success: Boolean
+  message: String
+  EmailKioskFlatrateAccess: EmailKioskFlatrateAccess
+}
+
+type EmailKioskFlatrateAccess {
+  _id: String
+  emailDomains: [String]
+  assignorUserId: String
+  assigneeUserIds: [String]
+  archivedUserIds: [String]
+  numberOfSeats: Int
+  updatedAt: String
+  createdAt: String
+  startDate: String
+  endDate: String
+  customerId: String
+  invoiceId: String
+  valid: Boolean
+}
+
+input EventInput {
+  _id: String
+  uniqueId: String
+  swapCardId: String
+  type: EventType
+  name: String
+  logo: JSON
+  emailLogo: JSON
+  startDate: String
+  endDate: String
+  emailTemplateNameNewUser: String
+  emailTemplateNameExistingUser: String
+  emailSender: String
+  borderHexCode: String
+  textHexCode: String
+  publishedAt: String
+  updatedAt: String
+}
+
+type EventMutationResults {
+  success: Boolean
+  Events: [Event]
+}
+
+input RoomInput {
+  uniqueId: String
+  name: String
+  location: String
+  limit: Int
+  newLimit: Int
+  publishedAt: String
+  updatedAt: String
+}
+
+type RoomMutationResults {
+  success: Boolean
+  Rooms: [Room]
+}
+
+input ConferenceInput {
+  _id: String
+  uniqueId: String
+  name: String
+  city: String
+  startDate: String
+  endDate: String
+  websiteUrl: String
+  eventId: String
+  publishedAt: String
+  updatedAt: String
+}
+
+type ConferenceMutationResults {
+  success: Boolean
+  Conferences: [Conference]
+}
+
+input TrackInput {
+  _id: String
+  uniqueId: String
+  name: String
+  specialDay: Boolean
+  startDate: String
+  endDate: String
+  eventId: String
+  conferenceIds: [String]
+  updatedAt: String
+}
+
+type TrackMutationResults {
+  success: Boolean
+  Tracks: [Track]
+}
+
+input SessionTypeInput {
+  _id: String
+  uniqueId: String
+  name: String
+  appType: String
+  image: String
+  eventId: String
+  conferenceIds: [String]
+  updatedAt: String
+}
+
+type SessionTypeMutationResults {
+  success: Boolean
+  SessionTypes: [SessionType]
+}
+
+input SessionInput {
+  _id: String
+  uniqueId: String
+  type: String
+  name: String
+  startDate: String
+  endDate: String
+  details: String
+  videoUrl: String
+  pdf: JSON
+  eventId: String
+  conferenceIds: [String]
+  speakerIds: [String]
+  updatedAt: String
+}
+
+type SessionMutationResults {
+  success: Boolean
+  Sessions: [Session]
+}
+
+input SpeakerInput {
+  _id: String
+  uniqueId: String
+  firstName: String
+  lastName: String
+  company: String
+  details: String
+  image: String
+  email: String
+  twitter: String
+  facebook: String
+  linkedIn: String
+  blog: String
+  eventId: String
+  conferenceIds: [String]
+  updatedAt: String
+}
+
+type SpeakerMutationResults {
+  success: Boolean
+  Speakers: [Speaker]
+}
+
+input ModuleInput {
+  uniqueId: String
+  name: String
+  roomId: String
+  day: String
+  dayInt: Int
+  time: String
+  timeInt: Int
+  attendeeCount: Int
+  eventId: String
+  publishedAt: String
+  updatedAt: String
+}
+
+type ModuleMutationResults {
+  success: Boolean
+  Modules: [Module]
+}
+
+input ScannedAttendeeInput {
+  uniqueId: String
+  eventId: String
+  scan: ScanInput
+}
+
+input ScanInput {
+  deviceId: String
+  moduleId: String
+  valid: Boolean
+  scannedAt: String
+  receivedAt: String
+}
+
+type AttendeeMutationResults {
+  success: Boolean
+  Attendees: [Attendee]
+}
+
+type Attendee {
+  _id: String
+  uniqueId: String
+  mode: String
+  firstName: String
+  lastName: String
+  swapCardEmail: String
+  tsAttendeeEmail: String
+  company: String
+  sponsorOptIn: Boolean
+  groups: [String]
+  moduleIds: [String]
+  days: [String]
+  scans: [Scan]
+  extra: JSON
+  certificateUrl: String
+  eventId: String
+  publishedAt: String
+  updatedAt: String
+  event: Event
+}
+
+type Scan {
+  deviceId: String
+  moduleId: String
+  valid: Boolean
+  scannedAt: String
+  receivedAt: String
+}
+
+input LinkedAttendeeInput {
+  uniqueId: String
+  email: String
+}
+
+type AttendeeResponse {
+  success: Boolean
+  message: String
+}
+
+input CriterionInput {
+  _id: String
+  type: CriterionType
+  name: String
+  option: CriterionOption
+  text: String
+  referenceId: String
+  actionId: String
+  startDate: String
+  endDate: String
+  publishedAt: String
+  updatedAt: String
+}
+
+type CriterionMutationResults {
+  success: Boolean
+  Criteria: [Criterion]
+}
+
+input ActionInput {
+  _id: String
+  type: ActionType
+  duration: Int
+  assignment: AssignmentType
+  certificate: CertificateType
+  publishedAt: String
+  updatedAt: String
+}
+
+type ActionMutationResults {
+  success: Boolean
+  Actions: [Action]
+}
+
+input AddressInput {
+  name: String
+  latitude: Float
+  longitude: Float
+  street: String
+  zipCode: Int
+  ort: String
+  country: String
+}
+
+input ArticlePublicationInput {
+  _id: String
+  name: String
+  subtitle: String
+  abstract: String
+  textExcerpt: String
+  content: String
+  paywallContent: String
+  order: Int
+  articleSeriesOrder: Int
+  htmlContent: String
+  teaserImage: JSON
+  teaserCopyright: String
+  baseUrl: String
+  images: [String]
+  resource: JSON
+  brandId: String
+  issueId: String
+  articleSeriesId: String
+  authorIds: [String]
+  sectionId: String
+  categoryIds: [String]
+  tagIds: [String]
+  type: ArticleType
+  isEditorial: Boolean
+  isLeader: Boolean
+  isNonSearchable: Boolean
+  isInArticleStream: Boolean
+  isInGlobalArticleStream: Boolean
+  isArchetype: Boolean
+  deepLink: String
+  publicationOrder: Int
+  streamOrder: Int
+  leaderOrder: Int
+  updatedAt: String
+  publishedAt: String
+  tagNames: String
+  categoryNames: String
+  year: Int
+  month: Int
+}
+
+input ArticleSeriesItemPublicationInput {
+  _id: String
+  name: String
+  description: String
+  teaser: JSON
+  teaserCopyright: String
+  brandIds: [String]
+  authorIds: [String]
+  type: ArticleSeriesItemType
+  deepLink: String
+  publicationDate: String
+  updatedAt: String
+  publishedAt: String
+}
+
+input AuthorPublicationInput {
+  _id: String
+  salutation: String
+  title: String
+  forename: String
+  surname: String
+  name: String
+  avatarSquare: JSON
+  company: String
+  position: String
+  roles: String
+  bio: String
+  contact: String
+  email: String
+  address: JSON
+  telephoneLandline: String
+  telephoneMobile: String
+  twitter: String
+  blog: String
+  website: String
+  categoryIds: [String]
+  tagIds: [String]
+  deepLink: String
+  isShortcutAuthor: Boolean
+  updatedAt: String
+  publishedAt: String
+}
+
+input BrandPublicationInput {
+  _id: String
+  name: String
+  slogan: String
+  colour: String
+  logo: JSON
+  header: JSON
+  productId: String
+  price: String
+  size: Int
+  type: BrandType
+  introText: String
+  publicationFrequency: Int
+  language: BrandLanguage
+  deepLink: String
+  order: Int
+  isInArticleStream: Boolean
+  updatedAt: String
+  publishedAt: String
+}
+
+input CategoryPublicationInput {
+  _id: String
+  name: String
+  deepLink: String
+  updatedAt: String
+  publishedAt: String
+}
+
+input CssVersionPublicationInput {
+  _id: String
+  number: String
+  files: [JSON]
+  publishedAt: String
+}
+
+input FeaturePublicationInput {
+  _id: String
+  type: FeatureType
+  name: String
+  editorialTitle: String
+  editorialContent: String
+  teaser: JSON
+  teaserCopyright: String
+  suppressName: Boolean
+  suppressHeader: Boolean
+  marketingWidget: FeatureMarketingWidget
+  deepLink: String
+  emphasiseInitialArticles: Int
+  issueId: String
+  articleSeriesId: String
+  articleIds: [String]
+  updatedAt: String
+  publishedAt: String
+}
+
+input FileInput {
+  name: String
+  type: String
+  url: String
+  uploadedAt: String
+}
+
+input FloatArrayUpdate {
+  index: Int
+  value: Float
+}
+
+input ImageInput {
+  x: String
+  xx: String
+  xxx: String
+  xxxx: String
+  svg: String
+}
+
+input IntArrayUpdate {
+  index: Int
+  value: Int
+}
+
+input IssuePublicationInput {
+  _id: String
+  brandId: String
+  designation: String
+  coverStory: String
+  productId: String
+  price: String
+  publicationDate: String
+  year: Int
+  month: Int
+  cover: JSON
+  banner: JSON
+  bannerCompact: JSON
+  css: [JSON]
+  fonts: [JSON]
+  size: Int
+  deepLink: String
+  updatedAt: String
+  publishedAt: String
+}
+
+input PeriodPublicationInput {
+  _id: String
+  name: String
+  description: String
+  type: PeriodType
+  featureIds: [String]
+  year: Int
+  month: Int
+  week: Int
+  updatedAt: String
+  publishedAt: String
+}
+
+type Publication {
+  _id: String
+  publishedAt: String
+  brands: [Brand]
+  issues: [Issue]
+  articles: [Article]
+  authors: [Author]
+  sections: [Section]
+  categories: [Category]
+  tags: [Tag]
+  articleSeriesItems: [ArticleSeriesItem]
+  features: [Feature]
+  periods: [Period]
+}
+
+input PublicationFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  brands_count: Int
+  brands: BrandFilters
+  issues_count: Int
+  issues: IssueFilters
+  articles_count: Int
+  articles: ArticleFilters
+  authors_count: Int
+  authors: AuthorFilters
+  sections_count: Int
+  sections: SectionFilters
+  categories_count: Int
+  categories: CategoryFilters
+  tags_count: Int
+  tags: TagFilters
+  articleSeriesItems_count: Int
+  articleSeriesItems: ArticleSeriesItemFilters
+  features_count: Int
+  features: FeatureFilters
+  periods_count: Int
+  periods: PeriodFilters
+  publishedAt_lt: String
+  publishedAt_lte: String
+  publishedAt_gt: String
+  publishedAt_gte: String
+  publishedAt: String
+  publishedAt_ne: String
+  publishedAt_in: [String]
+  OR: [PublicationFilters]
+}
+
+input PublicationInput {
+  _id: String
+  brands: [BrandPublicationInput]
+  issues: [IssuePublicationInput]
+  articles: [ArticlePublicationInput]
+  authors: [AuthorPublicationInput]
+  sections: [SectionPublicationInput]
+  categories: [CategoryPublicationInput]
+  tags: [TagPublicationInput]
+  css: [CssVersionPublicationInput]
+  articleSeriesItems: [ArticleSeriesItemPublicationInput]
+  features: [FeaturePublicationInput]
+  periods: [PeriodPublicationInput]
+  issueId: String
+  articleIds: [String]
+  publishedAt: String
+}
+
+input SectionPublicationInput {
+  _id: String
+  name: String
+  deepLink: String
+  updatedAt: String
+  publishedAt: String
+}
+
+input TagPublicationInput {
+  _id: String
+  name: String
+  deepLink: String
+  updatedAt: String
+  publishedAt: String
+}
+
+type PublicationMutationResult {
+  success: Boolean
+  Publication: Publication
+}
+
+type PublicationQueryResults {
+  Publications: [Publication]
+  Meta: QueryResultsMetadata
+}
+
+type PublicationSingleQueryResult {
+  Publication: Publication
+}
+
+input PublicationSort {
+  _id: Int
+  publishedAt: Int
+}
+
+input StringArrayUpdate {
+  index: Int
+  value: String
+}
+
+enum Access {
+  FLATRATE_ACCESS
+  EVENT_ACCESS
+}
+
+type PrivateNotVerifiedUsersResponse {
+  userIds: [String]
+}
+
+type PrivateRegisterResponse {
+  statusCode: Int
+  success: Boolean
+  password: String
+  User: User
+}
+
+type PrivateUserResponse {
+  exists: Boolean
+}
+
+type PrivateUsersResponse {
+  Users: [User]
+  Meta: QueryResultsMetadata
+}
+
+input UserBrandInput {
+  _id: String
+  accessible: Boolean
+}
+
+input UserConferenceInput {
+  _id: String
+  accessible: Boolean
+}
+
+input UserEventInput {
+  _id: String
+  accessible: Boolean
+}
+
+input UserIssueInput {
+  _id: String
+  accessible: Boolean
+  purchased: Boolean
+}
+
+input UserTutorialInput {
+  _id: String
+  accessible: Boolean
+}
+
+type KioskFlatrateTransactionsCheckResult {
+  responses: [String]
+}
+
+type NotVerifiedUsersCheckResult {
+  userIds: [String]
+}
+
+input ProductInput {
+  _id: String
+  name: String
+  availableOn: Platform
+  inAppPurchaseId: String
+  brandId: String
+  issueId: String
+  isKioskFlatrate: Boolean
+  isPremium: Boolean
+  isPrinted: Boolean
+  duration: Int
+  numberOfSeats: Int
+  price: String
+  hasFreeTrial: Boolean
+  updatedAt: String
+  publishedAt: String
+}
+
+type ProductMutationResult {
+  success: Boolean
+  Product: Product
+}
+
+type ProductMutationResultMulti {
+  success: Boolean
+  Products: [Product]
+}
+
+type SubscriptionPack {
+  transactions: [Transaction]
+}
+
+type ValidationResult {
+  success: Boolean
+}
+
+type AssignmentBulkMutationResult {
+  success: Boolean
+}
+
+type AssignmentDeletionResult {
+  success: Boolean
+  UserAccess: UserAccess
+}
+
+input AssignmentInput {
+  assignorUserId: String
+  assigneeUserId: String
+  transactionId: String
+  issueIds: [String]
+  brandIds: [String]
+  attendeeId: String
+  actionId: String
+  eventIds: [String]
+  isKioskFlatrate: Boolean
+  numberOfSeats: Int
+  startDate: String
+  duration: Int
+  upgradedFromBrandId: String
+  subscriptionCode: String
+  origin: String
+}
+
+input AssignmentMutationInput {
+  assigneeUserId: String
+  valid: Boolean
+}
+
+type AssignmentMutationResultMulti {
+  success: Boolean
+  message: String
+  Assignments: [Assignment]
+  UserAccess: UserAccess
+}
+
+type AssignmentMutationSimpleResultMulti {
+  success: Boolean
+  message: String
+  Assignments: [Assignment]
+}
+
+type AssignmentQueryResults {
+  Assignments: [Assignment]
+  UserAccess: UserAccess
+  Meta: QueryResultsMetadata
+}
+
+type AssignmentSingleQueryResult {
+  Assignment: Assignment
+}
+
+input ConferenceCodesInput {
+  _id: String
+  code: String
+  eventId: String
+  isKioskFlatrate: Boolean
+  prefix: String
+  startDate: String
+  endDate: String
+  duration: Int
+}
+
+input EmailKioskFlatrateAccessFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  emailDomains_count: Int
+  emailDomains_textContains: String
+  emailDomains_startsWith: String
+  emailDomains_endsWith: String
+  emailDomains_regex: String
+  emailDomains: [String]
+  emailDomains_in: [[String]]
+  emailDomains_contains: String
+  emailDomains_containsAny: [String]
+  emailDomains_ne: [String]
+  assignorUserId_contains: String
+  assignorUserId_startsWith: String
+  assignorUserId_endsWith: String
+  assignorUserId_regex: String
+  assignorUserId: String
+  assignorUserId_ne: String
+  assignorUserId_in: [String]
+  assigneeUserIds_count: Int
+  assigneeUserIds_textContains: String
+  assigneeUserIds_startsWith: String
+  assigneeUserIds_endsWith: String
+  assigneeUserIds_regex: String
+  assigneeUserIds: [String]
+  assigneeUserIds_in: [[String]]
+  assigneeUserIds_contains: String
+  assigneeUserIds_containsAny: [String]
+  assigneeUserIds_ne: [String]
+  archivedUserIds_count: Int
+  archivedUserIds_textContains: String
+  archivedUserIds_startsWith: String
+  archivedUserIds_endsWith: String
+  archivedUserIds_regex: String
+  archivedUserIds: [String]
+  archivedUserIds_in: [[String]]
+  archivedUserIds_contains: String
+  archivedUserIds_containsAny: [String]
+  archivedUserIds_ne: [String]
+  numberOfSeats_lt: Int
+  numberOfSeats_lte: Int
+  numberOfSeats_gt: Int
+  numberOfSeats_gte: Int
+  numberOfSeats: Int
+  numberOfSeats_ne: Int
+  numberOfSeats_in: [Int]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  createdAt_lt: String
+  createdAt_lte: String
+  createdAt_gt: String
+  createdAt_gte: String
+  createdAt: String
+  createdAt_ne: String
+  createdAt_in: [String]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate: String
+  startDate_ne: String
+  startDate_in: [String]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate: String
+  endDate_ne: String
+  endDate_in: [String]
+  customerId_lt: String
+  customerId_lte: String
+  customerId_gt: String
+  customerId_gte: String
+  customerId: String
+  customerId_ne: String
+  customerId_in: [String]
+  invoiceId_contains: String
+  invoiceId_startsWith: String
+  invoiceId_endsWith: String
+  invoiceId_regex: String
+  invoiceId: String
+  invoiceId_ne: String
+  invoiceId_in: [String]
+  valid: Boolean
+  valid_ne: Boolean
+  valid_in: [Boolean]
+  OR: [EmailKioskFlatrateAccessFilters]
+}
+
+input EmailKioskFlatrateAccessInput {
+  _id: String
+  emailDomains: [String]
+  assignorUserId: String
+  numberOfSeats: Int
+  startDate: String
+  endDate: String
+  customerId: String
+  invoiceId: String
+}
+
+input EmailKioskFlatrateAccessMutationInput {
+  emailDomains: [String]
+  assignorUserId: String
+  archivedUserIds: [String]
+  archivedEmails_PUSH: String
+  archivedEmails_CONCAT: [String]
+  archivedEmails_PULL: [String]
+  startDate: String
+  endDate: String
+  customerId: String
+  invoiceId: String
+  numberOfSeats: Int
+  numberOfSeats_INC: Int
+  numberOfSeats_DEC: Int
+}
+
+type EmailKioskFlatrateAccessMutationResultMulti {
+  success: Boolean
+  EmailKioskFlatrateAccesss: [EmailKioskFlatrateAccess]
+}
+
+type EmailKioskFlatrateAccessQueryResult {
+  _id: String
+  emailDomains: [String]
+  assignorUserId: String
+  assigneeUserIds: [String]
+  assigneeUserEmails: [String]
+  numberOfAssignees: Int
+  archivedUserIds: [String]
+  archivedUserEmails: [String]
+  numberOfSeats: Int
+  updatedAt: String
+  createdAt: String
+  startDate: String
+  endDate: String
+  customerId: String
+  invoiceId: String
+  valid: Boolean
+}
+
+type EmailKioskFlatrateAccessQueryResults {
+  EmailKioskFlatrateAccesses: [EmailKioskFlatrateAccessQueryResult]
+  Meta: QueryResultsMetadata
+}
+
+type EmailKioskFlatrateAccessSingleQueryResult {
+  EmailKioskFlatrateAccess: EmailKioskFlatrateAccessQueryResult
+}
+
+input EmailKioskFlatrateAccessSort {
+  _id: Int
+  emailDomains: Int
+  assignorUserId: Int
+  assigneeUserIds: Int
+  archivedUserIds: Int
+  numberOfSeats: Int
+  updatedAt: Int
+  createdAt: Int
+  startDate: Int
+  endDate: Int
+  customerId: Int
+  invoiceId: Int
+  valid: Int
+}
+
+type IpKioskFlatrateAccess {
+  _id: String
+  ipAddresses: [String]
+  assignorUserId: String
+  assigneeUserIds: [String]
+  numberOfSeats: Int
+  updatedAt: String
+  createdAt: String
+  startDate: String
+  endDate: String
+  customerId: String
+  invoiceId: String
+  valid: Boolean
+  ipKioskFlatrateUsages(SORT: IpKioskFlatrateUsageSort, SORTS: [IpKioskFlatrateUsageSort]): [IpKioskFlatrateUsage]
+}
+
+input IpKioskFlatrateUsageSort {
+  _id: Int
+  ipKioskFlatrateAccessId: Int
+  createdAt: Int
+}
+
+input IpKioskFlatrateAccessAdminInfoFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  ipAddresses_count: Int
+  ipAddresses_textContains: String
+  ipAddresses_startsWith: String
+  ipAddresses_endsWith: String
+  ipAddresses_regex: String
+  ipAddresses: [String]
+  ipAddresses_in: [[String]]
+  ipAddresses_contains: String
+  ipAddresses_containsAny: [String]
+  ipAddresses_ne: [String]
+  assigneeUserIds_count: Int
+  numberOfSeats_lt: Int
+  numberOfSeats_lte: Int
+  numberOfSeats_gt: Int
+  numberOfSeats_gte: Int
+  numberOfSeats: Int
+  numberOfSeats_ne: Int
+  numberOfSeats_in: [Int]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  createdAt_lt: String
+  createdAt_lte: String
+  createdAt_gt: String
+  createdAt_gte: String
+  createdAt: String
+  createdAt_ne: String
+  createdAt_in: [String]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate: String
+  startDate_ne: String
+  startDate_in: [String]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate: String
+  endDate_ne: String
+  endDate_in: [String]
+  valid: Boolean
+  valid_ne: Boolean
+  valid_in: [Boolean]
+  OR: [IpKioskFlatrateAccessAdminInfoFilters]
+}
+
+type IpKioskFlatrateAccessBulkMutationResult {
+  success: Boolean
+}
+
+input IpKioskFlatrateAccessFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  ipAddresses_count: Int
+  ipAddresses_textContains: String
+  ipAddresses_startsWith: String
+  ipAddresses_endsWith: String
+  ipAddresses_regex: String
+  ipAddresses: [String]
+  ipAddresses_in: [[String]]
+  ipAddresses_contains: String
+  ipAddresses_containsAny: [String]
+  ipAddresses_ne: [String]
+  assignorUserId_contains: String
+  assignorUserId_startsWith: String
+  assignorUserId_endsWith: String
+  assignorUserId_regex: String
+  assignorUserId: String
+  assignorUserId_ne: String
+  assignorUserId_in: [String]
+  assigneeUserIds_count: Int
+  assigneeUserIds_textContains: String
+  assigneeUserIds_startsWith: String
+  assigneeUserIds_endsWith: String
+  assigneeUserIds_regex: String
+  assigneeUserIds: [String]
+  assigneeUserIds_in: [[String]]
+  assigneeUserIds_contains: String
+  assigneeUserIds_containsAny: [String]
+  assigneeUserIds_ne: [String]
+  numberOfSeats_lt: Int
+  numberOfSeats_lte: Int
+  numberOfSeats_gt: Int
+  numberOfSeats_gte: Int
+  numberOfSeats: Int
+  numberOfSeats_ne: Int
+  numberOfSeats_in: [Int]
+  updatedAt_lt: String
+  updatedAt_lte: String
+  updatedAt_gt: String
+  updatedAt_gte: String
+  updatedAt: String
+  updatedAt_ne: String
+  updatedAt_in: [String]
+  createdAt_lt: String
+  createdAt_lte: String
+  createdAt_gt: String
+  createdAt_gte: String
+  createdAt: String
+  createdAt_ne: String
+  createdAt_in: [String]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate: String
+  startDate_ne: String
+  startDate_in: [String]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate: String
+  endDate_ne: String
+  endDate_in: [String]
+  customerId_contains: String
+  customerId_startsWith: String
+  customerId_endsWith: String
+  customerId_regex: String
+  customerId: String
+  customerId_ne: String
+  customerId_in: [String]
+  invoiceId_contains: String
+  invoiceId_startsWith: String
+  invoiceId_endsWith: String
+  invoiceId_regex: String
+  invoiceId: String
+  invoiceId_ne: String
+  invoiceId_in: [String]
+  valid: Boolean
+  valid_ne: Boolean
+  valid_in: [Boolean]
+  OR: [IpKioskFlatrateAccessFilters]
+}
+
+input IpKioskFlatrateAccessInput {
+  _id: String
+  ipAddresses: [String]
+  assignorUserId: String
+  numberOfSeats: Int
+  startDate: String
+  endDate: String
+  customerId: String
+  invoiceId: String
+}
+
+input IpKioskFlatrateAccessMutationInput {
+  ipAddresses: [String]
+  ipAddresses_PUSH: String
+  ipAddresses_CONCAT: [String]
+  ipAddresses_UPDATE: StringArrayUpdate
+  ipAddresses_UPDATES: [StringArrayUpdate]
+  ipAddresses_PULL: [String]
+  ipAddresses_ADDTOSET: [String]
+  assignorUserId: String
+  startDate: String
+  endDate: String
+  customerId: String
+  invoiceId: String
+  numberOfSeats: Int
+}
+
+type IpKioskFlatrateAccessMutationResult {
+  success: Boolean
+  IpKioskFlatrateAccess: IpKioskFlatrateAccess
+}
+
+type IpKioskFlatrateAccessMutationResultMulti {
+  success: Boolean
+  IpKioskFlatrateAccesss: [IpKioskFlatrateAccess]
+}
+
+type IpKioskFlatrateAccessQueryResults {
+  IpKioskFlatrateAccesses: [IpKioskFlatrateAccess]
+  Meta: QueryResultsMetadata
+}
+
+type IpKioskFlatrateAccessSingleQueryResult {
+  IpKioskFlatrateAccess: IpKioskFlatrateAccess
+}
+
+input IpKioskFlatrateAccessSort {
+  _id: Int
+  ipAddresses: Int
+  assignorUserId: Int
+  assigneeUserIds: Int
+  numberOfSeats: Int
+  updatedAt: Int
+  createdAt: Int
+  startDate: Int
+  endDate: Int
+  customerId: Int
+  invoiceId: Int
+  valid: Int
+}
+
+input IpKioskFlatrateUsageFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  ipKioskFlatrateAccessId_contains: String
+  ipKioskFlatrateAccessId_startsWith: String
+  ipKioskFlatrateAccessId_endsWith: String
+  ipKioskFlatrateAccessId_regex: String
+  ipKioskFlatrateAccessId: String
+  ipKioskFlatrateAccessId_ne: String
+  ipKioskFlatrateAccessId_in: [String]
+  userIds_count: Int
+  userIds_textContains: String
+  userIds_startsWith: String
+  userIds_endsWith: String
+  userIds_regex: String
+  userIds: [String]
+  userIds_in: [[String]]
+  userIds_contains: String
+  userIds_containsAny: [String]
+  userIds_ne: [String]
+  createdAt_lt: String
+  createdAt_lte: String
+  createdAt_gt: String
+  createdAt_gte: String
+  createdAt: String
+  createdAt_ne: String
+  createdAt_in: [String]
+  OR: [IpKioskFlatrateUsageFilters]
+}
+
+input IpKioskFlatrateUsageInput {
+  _id: String
+  ipKioskFlatrateAccessId: String
+  userIds: [String]
+  createdAt: String
+}
+
+type IpKioskFlatrateUsageMutationResult {
+  success: Boolean
+  IpKioskFlatrateUsage: IpKioskFlatrateUsage
+}
+
+type IpKioskFlatrateUsageQueryResults {
+  IpKioskFlatrateUsages: [IpKioskFlatrateUsage]
+  Meta: QueryResultsMetadata
+}
+
+type IpKioskFlatrateUsageSingleQueryResult {
+  IpKioskFlatrateUsage: IpKioskFlatrateUsage
+}
+
+type SubscriptionCode {
+  _id: String
+  code: String
+  brandIds: [String]
+  eventIds: [String]
+  tutorialIds: [String]
+  isKioskFlatrate: Boolean
+  startDate: String
+  endDate: String
+  duration: Int
+  createdAt: String
+  source: String
+}
+
+type SubscriptionCodeBulkMutationResult {
+  success: Boolean
+}
+
+input SubscriptionCodeFilters {
+  _id_contains: String
+  _id_startsWith: String
+  _id_endsWith: String
+  _id_regex: String
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  code_contains: String
+  code_startsWith: String
+  code_endsWith: String
+  code_regex: String
+  code: String
+  code_ne: String
+  code_in: [String]
+  brandIds_count: Int
+  brandIds_textContains: String
+  brandIds_startsWith: String
+  brandIds_endsWith: String
+  brandIds_regex: String
+  brandIds: [String]
+  brandIds_in: [[String]]
+  brandIds_contains: String
+  brandIds_containsAny: [String]
+  brandIds_ne: [String]
+  isKioskFlatrate: Boolean
+  isKioskFlatrate_ne: Boolean
+  isKioskFlatrate_in: [Boolean]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate: String
+  startDate_ne: String
+  startDate_in: [String]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate: String
+  endDate_ne: String
+  endDate_in: [String]
+  createdAt_lt: String
+  createdAt_lte: String
+  createdAt_gt: String
+  createdAt_gte: String
+  createdAt: String
+  createdAt_ne: String
+  createdAt_in: [String]
+  source_contains: String
+  source_startsWith: String
+  source_endsWith: String
+  source_regex: String
+  source: String
+  source_ne: String
+  source_in: [String]
+  OR: [SubscriptionCodeFilters]
+}
+
+input SubscriptionCodeInput {
+  _id: String
+  code: String
+  brandIds: [String]
+  isKioskFlatrate: Boolean
+  startDate: String
+  endDate: String
+  duration: Int
+  createdAt: String
+  source: String
+}
+
+input SubscriptionCodeMutationInput {
+  brandIds: [String]
+  brandIds_PUSH: String
+  brandIds_CONCAT: [String]
+  brandIds_UPDATE: StringArrayUpdate
+  brandIds_UPDATES: [StringArrayUpdate]
+  brandIds_PULL: [String]
+  brandIds_ADDTOSET: [String]
+  isKioskFlatrate: Boolean
+  startDate: String
+  endDate: String
+  source: String
+}
+
+type SubscriptionCodeMutationResult {
+  success: Boolean
+  SubscriptionCode: SubscriptionCode
+}
+
+type SubscriptionCodeMutationResultMulti {
+  success: Boolean
+  SubscriptionCodes: [SubscriptionCode]
+}
+
+type SubscriptionCodeQueryResults {
+  SubscriptionCodes: [SubscriptionCode]
+  Meta: QueryResultsMetadata
+}
+
+type SubscriptionCodeSingleQueryResult {
+  SubscriptionCode: SubscriptionCode
+}
+
+input SubscriptionCodeSort {
+  _id: Int
+  code: Int
+  brandIds: Int
+  isKioskFlatrate: Int
+  startDate: Int
+  endDate: Int
+  createdAt: Int
+  source: Int
+}
+
+type VUConfigurationBulkMutationResult {
+  success: Boolean
+}
+
+input VUConfigurationInput {
+  _id: String
+  csvFileName: String
+  brandIds: [String]
+}
+
+input VUConfigurationMutationInput {
+  csvFileName: String
+  brandIds: [String]
+  brandIds_PUSH: String
+  brandIds_CONCAT: [String]
+  brandIds_UPDATE: StringArrayUpdate
+  brandIds_UPDATES: [StringArrayUpdate]
+  brandIds_PULL: [String]
+  brandIds_ADDTOSET: [String]
+}
+
+type VUConfigurationMutationResult {
+  success: Boolean
+  VUConfiguration: VUConfiguration
+}
+
+type VUConfigurationMutationResultMulti {
+  success: Boolean
+  VUConfigurations: [VUConfiguration]
+}
+
+input AttendeeFilters {
+  _id: String
+  _id_ne: String
+  _id_in: [String]
+  uniqueId: String
+  uniqueId_ne: String
+  uniqueId_in: [String]
+  mode: String
+  mode_ne: String
+  mode_in: [String]
+  firstName: String
+  firstName_ne: String
+  firstName_in: [String]
+  lastName: String
+  lastName_ne: String
+  lastName_in: [String]
+  swapCardEmail: String
+  swapCardEmail_ne: String
+  swapCardEmail_in: [String]
+  tsAttendeeEmail: String
+  tsAttendeeEmail_ne: String
+  tsAttendeeEmail_in: [String]
+  company: String
+  company_ne: String
+  company_in: [String]
+  sponsorOptIn: Boolean
+  groups: [String]
+  groups_in: [[String]]
+  groups_contains: String
+  groups_containsAny: [String]
+  groups_ne: [String]
+  moduleIds: [String]
+  moduleIds_in: [[String]]
+  moduleIds_contains: String
+  moduleIds_containsAny: [String]
+  moduleIds_ne: [String]
+  days: [String]
+  days_in: [[String]]
+  days_contains: String
+  days_containsAny: [String]
+  days_ne: [String]
+  eventId: String
+  eventId_ne: String
+  eventId_in: [String]
+  OR: [AttendeeFilters]
+}
+
+input AttendeeInput {
+  uniqueId: String
+  mode: String
+  firstName: String
+  lastName: String
+  swapCardEmail: String
+  tsAttendeeEmail: String
+  company: String
+  sponsorOptIn: Boolean
+  groups: [String]
+  moduleIds: [String]
+  days: [String]
+  extra: JSON
+  eventId: String
+  publishedAt: String
+  updatedAt: String
+}
+
+type AttendeeQueryResults {
+  Attendees: [Attendee]
+  Meta: QueryResultsMetadata
+}
+
+type AttendeeSingleQueryResult {
+  Attendee: Attendee
+}
+
+input AttendeeSort {
+  _id: Int
+  uniqueId: Int
+  mode: Int
+  firstName: Int
+  lastName: Int
+  swapCardEmail: Int
+  tsAttendeeEmail: Int
+  company: Int
+  eventId: Int
+}
+
+input ScanFilters {
+  deviceId_contains: String
+  deviceId_startsWith: String
+  deviceId_endsWith: String
+  deviceId_regex: String
+  deviceId: String
+  deviceId_ne: String
+  deviceId_in: [String]
+  moduleId_contains: String
+  moduleId_startsWith: String
+  moduleId_endsWith: String
+  moduleId_regex: String
+  moduleId: String
+  moduleId_ne: String
+  moduleId_in: [String]
+  valid: Boolean
+  scannedAt_contains: String
+  scannedAt_startsWith: String
+  scannedAt_endsWith: String
+  scannedAt_regex: String
+  scannedAt: String
+  scannedAt_ne: String
+  scannedAt_in: [String]
+  OR: [ScanFilters]
+}
+
+type TriggerActionResponse {
+  success: Boolean
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
