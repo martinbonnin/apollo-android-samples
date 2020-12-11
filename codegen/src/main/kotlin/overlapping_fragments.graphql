@@ -1,0 +1,44 @@
+query GetHero {
+    hero {
+        id
+        ... on Human {
+            height
+        }
+        name
+        ...friendsDetails
+    }
+}
+
+fragment friendsDetails on Character {
+    ...friendsCount
+    ...friendsName
+}
+
+fragment friendsCount on Character {
+    friendsConnection {
+        totalCount
+        edges {
+            node {
+                height
+            }
+        }
+    }
+}
+
+fragment friendsName on Character {
+    ... on Droid {
+        primaryFunction
+    }
+    friendsConnection {
+        totalCount
+        edges {
+            node {
+                ... on Human {
+                    mass
+                }
+                name
+
+            }
+        }
+    }
+}

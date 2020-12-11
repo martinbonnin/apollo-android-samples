@@ -1,0 +1,20 @@
+{
+    hero {
+        friendsConnection {
+            name
+        }
+        ...DroidFragment
+    }
+}
+
+fragment DroidFragment on Droid{
+    primaryFunction
+    friendsConnection {
+        cursor
+    }
+    friendsConnection @inlude(if: $condition) {
+        friend {
+            name
+        }
+    }
+}

@@ -1,0 +1,17 @@
+"""
+A type representing a JsonObject
+"""
+scalar JSON
+
+type Mutation {
+  addProjects(json: [JSON!]!): JSON!
+}
+
+type Query {
+  project: JSON!
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

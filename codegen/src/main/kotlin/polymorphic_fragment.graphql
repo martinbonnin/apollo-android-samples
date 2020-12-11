@@ -1,0 +1,29 @@
+query GetHero {
+    hero {
+        name
+        ...heroFragment
+    }
+}
+
+fragment heroFragment on Character {
+    name
+    ...droidFragment
+    ...humanFragment
+}
+
+fragment droidFragment on Droid {
+    manual {
+        language
+    }
+}
+
+fragment humanFragment on Human {
+    name
+    bestFriend {
+        name
+        ... on Droid {
+            primaryFunction
+        }
+        ...droidFragment
+    }
+}

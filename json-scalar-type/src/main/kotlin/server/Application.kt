@@ -55,7 +55,7 @@ object JSONCoercing: Coercing<JSONObject, Map<*, *>> {
 }
 
 val graphqlJSONType = GraphQLScalarType.newScalar()
-    .name("JSONObject")
+    .name("JSON")
     .description("A type representing a JsonObject")
     .coercing(JSONCoercing)
     .build()

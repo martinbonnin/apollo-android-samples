@@ -1,0 +1,7 @@
+query GetProject {
+  project
+}
+
+mutation AddProject($jsonList: [JSON!]!) {
+  addProjects(json: $jsonList)
+}
