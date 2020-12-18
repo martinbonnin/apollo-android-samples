@@ -1,0 +1,16 @@
+query GetHero {
+    hero {
+        friend {
+            name
+        }
+    }
+}
+
+query GetHero {
+    hero {
+        friend @include(if: $condition) {
+            ...droidFragment
+            id @include(if: $condition2)
+        }
+    }
+}

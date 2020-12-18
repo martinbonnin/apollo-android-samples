@@ -1,3 +1,5 @@
+package polymorphic_fragment
+
 class Data {
   class HumanHero(override val name: String,
                   override val bestFriend: BestFriend

@@ -1,0 +1,23 @@
+query TestQuery {
+    animal {
+        age
+        ... on WarmBlooded {
+            ...BirdFragment
+            celsius: temperature
+            ... on Pet {
+                name
+            }
+        }
+
+        ... on Pet {
+            nick: name
+        }
+    }
+}
+
+fragment BirdFragment on Bird {
+    ... on Eagle {
+        wingSize
+    }
+    feathers
+}

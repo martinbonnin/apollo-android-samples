@@ -6,8 +6,12 @@ import com.apollographql.apollo.api.CustomTypeAdapter
 import com.apollographql.apollo.api.CustomTypeValue
 import com.apollographql.apollo.coroutines.await
 import com.apollographql.apollo.coroutines.toDeferred
+import com.apollographql.apollo.coroutines.toFlow
 import com.google.gson.internal.LinkedTreeMap
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -56,7 +60,8 @@ class MainTest {
           .serverUrl("http://localhost:8080/graphql")
           .build()
 
-      val response = apolloClient.query(GetProjectQuery()).toDeferred().await()
+      val channel = Channel<Unit>(capacity = Channel.UNLIMITED)
+      val response = apolloClient.query(GetProjectQuery()).watcher().toFlow().collect {  }
       println(response.data?.project)
       delay(300000)
     }

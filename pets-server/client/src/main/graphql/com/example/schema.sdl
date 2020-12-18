@@ -1,0 +1,34 @@
+interface Collection {
+  items: [Item!]!
+}
+
+interface Item {
+  title: String!
+}
+
+type ParticularCollection implements Collection {
+  items: [Item!]!
+}
+
+type ParticularItem implements Item {
+  image: String!
+  title: String!
+}
+
+type Query {
+  collections: [Collection!]!
+  item: [Item!]!
+}
+
+type RegularCollection implements Collection {
+  items: [Item!]!
+}
+
+type RegularItem implements Item {
+  title: String!
+}
+
+schema {
+  subscription: subscription
+  query: Query
+}

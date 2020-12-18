@@ -1,6 +1,5 @@
 package overlapping_fragments
 
-
 class Data(val hero: Hero) {
   interface Hero {
     val name: String
