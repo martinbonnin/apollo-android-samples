@@ -44,12 +44,12 @@ fun runServer() = runApplication<ServerApplication>()
 
 class CustomSchemaGeneratorHooks(override val wiringFactory: KotlinDirectiveWiringFactory) : SchemaGeneratorHooks {
   override fun willGenerateGraphQLType(type: KType): GraphQLType? = when (type.classifier as? KClass<*>) {
-    Upload::class -> graphqlJSONType
+    Upload::class -> uploadScalarType
     else -> null
   }
 }
 
-object JSONCoercing: Coercing<Upload, Map<*, *>> {
+object UploadCoercing: Coercing<Upload, Map<*, *>> {
   override fun parseValue(input: Any?): Upload {
     check(input is Map<*, *>) {
       "Cannot parse $input"
@@ -66,10 +66,10 @@ object JSONCoercing: Coercing<Upload, Map<*, *>> {
   }
 }
 
-val graphqlJSONType = GraphQLScalarType.newScalar()
+val uploadScalarType = GraphQLScalarType.newScalar()
     .name("Upload")
     .description("A type representing a file upload")
-    .coercing(JSONCoercing)
+    .coercing(UploadCoercing)
     .build()
 
 
@@ -130,7 +130,12 @@ class GraphQLMultipart(
 
   private suspend fun Part.inputStream(): InputStream =
       this.content()
-          .map { it.asInputStream() }
+          .map {
+            println("reading DataByffer $it")
+            val value = it.asInputStream().reader().readText()
+            println("gor $value")
+            value.byteInputStream() as InputStream
+          }
           .reduce { a, b -> SequenceInputStream(a, b) }
           .awaitFirst()
 

@@ -1,11 +1,12 @@
 plugins {
   kotlin("jvm")
-  id("com.apollographql.apollo")
+  id("com.apollographql.apollo3")
 }
 
 dependencies {
-  implementation("com.apollographql.apollo:apollo-runtime:2.3.2-SNAPSHOT")
-  implementation("com.apollographql.apollo:apollo-coroutines-support:2.3.2-SNAPSHOT")
+  implementation("com.apollographql.apollo3:apollo-runtime:${properties.get("apolloVersion")}")
+  implementation("com.apollographql.apollo3:apollo-coroutines-support:${properties.get("apolloVersion")}")
+  implementation("com.apollographql.apollo3:apollo-normalized-cache-sqlite:${properties.get("apolloVersion")}")
 
   implementation("org.jetbrains.kotlin:kotlin-test")
   implementation("com.squareup.okhttp3:logging-interceptor:4.8.1")
@@ -15,5 +16,5 @@ dependencies {
 
 
 apollo {
-  customTypeMapping.set(mapOf("Upload" to  "com.apollographql.apollo.api.FileUpload"))
+  customScalarsMapping.set(mapOf("Upload" to  "com.apollographql.apollo3.api.Upload"))
 }
