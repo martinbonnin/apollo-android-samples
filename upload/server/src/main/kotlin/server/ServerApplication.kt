@@ -131,10 +131,7 @@ class GraphQLMultipart(
   private suspend fun Part.inputStream(): InputStream =
       this.content()
           .map {
-            println("reading DataByffer $it")
-            val value = it.asInputStream().reader().readText()
-            println("gor $value")
-            value.byteInputStream() as InputStream
+            it.asInputStream()
           }
           .reduce { a, b -> SequenceInputStream(a, b) }
           .awaitFirst()

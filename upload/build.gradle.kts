@@ -10,6 +10,7 @@ subprojects {
   repositories {
     mavenCentral()
     mavenLocal()
+    jcenter()
   }
 }
 

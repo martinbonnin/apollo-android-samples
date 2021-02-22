@@ -16,7 +16,7 @@ class MainTest {
 
   @Test
   fun test() {
-    //val applicationContext = runServer()
+    val applicationContext = runServer()
 
     runBlocking {
       val apolloClient = ApolloClient.builder()
@@ -40,7 +40,6 @@ class MainTest {
           }
 
     }
-    //applicationContext.close()
-
+    applicationContext.close()
   }
 }
