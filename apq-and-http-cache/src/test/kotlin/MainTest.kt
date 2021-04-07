@@ -6,22 +6,46 @@ import com.apollographql.apollo.coroutines.await
 import com.library.GetLaunchesQuery
 import com.library.type.CustomType
 import kotlinx.coroutines.runBlocking
+import okhttp3.Cache
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.mockwebserver.MockResponse
+import okhttp3.mockwebserver.MockWebServer
 import java.io.File
 import kotlin.test.Test
 
 class MainTest {
+  val response408 = MockResponse().setResponseCode(408).setBody("error")
+  val response200 = MockResponse().setResponseCode(200).setBody("""
+      {
+        "data": {
+          "launches": {
+            "__typename": "LaunchConnection",
+            "launches": [
+              {
+                "__typename": "Launch",
+                "id": 1
+              }
+            ]
+          }
+        }
+      }
+    """.trimIndent())
 
   @Test
   fun test() {
-    val apolloClient =  ApolloClient
+    val cacheDir = File("apolloCache")
+    cacheDir.deleteRecursively()
+    val mockServer = MockWebServer()
+
+    val apolloClient = ApolloClient
       .builder()
-      .serverUrl("https://apollo-fullstack-tutorial.herokuapp.com/graphql")
+      .serverUrl(mockServer.url("/"))
       .httpCache(
         ApolloHttpCache(
           DiskLruHttpCacheStore(
-            File("httpCache"),
+            cacheDir,
             Long.MAX_VALUE
           )
         )
@@ -37,17 +61,41 @@ class MainTest {
           .addInterceptor(HttpLoggingInterceptor().apply {
             setLevel(HttpLoggingInterceptor.Level.BODY)
           })
-//          .addInterceptor(providerHeaderInterceptor())
-//          .connectTimeout(settings.timeout(), TimeUnit.SECONDS)
-//          .readTimeout(settings.timeout(), TimeUnit.SECONDS)
-//          .writeTimeout(settings.timeout(), TimeUnit.SECONDS)
           .build()
       )
       .build()
 
     runBlocking {
-      val data = apolloClient.query(GetLaunchesQuery()).await()
-      println(data)
+      mockServer.enqueue(response200)
+      apolloClient.query(GetLaunchesQuery()).await()
+      mockServer.enqueue(response408)
+      mockServer.enqueue(response408)
+      apolloClient.query(GetLaunchesQuery()).await()
     }
+  }
+
+
+  @Test
+  fun testOkHttp() {
+    val cacheDir = File("okHttpCache")
+    cacheDir.deleteRecursively()
+
+    val mockServer = MockWebServer()
+    val okHttpClient = OkHttpClient.Builder()
+      .cache(Cache(cacheDir, Long.MAX_VALUE))
+      .build()
+
+    val request = Request.Builder()
+      .get()
+      .url(mockServer.url("/"))
+      .build()
+
+
+    mockServer.enqueue(response200)
+    okHttpClient.newCall(request).execute()
+
+    mockServer.enqueue(response408)
+    mockServer.enqueue(response408)
+    okHttpClient.newCall(request).execute()
   }
 }

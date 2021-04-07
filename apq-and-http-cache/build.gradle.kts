@@ -15,6 +15,7 @@ dependencies {
   implementation("com.apollographql.apollo:apollo-coroutines-support:${properties.get("apolloVersion")}")
   implementation("com.apollographql.apollo:apollo-http-cache:${properties.get("apolloVersion")}")
   implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+  implementation("com.squareup.okhttp3:mockwebserver:4.9.0")
   testImplementation(kotlin("test-junit"))
 }
 

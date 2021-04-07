@@ -1,3 +1,5 @@
 type Query {
   book: String
+  debugBook: String
+  releaseBook: String
 }
