@@ -1,6 +1,6 @@
 A tentative reproducer for https://github.com/apollographql/apollo-android/issues/2998
 
-Run `./gradlew test` to test.
+Run `./gradlew test -i` to test.
 
 Expected logs:
 ```
