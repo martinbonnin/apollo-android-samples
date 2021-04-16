@@ -1,0 +1,6 @@
+# a query that uses a fragment defined in another module
+query GetUser {
+    me {
+        ...UserFragment
+    }
+}
