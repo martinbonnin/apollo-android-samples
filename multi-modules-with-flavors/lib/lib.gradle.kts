@@ -1,5 +1,8 @@
+import com.apollographql.apollo.gradle.api.ApolloAttributes.APOLLO_VARIANT_ATTRIBUTE
+
 plugins {
-  kotlin("jvm")
+  id("com.android.library")
+  id("org.jetbrains.kotlin.android")
   id("com.apollographql.apollo")
   id("maven-publish")
 }
@@ -22,12 +25,23 @@ apollo {
   }
 }
 
-configurations.all {
-  if (name.matches(Regex("apollo.*Consumer"))) {
-    attributes {
-      afterEvaluate {
-        attribute(com.apollographql.apollo.gradle.api.ApolloAttributes.APOLLO_VARIANT_ATTRIBUTE, objects.named("main"))
-      }
+class Rule2 : AttributeCompatibilityRule<com.apollographql.apollo.gradle.api.ApolloAttributes.Variant> {
+
+  override fun execute(details: CompatibilityCheckDetails<com.apollographql.apollo.gradle.api.ApolloAttributes.Variant>) {
+    println("lib: producerValue=${details.producerValue?.name} consumerValue=${details.consumerValue?.name}")
+    if (details.producerValue?.name == "main" || details.producerValue?.name == "release") {
+      println("compatible")
+      details.compatible()
     }
   }
+}
+dependencies {
+  attributesSchema.attribute(com.apollographql.apollo.gradle.api.ApolloAttributes.APOLLO_VARIANT_ATTRIBUTE) {
+    compatibilityRules.add(Rule2::class.java)
+  }
+}
+
+
+android {
+  setCompileSdkVersion(30)
 }
