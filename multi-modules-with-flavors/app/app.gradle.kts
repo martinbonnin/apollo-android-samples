@@ -12,6 +12,7 @@ dependencies {
     implementation("com.apollographql.apollo:apollo-api:2.5.5")
     testImplementation(kotlin("test-junit"))
     apolloMetadata(project(":lib"))
+    implementation("com.google.android.exoplayer:exoplayer:2.13.3")
 }
 
 apollo {
