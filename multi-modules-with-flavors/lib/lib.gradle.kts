@@ -21,3 +21,13 @@ apollo {
     rootPackageName.set("sample.graphql")
   }
 }
+
+configurations.all {
+  if (name.matches(Regex("apollo.*Consumer"))) {
+    attributes {
+      afterEvaluate {
+        attribute(com.apollographql.apollo.gradle.api.ApolloAttributes.APOLLO_VARIANT_ATTRIBUTE, objects.named("main"))
+      }
+    }
+  }
+}

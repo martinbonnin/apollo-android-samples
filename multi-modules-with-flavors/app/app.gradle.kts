@@ -23,7 +23,7 @@ apollo {
 }
 
 configurations.all {
-    if (name.startsWith("apollo")) {
+    if (name.matches(Regex("apollo.*Consumer"))) {
         attributes {
             afterEvaluate {
                 attribute(ApolloAttributes.APOLLO_VARIANT_ATTRIBUTE, objects.named("main"))
