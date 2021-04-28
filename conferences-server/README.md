@@ -1,1 +1,0 @@
-A JVM project that generates models and also has server code for testing
