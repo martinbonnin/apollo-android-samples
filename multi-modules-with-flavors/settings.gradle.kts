@@ -1,6 +1,6 @@
 include(":lib", ":app")
 
-project(":lib").buildFileName = "lib.gradle.kts"
+project(":lib").buildFileName = "lib.gradle"
 project(":app").buildFileName = "app.gradle.kts"
 
 pluginManagement {

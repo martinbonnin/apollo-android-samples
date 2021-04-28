@@ -23,6 +23,22 @@ apollo {
   }
 }
 
+
+class ApolloCompatibilityRule : AttributeCompatibilityRule<ApolloAttributes.Variant> {
+  override fun execute(details: CompatibilityCheckDetails<ApolloAttributes.Variant>) {
+    // use release in case there's no matching variant
+    if (details.producerValue?.name == "release") {
+      details.compatible()
+    }
+  }
+}
+
+dependencies {
+  attributesSchema.attribute(ApolloAttributes.APOLLO_VARIANT_ATTRIBUTE) {
+    compatibilityRules.add(ApolloCompatibilityRule::class.java)
+  }
+}
+
 android {
   setCompileSdkVersion(30)
   flavorDimensions.add("version")

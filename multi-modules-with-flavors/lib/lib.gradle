@@ -1,0 +1,45 @@
+import com.apollographql.apollo.gradle.api.ApolloAttributes
+
+plugins {
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    id("com.apollographql.apollo")
+    id("maven-publish")
+}
+
+dependencies {
+    implementation('com.apollographql.apollo:apollo-api:2.5.5')
+}
+
+apollo {
+    generateKotlinModels.set(true)
+    generateApolloMetadata.set(true)
+    customTypeMapping.set(["Date" : "java.util.Date"])
+
+    service('service1') {
+        schemaFile.set(file("src/main/graphql/com/library/schema.sdl"))
+        sourceFolder.set("com/library")
+        rootPackageName.set("sample.graphql")
+    }
+}
+
+class ApolloCompatibilityRule implements AttributeCompatibilityRule<ApolloAttributes.Variant> {
+    @Override
+    void execute(CompatibilityCheckDetails<ApolloAttributes.Variant> details) {
+        // use release in case there's no matching variant
+        if (details.producerValue.name == "release") {
+            details.compatible()
+        }
+    }
+}
+
+dependencies.attributesSchema
+            .attribute(ApolloAttributes.APOLLO_VARIANT_ATTRIBUTE)
+            .compatibilityRules
+            .add(ApolloCompatibilityRule)
+
+
+
+android {
+    compileSdkVersion = 30
+}
