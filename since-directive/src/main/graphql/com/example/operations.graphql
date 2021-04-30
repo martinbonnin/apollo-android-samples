@@ -1,0 +1,10 @@
+query GetLaunches {
+  launches {
+    launches {
+      mission {
+        name
+        missionPatch @optional @since(version: 3)
+      }
+    }
+  }
+}
