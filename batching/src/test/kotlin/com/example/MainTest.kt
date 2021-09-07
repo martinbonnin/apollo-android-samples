@@ -29,7 +29,7 @@ class MainTest {
       launch {
         apolloClient.query(GetLaunchQuery("83")).toBuilder().canBeBatched(true).build().await()
       }
-      apolloClient.query(GetLaunchQuery("84")).toBuilder().canBeBatched(true).build().await()
+      apolloClient.query(GetLaunchesQuery()).toBuilder().canBeBatched(true).build().await()
       apolloClient.stopBatchPoller()
     }
   }

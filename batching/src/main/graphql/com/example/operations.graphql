@@ -6,3 +6,7 @@ query GetLaunch($id: ID!) {
     }
   }
 }
+
+query GetLaunches {
+  launches {cursor}
+}
