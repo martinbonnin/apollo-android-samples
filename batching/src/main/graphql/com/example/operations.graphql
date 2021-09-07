@@ -1,0 +1,8 @@
+query GetLaunch($id: ID!) {
+  launch(id: $id) {
+    id
+    mission {
+      name
+    }
+  }
+}
