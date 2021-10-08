@@ -1,0 +1,5 @@
+query GetSystem {
+  system {
+    id
+  }
+}
