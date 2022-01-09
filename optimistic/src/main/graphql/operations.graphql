@@ -1,0 +1,18 @@
+
+query GetStarrable {
+  node {
+    ...StarrableFragment
+  }
+}
+
+
+mutation AddStar {
+  addStar {
+    ...StarrableFragment
+  }
+}
+
+fragment StarrableFragment on Starrable {
+  id
+  stars
+}

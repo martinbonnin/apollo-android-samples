@@ -12,7 +12,7 @@ plugins {
   id("com.apollographql.apollo").version("2.4.1").apply(true)
 }
 
-apply(plugin = "com.android.library")
+apply(plugin: "com.android.library")
 
 repositories {
   mavenCentral()
@@ -21,7 +21,7 @@ repositories {
 
 publishing {
   publications {
-    create("aar", MavenPublication::class.java) {
+    create("aar", MavenPublication) {
       from(components.named("android").get())
       groupId = "com.example"
       //artifactId "$project.ext.artifactId"
@@ -33,7 +33,7 @@ dependencies {
   add("implementation", "dev.gradleplugins:gradle-api:7.1")
 }
 
-configure<com.android.build.gradle.BaseExtension> {
+android {
   compileSdkVersion(28)
 
   defaultConfig {
@@ -41,11 +41,11 @@ configure<com.android.build.gradle.BaseExtension> {
   }
 }
 
-val producerConfigurationName = "toto"
-project.configurations.create(producerConfigurationName) {
-  isCanBeConsumed = true
-  isCanBeResolved = false
-}
+//val producerConfigurationName = "toto"
+//project.configurations.create(producerConfigurationName) {
+//  isCanBeConsumed = true
+//  isCanBeResolved = false
+//}
 
 //val totoFile = project.provider {
 //  file("toto")

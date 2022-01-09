@@ -1,0 +1,25 @@
+type Query {
+  repository: Repository
+  starrable: Starrable!
+  node: Node!
+}
+
+interface Starrable {
+  id: String!
+  stars: Int!
+}
+
+type Repository implements Starrable & Node {
+  id: String!
+  stars: Int!
+  owner: String!
+  name: String!
+}
+
+type Mutation {
+  addStar: Starrable
+}
+
+interface Node {
+  id: String!
+}
