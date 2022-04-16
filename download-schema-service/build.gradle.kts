@@ -1,6 +1,6 @@
 plugins {
   kotlin("jvm").version("1.4.0")
-  id("com.apollographql.apollo").version("2.3.1")
+  id("com.apollographql.apollo").version("2.5.9")
 }
 
 repositories {
@@ -22,7 +22,7 @@ apollo {
   useSemanticNaming.set(true)
   generateKotlinModels.set(true)
   service("myservice") {
-    schemaPath.set("../schema.json")
+    schemaPath.set("../schema.sdl")
     introspection {
       sourceSetName.set("main")
       endpointUrl.set("https://apollo-fullstack-tutorial.herokuapp.com/graphql")
