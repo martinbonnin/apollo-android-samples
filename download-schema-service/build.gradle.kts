@@ -1,3 +1,7 @@
+import com.apollographql.apollo.compiler.parser.introspection.IntrospectionSchema
+import com.apollographql.apollo.compiler.parser.introspection.toSDL
+import com.apollographql.apollo.gradle.internal.ApolloDownloadSchemaTask
+
 plugins {
   kotlin("jvm").version("1.4.0")
   id("com.apollographql.apollo").version("2.5.9")
@@ -27,5 +31,12 @@ apollo {
       sourceSetName.set("main")
       endpointUrl.set("https://apollo-fullstack-tutorial.herokuapp.com/graphql")
     }
+  }
+}
+
+tasks.withType(ApolloDownloadSchemaTask::class.java).configureEach {
+  doLast {
+    val schema = file("src/main/schema.sdl")
+    IntrospectionSchema(schema).toSDL(schema)
   }
 }
